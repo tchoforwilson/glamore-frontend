@@ -1,0 +1,24 @@
+@use "../abstracts/variables" as *;
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+
+  &__input {
+    border: 0;
+    border-bottom: 2px solid $color-secondary;
+    display: block;
+    color: inherit;
+    font-size: $default-font-size;
+    padding: 0.3rem 0.1rem;
+    transition: all 0.3s;
+    width: 98%;
+  }
+
+  &__error {
+    font-size: 1.4rem;
+    color: $color-red;
+    margin-top: 0.5rem;
+    margin-left: 0.1rem;
+  }
+}

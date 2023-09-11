@@ -1,0 +1,5 @@
+@use "../abstracts/variables" as *;
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+}

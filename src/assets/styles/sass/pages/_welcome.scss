@@ -1,0 +1,28 @@
+@use "../abstracts/variables" as *;
+.screen-welcome {
+  background-color: $color-primary;
+  height: 100vh;
+  padding: 0;
+  position: relative;
+}
+
+.welcome-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: $color-white;
+  & span {
+    display: block;
+  }
+  &--sub {
+    font-weight: 500;
+    font-size: 3rem;
+  }
+  &--main {
+    font-weight: 700;
+    font-size: 6rem;
+    color: $color-light-grey;
+  }
+}

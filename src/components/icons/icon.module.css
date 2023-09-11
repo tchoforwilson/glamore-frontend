@@ -1,0 +1,8 @@
+.vpIcon{
+    color: var(--nn-black);
+    transition: var(--nn-transition);
+}
+
+.vpIcon.active{
+    color: var(--nn-active-color);
+}

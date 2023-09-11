@@ -1,0 +1,21 @@
+@use "../abstracts/variables" as *;
+
+body {
+  font-family: "Roboto", "Helvetica Neue";
+  font-weight: 400;
+  color: $color-primary;
+  line-height: 1.7;
+}
+
+.heading-primary {
+  font-weight: 700;
+  font-size: 5.5rem;
+  color: $color-primary;
+  text-transform: none;
+  margin-bottom: 5rem;
+  line-height: 1.2;
+  &__newline {
+    display: block;
+    text-align: left;
+  }
+}
