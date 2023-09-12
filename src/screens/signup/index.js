@@ -97,7 +97,7 @@ const SignUpScreen = () => {
         <Grid item md={5}>
           <Box sx={{ height: "100vh" }}>
             <img
-              src={require("../../assets/images/hat-boy.png")}
+              src={require("../../assets/images/hat-boy.webp")}
               alt="Hat Boy"
               style={{
                 height: "100vh",
