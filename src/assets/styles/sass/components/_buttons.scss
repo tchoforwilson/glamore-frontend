@@ -1,17 +1,30 @@
 @use "../abstracts/variables" as *;
 
 .btn {
-  padding: 0.5rem 5rem;
-  font-size: $default-font-size;
-  font-weight: 500;
+  padding: 0.8rem 3rem;
+  font-size: 1.2rem;
+  font-family: $font-flamante, sans-serif;
+  font-weight: 700;
   border-radius: 5px;
   border: none;
   background-color: transparent;
+  text-align: center;
+  opacity: 0.9;
+  width: fit-content;
+
+  &:hover {
+    opacity: 1;
+  }
 
   &--secondary {
+    border: 0.2rem solid $color-secondary;
     background-color: $color-secondary;
     color: $color-white;
-    text-align: center;
+  }
+
+  &--white {
+    border: 0.2rem solid $color-secondary;
+    color: $color-secondary;
   }
 
   &:hover {
@@ -19,6 +32,9 @@
   }
 
   /*Submit button*/
+  &--submit {
+    padding: 0.8rem 5rem;
+  }
 
   /*Submit back*/
   &--back {
