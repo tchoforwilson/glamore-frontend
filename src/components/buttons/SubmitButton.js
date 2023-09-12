@@ -15,7 +15,7 @@ const SubmitButton = ({ title, loading, ...otherProps }) => {
       type="submit"
       onClick={handleSubmit}
       disabled={loading}
-      className="btn btn--secondary btn-submit"
+      className="btn btn--secondary btn--submit"
       {...otherProps}
     >
       {loading ? <Spinner className="spinner spinner-sm" /> : title}
