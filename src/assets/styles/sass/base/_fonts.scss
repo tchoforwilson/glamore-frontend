@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "Flamante sans";
+  src:
+    local("Flamante sans")
+      url("../../../fonts/flamante-sans/Flamante-Sans-Bold-FFP.ttf")
+      format("truetype"),
+    url("../../../fonts/flamante-sans/Flamante-Sans-Book-FFP.ttf")
+      format("truetype"),
+    url("../../../fonts/flamante-sans/Flamante-Sans-FFP.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MADE Okine Sans PERSONAL USE";
+  src:
+    local("MADE Okine Sans PERSONAL USE")
+      url("../../../fonts/made_okine_sans/MADEOkineSansPERSONALUSE-Black.otf")
+      format("opentype"),
+    url("../../../fonts/made_okine_sans/MADEOkineSansPERSONALUSE-BlackOutline.otf")
+      format("opentype"),
+    url("../../../fonts/made_okine_sans/MADEOkineSansPERSONALUSE-Black.otf")
+      format("opentype"),
+    url("../../../fonts/made_okine_sans/MADEOkineSansPERSONALUSE-BoldOutline.otf")
+      format("opentype"),
+    url("../../../fonts/made_okine_sans/MADEOkineSansPERSONALUSE-Light.otf")
+      format("opentype"),
+    url("../../../fonts/made_okine_sans/MADEOkineSansPERSONALUSE-LightOutline.otf")
+      format("opentype"),
+    url("../../../fonts/made_okine_sans/MADEOkineSansPERSONALUSE-Medium.otf")
+      format("opentype"),
+    url("../../../fonts/made_okine_sans/MADEOkineSansPERSONALUSE-MediumOutline.otf")
+      format("opentype"),
+    url("../../../fonts/made_okine_sans/MADEOkineSansPERSONALUSE-Regular.otf")
+      format("opentype"),
+    url("../../../fonts/made_okine_sans/MADEOkineSansPERSONALUSE-RegularOutline.otf")
+      format("opentype"),
+    url("../../../fonts/made_okine_sans/MADEOkineSansPERSONALUSE-Thin.otf")
+      format("opentype"),
+    url("../../../fonts/made_okine_sans/MADEOkineSansPERSONALUSE-ThinOutline.otf")
+      format("opentype");
+}
