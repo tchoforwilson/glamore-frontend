@@ -11,7 +11,6 @@ const apiRequest =
 
     const { url, method, data, onStart, onSuccess, onError } = action.payload;
 
-    // 1. when the api call starts we dispatch the on start action
     if (onStart) dispatch({ type: onStart });
     next(action);
 
@@ -21,15 +20,27 @@ const apiRequest =
         url,
         method,
         data,
-        headers: { Authorization: `Bearer ${authService.getJwt()}` },
+        headers: { authorization: `Bearer ${authService.getJwt()}` },
       });
-      // 2. Whene the api call succeeds we dispace the response data
       dispatch(actions.apiCallSuccess(res.data));
       if (onSuccess) dispatch({ type: onSuccess, payload: res.data });
     } catch (error) {
-      // 3. When api call fails we dispatch the error
-      dispatch(actions.apiCallFailed(error.response.data));
-      if (onError) dispatch({ type: onError });
+      if (
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      ) {
+        console.log(error.response);
+        const data = {
+          message:
+            error.response.data.message || error.message || error.toString(),
+          status: error.response.data.status || error.status,
+        };
+        dispatch(actions.apiCallFailed(data));
+        if (onError) dispatch({ type: onError, payload: error.response.data });
+      }
     }
   };
 
