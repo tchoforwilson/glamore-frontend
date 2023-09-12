@@ -1,3 +1,6 @@
+# glamore-frontend
+An e-commerce fashion application
+## Let's add desciption of the builds and tools guidelines used here
 # starting the dev server is as follows
 
 In the project directory, you can run:
