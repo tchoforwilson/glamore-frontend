@@ -1,0 +1,52 @@
+// MEDIA QUERY
+
+/*
+0 -600px Phone
+600 - 768px Tablet
+768 - 992px Laptop
+[1200 - 1800px] desktop is where normal styles apply
+1800px + : Big desktop
+
+$breakpoint argument
+
+- phone
+- tablet
+- laptop
+- desktop
+- big-descktop
+
+ORDER: Base + Typography > general layout + grid > page layout > components
+
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==phone {
+    @media (max-width: 37.7em) {
+      @content; // 600px
+    }
+  }
+
+  @if $breakpoint==tablet {
+    @media (max-width: 48.256em) {
+      @content; // 768px
+    }
+  }
+
+  @if $breakpoint==laptop {
+    @media (max-width: 62.331em) {
+      @content; // 992px
+    }
+  }
+
+  @if $breakpoint==desktop {
+    @media (max-width: 113.1em) {
+      @content; // 1800px
+    }
+  }
+
+  @if $breakpoint==big-desktop {
+    @media (min-width: 113.1em) {
+      @content; // 1800px
+    }
+  }
+}
