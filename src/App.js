@@ -7,16 +7,19 @@ import {
   HomeScreen,
   LoginScreen,
   SignUpScreen,
+  OrdersScreen,
+  BagScreen
 } from "./screens";
 
 const App = () => {
   return (
     <Provider store={store}>
       <Routes>
+        <Route path="/orders" element={<OrdersScreen />} />
         <Route path="/signup" element={<SignUpScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/home" element={<HomeScreen />} />
-        <Route path="/welcome" element={<WelcomeScreen />} />
+        <Route path="/bag" element={<BagScreen />} />
         <Route path="/" element={<WelcomeScreen />} />
       </Routes>
     </Provider>
