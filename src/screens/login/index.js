@@ -59,7 +59,7 @@ const LoginScreen = () => {
         <Grid item md={6} sm={1}>
           <Box sx={{ height: "100vh" }}>
             <img
-              src={require("../../assets/images/hat-boy.png")}
+              src={require("../../assets/images/hat-boy.webp")}
               alt="Hat Boy"
               style={{
                 height: "100vh",
