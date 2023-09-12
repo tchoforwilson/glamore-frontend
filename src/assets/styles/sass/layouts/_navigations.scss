@@ -1,0 +1,24 @@
+@use "../abstracts" as *;
+.nav {
+  padding: 3rem 4rem;
+  &__menu {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    @include respond(phone) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &__item {
+    margin-left: 1.5rem;
+    @include respond(phone) {
+      margin-bottom: 1rem;
+    }
+  }
+  &__link {
+    @include respond(phone) {
+      display: block;
+    }
+  }
+}
