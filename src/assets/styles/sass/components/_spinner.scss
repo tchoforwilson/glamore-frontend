@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as *;
+
+.spinner {
+  border: 0.3rem solid $color-light;
+  border-top: 0.3rem solid $color-secondary;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.spinner--primary {
+  border-color: $color-primary;
+}
+
+.spinner--secondary {
+  border-color: $color-secondary;
+}
+
+.spinner--sm {
+  width: 2rem;
+  height: 2rem;
+}
+
+.spinner--md {
+  width: 4rem;
+  height: 4rem;
+}
+
+.spinner--lg {
+  width: 6rem;
+  height: 6rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
