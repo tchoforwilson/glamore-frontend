@@ -16,6 +16,7 @@ const App = () => {
         <Route path="/signup" element={<SignUpScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/home" element={<HomeScreen />} />
+        <Route path="/welcome" element={<WelcomeScreen />} />
         <Route path="/" element={<WelcomeScreen />} />
       </Routes>
     </Provider>
