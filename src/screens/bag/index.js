@@ -123,7 +123,9 @@ const BagItem = ({ itemName, quantity, price, discount, size }) => {
 export default function Bag() {
   return (
     <Container disableGutters={true} maxWidth="xl">
-      <Box sx={{ display: { xs: "none", md: "block" } }}>This is desktop</Box>
+      <Box sx={{ display: { xs: "none", md: "block" } }}>
+        
+      </Box>
       <Box
         sx={{
           display: {
