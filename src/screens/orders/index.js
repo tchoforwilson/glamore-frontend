@@ -34,14 +34,15 @@ export default function Orders() {
             <h1>Orders</h1>
           </section>
           <section>
-            <div className={nn.orders_tabMenu}>
-              <div className={nn.orders_tabMenu_header}>
+            <div className={nn.orders_section}>
+              <div className={nn.orders_header}>
                 <Box
                   sx={{ display: "flex", alignItems: "center", gap: "1rem" }}
                 >
                   {TAB_MENU_ITEMS.map((val) => {
                     return (
                       <a
+                        key={val.id}
                         onClick={() => setActiveTab(val.id)}
                         href={"#"}
                         className={
@@ -72,7 +73,7 @@ export default function Orders() {
                   </form>
                 </div>
               </div>
-              <div className={nn.orders_tabMenu_body}>
+              <div className={nn.orders_body}>
                 <div id="newOrders">
                   <div className={nn.table_wrapper}>
                     <table className={nn.orders_table}>
@@ -82,110 +83,28 @@ export default function Orders() {
                     </tr>
                 </thead> */}
                       <tbody>
-                        <tr>
-                          <td>James 4 items</td>
-                          <td className={nn.font_semibold}>
-                            Total: 36, 500 FCFA
-                          </td>
-                          <td className={nn.text_sm}>19 minutes ago</td>
-                          <td>5d6cidk6s6foodf00</td>
-                          <td>
-                            <button className={nn.orderItem_info_fetchBtn}>
-                              Fetch for sale
-                            </button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>James 4 items</td>
-                          <td className={nn.font_semibold}>
-                            Total: 36, 500 FCFA
-                          </td>
-                          <td className={nn.text_sm}>19 minutes ago</td>
-                          <td>5d6cidk6s6foodf00</td>
-                          <td>
-                            <button className={nn.orderItem_info_fetchBtn}>
-                              Fetch for sale
-                            </button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>James 4 items</td>
-                          <td className={nn.font_semibold}>
-                            Total: 36, 500 FCFA
-                          </td>
-                          <td className={nn.text_sm}>19 minutes ago</td>
-                          <td>5d6cidk6s6foodf00</td>
-                          <td>
-                            <button className={nn.orderItem_info_fetchBtn}>
-                              Fetch for sale
-                            </button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>James 4 items</td>
-                          <td className={nn.font_semibold}>
-                            Total: 36, 500 FCFA
-                          </td>
-                          <td className={nn.text_sm}>19 minutes ago</td>
-                          <td>5d6cidk6s6foodf00</td>
-                          <td>
-                            <button className={nn.orderItem_info_fetchBtn}>
-                              Fetch for sale
-                            </button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>James 4 items</td>
-                          <td className={nn.font_semibold}>
-                            Total: 36, 500 FCFA
-                          </td>
-                          <td className={nn.text_sm}>19 minutes ago</td>
-                          <td>5d6cidk6s6foodf00</td>
-                          <td>
-                            <button className={nn.orderItem_info_fetchBtn}>
-                              Fetch for sale
-                            </button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>James 4 items</td>
-                          <td className={nn.font_semibold}>
-                            Total: 36, 500 FCFA
-                          </td>
-                          <td className={nn.text_sm}>19 minutes ago</td>
-                          <td>5d6cidk6s6foodf00</td>
-                          <td>
-                            <button className={nn.orderItem_info_fetchBtn}>
-                              Fetch for sale
-                            </button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>James 4 items</td>
-                          <td className={nn.font_semibold}>
-                            Total: 36, 500 FCFA
-                          </td>
-                          <td className={nn.text_sm}>19 minutes ago</td>
-                          <td>5d6cidk6s6foodf00</td>
-                          <td>
-                            <button className={nn.orderItem_info_fetchBtn}>
-                              Fetch for sale
-                            </button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>James 4 items</td>
-                          <td className={nn.font_semibold}>
-                            Total: 36, 500 FCFA
-                          </td>
-                          <td className={nn.text_sm}>19 minutes ago</td>
-                          <td>5d6cidk6s6foodf00</td>
-                          <td>
-                            <button className={nn.orderItem_info_fetchBtn}>
-                              Fetch for sale
-                            </button>
-                          </td>
-                        </tr>
+                        {Array(20)
+                          .fill(1, 0, 20)
+                          .map((val) => {
+                            // temporal
+                            return (
+                              <tr key={val}>
+                                <td>James 4 items</td>
+                                <td className={nn.font_semibold}>
+                                  Total: 36, 500 FCFA
+                                </td>
+                                <td className={nn.text_sm}>19 minutes ago</td>
+                                <td>5d6cidk6s6foodf00</td>
+                                <td>
+                                  <button
+                                    className={nn.orderItem_info_fetchBtn}
+                                  >
+                                    Fetch for sale
+                                  </button>
+                                </td>
+                              </tr>
+                            );
+                          })}
                       </tbody>
                     </table>
                   </div>
