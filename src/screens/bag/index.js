@@ -4,6 +4,11 @@ import { Add, Remove, Delete } from "@mui/icons-material";
 import { useState } from "react";
 import img1 from "../../assets/moreimg/img1.jpg";
 
+// This button may be redefined in components to be used by other screens
+const CheckoutButton = () => {
+  return <button className={nn.checkout_btn}>Checkout</button>;
+};
+
 const AddRemoveButton = ({ type, add, remove }) => {
   /**
    * Render a small add or subtract button
@@ -63,6 +68,7 @@ const BagItem = ({ itemName, quantity, price, discount, size }) => {
           sx={{
             display: "flex",
             flexDirection: "column",
+            alignItems: "center",
             gap: "1rem",
           }}
         >
@@ -166,9 +172,8 @@ export default function Bag() {
             price={700}
             discount={2}
           />
-          <Box sx={{margin: "2rem 0"}}>
-            <Box sx={{ display: "flex", alignItems: "center", gap: '1rem' }}>
-            
+          <Box sx={{ margin: "2rem 0" }}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: "1rem" }}>
               <button type="button" className={nn.promo_btn}>
                 Insert Promo Code
               </button>
@@ -199,18 +204,26 @@ export default function Bag() {
           </Box>
         </div>
         <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-            >
-              <p>Total</p>
-              <p className={nn.item_total}>XAF 3,600</p>
-            </Box>
-        <div>
-          {/* <CheckoutButton /> */}
-        </div>
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <p>Total</p>
+          <p className={nn.item_total}>XAF 3,600</p>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <div>
+            <CheckoutButton />
+          </div>
+        </Box>
       </Box>
     </Container>
   );
