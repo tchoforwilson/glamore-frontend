@@ -71,17 +71,29 @@ input.item_input[type=number]{
     font-weight: 600;
     flex-grow: 1;
     border-radius: .5rem;
+    cursor: pointer;
     text-transform: capitalize;
 }
 .apply_btn{
-    padding: 1rem;
+    padding: 1rem 2rem;
     color: white;
     text-transform: uppercase;
     font-weight: 600;
+    cursor: pointer;
     border-radius: .5rem;
     background-color: var(--toastify-color-success);
 }
 .item_total{
     font-weight: 600;
     padding: 1rem;
+}
+.checkout_btn{
+    color: white;
+    background-color: var(--toastify-color-dark);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    transition: all ease-in-out 200ms;
+}
+.checkout_btn:hover{
+    background-color: black;
 }
