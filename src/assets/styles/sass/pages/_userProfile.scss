@@ -1,0 +1,16 @@
+@use "../abstracts/variables" as *;
+
+.saved-message{
+font-size: 18px;
+}
+
+.saved-line{
+    width: 7rem;
+    height: 2px;
+    background-color: $color-primary;
+}
+
+.image-size{
+    width: 100%;
+    height: 100%;
+}

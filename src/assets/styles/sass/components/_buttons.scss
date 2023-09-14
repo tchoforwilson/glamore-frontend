@@ -45,3 +45,25 @@
     cursor: pointer;
   }
 }
+
+/* user profile  button */
+
+.btn-Profile {
+  padding: 0.8rem 2.5rem;
+  font-size: 1rem;
+  font-family: $font-flamante, sans-serif;
+  font-weight: 600;
+  border-radius: 5px;
+  border: 1px solid #938c8c;
+  background-color: transparent;
+  display: flex;
+  color: rgb(56, 56, 56);
+  justify-content: center;
+  align-items: center;
+  width: 16rem;
+  gap: 1rem;
+
+  &:hover {
+   color: black;
+  }
+}

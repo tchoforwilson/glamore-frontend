@@ -7,6 +7,7 @@ import {
   HomeScreen,
   LoginScreen,
   SignUpScreen,
+  UserProfile,
 } from "./screens";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/home" element={<HomeScreen />} />
         <Route path="/welcome" element={<WelcomeScreen />} />
         <Route path="/" element={<WelcomeScreen />} />
+        <Route path="/profile" element={<UserProfile />} />
       </Routes>
     </Provider>
   );
