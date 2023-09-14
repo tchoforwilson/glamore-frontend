@@ -19,8 +19,12 @@
     border-radius: 100%;
     border: 2px solid #707070;
     align-items: center;
+    cursor: pointer;
     justify-content: center;
     transition: all ease-in-out 200ms;   
+}
+.addRemove_button > *{
+    cursor: inherit;
 }
 .addRemove_button:hover{
     background-color: #707070;
@@ -52,6 +56,9 @@ input.item_input[type=number]{
     cursor: pointer;
     transition: all ease-in-out 200ms;
 }
+.delete_icon > *{
+    cursor: inherit;
+}
 .delete_icon:hover{
     cursor: pointer;
     transform: scale(1.1);
@@ -68,20 +75,25 @@ input.item_input[type=number]{
     padding: 1rem;
     border: 1px solid #70707050;
     color: var(--toastify-color-success);
-    font-weight: 600;
     flex-grow: 1;
     border-radius: .5rem;
     cursor: pointer;
     text-transform: capitalize;
+    transition: all ease-in-out 200ms;
+}
+.promo_btn:hover{
+    filter: saturate(.5);
 }
 .apply_btn{
     padding: 1rem 2rem;
     color: white;
-    text-transform: uppercase;
-    font-weight: 600;
     cursor: pointer;
     border-radius: .5rem;
     background-color: var(--toastify-color-success);
+    transition: all ease-in-out 200ms;
+}
+.apply_btn:hover{
+    filter: saturate(.5);
 }
 .item_total{
     font-weight: 600;
@@ -92,8 +104,13 @@ input.item_input[type=number]{
     background-color: var(--toastify-color-dark);
     padding: 1rem 2rem;
     border-radius: .5rem;
+    cursor: pointer;
     transition: all ease-in-out 200ms;
+    text-transform: uppercase;
+    font-weight: 600;
+
+
 }
 .checkout_btn:hover{
-    background-color: black;
+    filter: saturate(.5);
 }
