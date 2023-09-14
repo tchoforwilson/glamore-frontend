@@ -1,7 +1,8 @@
 import { Box, Container } from "@mui/material";
 import { default as nn } from "./orders.module.css";
 import { useState } from "react";
-import { SearchRounded } from "@mui/icons-material";
+import { ArrowDropDownRounded, SearchRounded } from "@mui/icons-material";
+import img1 from "../../assets/moreimg/img1.jpg";
 
 export default function Orders() {
   const TAB_MENU_ITEMS = [
@@ -68,7 +69,7 @@ export default function Orders() {
                         placeholder="Search orders"
                         className={nn.searchInput}
                       />
-                      <SearchRounded className={nn.searchIcon} />
+                      <SearchRounded fontSize="large" className={nn.searchIcon} />
                     </div>
                   </form>
                 </div>
@@ -125,9 +126,27 @@ export default function Orders() {
         <section>{/* Navbar section */}</section>
         <section>
           {/* Sectionfor settings like sort and filter */}
-          <div className={nn.sort_menu}>
-            <div className={nn.sort_header}></div>
-            <div>THis is the menu</div>
+          <div
+            className={nn.dropdown_menu}
+            onClick={(e) => {
+              const {currentTarget} = e 
+              currentTarget.querySelector("."+nn.icon).classList.toggle(nn.rotate_180)
+              currentTarget.querySelector("."+nn.dropdown_body).classList.toggle(nn.dropdown_body_show)
+            }}
+          >
+            <div className={nn.dropdown_header} onClick={() => {}}>
+              Sort
+              <ArrowDropDownRounded sx={{transition: "transform ease-in-out 200ms"}} className={nn.icon} fontSize="large" />
+            </div>
+            <div className={nn.dropdown_body}>
+              <ul>
+                <li>Menu items</li>
+                <li>Menu items</li>
+                <li>Menu items</li>
+                <li>Menu items</li>
+                <li>Menu items</li>
+              </ul>
+            </div>
           </div>
         </section>
         <section>
@@ -150,11 +169,11 @@ const OrderItem = () => {
         </a>
         <span className={nn.font_semibold}>Total: 35,650 FCFA</span>
         <span className={`${nn.font_semibold} ${nn.text_sm}`}>Quantity: 5</span>
-        <span className={nn.font_semibold}>19 minutes ago</span>
-        <span className={nn.font_semibold}>#5d6cidk6s6foodf00</span>
+        <span className={nn.text_sm}>19 minutes ago</span>
+        <span className={nn.text_sm}>#5d6cidk6s6foodf00</span>
         <button className={nn.orderItem_info_fetchBtn}>Fetch for sale</button>
       </div>
-      <img src="#" alt="image-description" className={nn.orderItem_image} />
+      <img src={img1} alt="image-description" className={nn.orderItem_image} />
       <span className={nn.orderItem_tag}></span>
     </div>
   );
