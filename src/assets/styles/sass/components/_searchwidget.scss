@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as *;
+
+.search-widget {
+  position: relative;
+  margin-left: 3rem;
+
+  & form {
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    border-radius: 4rem;
+    width: 100%;
+    background-color: $color-platinum;
+    font-size: inherit;
+    font-weight: inherit;
+    padding: 1.5rem 2rem;
+    &::-webkit-input-placeholder {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #111;
+    }
+  }
+
+  &__icon {
+    font-size: 3rem !important;
+    color: #111;
+    z-index: 100;
+    margin-right: -4rem;
+  }
+
+  &-result-list {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+}
