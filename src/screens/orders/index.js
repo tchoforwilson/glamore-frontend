@@ -1,6 +1,7 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Box, Container } from "@mui/material";
 import { default as nn } from "./orders.module.css";
-import { useState } from "react";
 import { ArrowDropDownRounded, SearchRounded } from "@mui/icons-material";
 import img1 from "../../assets/moreimg/img1.jpg";
 
@@ -42,10 +43,10 @@ export default function Orders() {
                 >
                   {TAB_MENU_ITEMS.map((val) => {
                     return (
-                      <a
+                      <Link
                         key={val.id}
                         onClick={() => setActiveTab(val.id)}
-                        href={"#"}
+                        to={"#"}
                         className={
                           val.id === activeTab
                             ? nn.active + " " + nn.tab_link
@@ -53,7 +54,7 @@ export default function Orders() {
                         }
                       >
                         {val.name}
-                      </a>
+                      </Link>
                     );
                   })}
                 </Box>
@@ -69,7 +70,10 @@ export default function Orders() {
                         placeholder="Search orders"
                         className={nn.searchInput}
                       />
-                      <SearchRounded fontSize="large" className={nn.searchIcon} />
+                      <SearchRounded
+                        fontSize="large"
+                        className={nn.searchIcon}
+                      />
                     </div>
                   </form>
                 </div>
@@ -129,14 +133,22 @@ export default function Orders() {
           <div
             className={nn.dropdown_menu}
             onClick={(e) => {
-              const {currentTarget} = e 
-              currentTarget.querySelector("."+nn.icon).classList.toggle(nn.rotate_180)
-              currentTarget.querySelector("."+nn.dropdown_body).classList.toggle(nn.dropdown_body_show)
+              const { currentTarget } = e;
+              currentTarget
+                .querySelector("." + nn.icon)
+                .classList.toggle(nn.rotate_180);
+              currentTarget
+                .querySelector("." + nn.dropdown_body)
+                .classList.toggle(nn.dropdown_body_show);
             }}
           >
             <div className={nn.dropdown_header} onClick={() => {}}>
               Sort
-              <ArrowDropDownRounded sx={{transition: "transform ease-in-out 200ms"}} className={nn.icon} fontSize="large" />
+              <ArrowDropDownRounded
+                sx={{ transition: "transform ease-in-out 200ms" }}
+                className={nn.icon}
+                fontSize="large"
+              />
             </div>
             <div className={nn.dropdown_body}>
               <ul>
@@ -164,16 +176,16 @@ const OrderItem = () => {
   return (
     <div className={nn.orderItem}>
       <div className={nn.orderItem_info}>
-        <a href="#" className={nn.orderItem_info_link}>
+        <Link to="#" className={nn.orderItem_info_link}>
           JamesW202
-        </a>
+        </Link>
         <span className={nn.font_semibold}>Total: 35,650 FCFA</span>
         <span className={`${nn.font_semibold} ${nn.text_sm}`}>Quantity: 5</span>
         <span className={nn.text_sm}>19 minutes ago</span>
         <span className={nn.text_sm}>#5d6cidk6s6foodf00</span>
         <button className={nn.orderItem_info_fetchBtn}>Fetch for sale</button>
       </div>
-      <img src={img1} alt="image-description" className={nn.orderItem_image} />
+      <img src={img1} alt="description" className={nn.orderItem_image} />
       <span className={nn.orderItem_tag}></span>
     </div>
   );
