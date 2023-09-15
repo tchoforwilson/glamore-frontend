@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Box, Container } from "@mui/material";
 import { ArrowDropDownRounded, SearchRounded } from "@mui/icons-material";
 import img1 from "../../assets/moreimg/img1.jpg";
-import { default as nn } from "./orders.module.css";
+
 
 export default function Orders() {
   const TAB_MENU_ITEMS = [
@@ -35,8 +35,8 @@ export default function Orders() {
             <h1>Orders</h1>
           </section>
           <section>
-            <div className={nn.orders_section}>
-              <div className={nn.orders_header}>
+            <div className="orders__section">
+              <div className="orders__header">
                 <Box
                   sx={{ display: "flex", alignItems: "center", gap: "1rem" }}
                 >
@@ -47,9 +47,7 @@ export default function Orders() {
                         onClick={() => setActiveTab(val.id)}
                         href={"#"}
                         className={
-                          val.id === activeTab
-                            ? nn.active + " " + nn.tab_link
-                            : nn.tab_link
+                          val.id === activeTab ? "active tab_link" : "tab_link"
                         }
                       >
                         {val.name}
@@ -58,26 +56,29 @@ export default function Orders() {
                   })}
                 </Box>
                 <div>
-                  <form className={nn.searchForm}>
-                    <label htmlFor="search" className={nn.sr_only}>
+                  <form className="search__form">
+                    <label htmlFor="search" className="sr-only">
                       Search orders
                     </label>
-                    <div className={nn.searchInput_container}>
+                    <div className="search__input__container">
                       <input
                         id="search"
                         type="text"
                         placeholder="Search orders"
-                        className={nn.searchInput}
+                        className="search__input"
                       />
-                      <SearchRounded fontSize="large" className={nn.searchIcon} />
+                      <SearchRounded
+                        fontSize="large"
+                        className="search__icon"
+                      />
                     </div>
                   </form>
                 </div>
               </div>
-              <div className={nn.orders_body}>
+              <div className="orders__body">
                 <div id="newOrders">
-                  <div className={nn.table_wrapper}>
-                    <table className={nn.orders_table}>
+                  <div className="table__wrapper">
+                    <table>
                       {/* <thead>
                     <tr>
                         
@@ -91,15 +92,13 @@ export default function Orders() {
                             return (
                               <tr key={val}>
                                 <td>James 4 items</td>
-                                <td className={nn.font_semibold}>
+                                <td className="font-semibold">
                                   Total: 36, 500 FCFA
                                 </td>
-                                <td className={nn.text_sm}>19 minutes ago</td>
+                                <td className="font-sm">19 minutes ago</td>
                                 <td>5d6cidk6s6foodf00</td>
                                 <td>
-                                  <button
-                                    className={nn.orderItem_info_fetchBtn}
-                                  >
+                                  <button className="order__fetch_btn">
                                     Fetch for sale
                                   </button>
                                 </td>
@@ -127,18 +126,26 @@ export default function Orders() {
         <section>
           {/* Sectionfor settings like sort and filter */}
           <div
-            className={nn.dropdown_menu}
+            className="dropdown__menu"
             onClick={(e) => {
-              const {currentTarget} = e 
-              currentTarget.querySelector("."+nn.icon).classList.toggle(nn.rotate_180)
-              currentTarget.querySelector("."+nn.dropdown_body).classList.toggle(nn.dropdown_body_show)
+              const { currentTarget } = e;
+              currentTarget
+                .querySelector(".icon")
+                .classList.toggle("rotate-180");
+              currentTarget
+                .querySelector(".dropdown__body")
+                .classList.toggle("dropdown__body-show");
             }}
           >
-            <div className={nn.dropdown_header} onClick={() => {}}>
+            <div className="dropdown__header" onClick={() => {}}>
               Sort
-              <ArrowDropDownRounded sx={{transition: "transform ease-in-out 200ms"}} className={nn.icon} fontSize="large" />
+              <ArrowDropDownRounded
+                sx={{ transition: "transform ease-in-out 200ms" }}
+                className="icon"
+                fontSize="large"
+              />
             </div>
-            <div className={nn.dropdown_body}>
+            <div className="dropdown__body">
               <ul>
                 <li>Menu items</li>
                 <li>Menu items</li>
@@ -162,19 +169,19 @@ export default function Orders() {
 
 const OrderItem = () => {
   return (
-    <div className={nn.orderItem}>
-      <div className={nn.orderItem_info}>
-        <a href="#" className={nn.orderItem_info_link}>
+    <div className="order__item">
+      <div className="order__info">
+        <a href="#" className="order__info__Link">
           JamesW202
         </a>
-        <span className={nn.font_semibold}>Total: 35,650 FCFA</span>
-        <span className={`${nn.font_semibold} ${nn.text_sm}`}>Quantity: 5</span>
-        <span className={nn.text_sm}>19 minutes ago</span>
-        <span className={nn.text_sm}>#5d6cidk6s6foodf00</span>
-        <button className={nn.orderItem_info_fetchBtn}>Fetch for sale</button>
+        <span className="font-semibold">Total: 35,650 FCFA</span>
+        <span className="text-sm font-semibold">Quantity: 5</span>
+        <span className="text-sm">19 minutes ago</span>
+        <span className="text-sm">#5d6cidk6s6foodf00</span>
+        <button className="order__fetch_btn">Fetch for sale</button>
       </div>
-      <img src={img1} alt="image-description" className={nn.orderItem_image} />
-      <span className={nn.orderItem_tag}></span>
+      <img src={img1} alt="image-description" className="order__image" />
+      <span className="order__item__tag"></span>
     </div>
   );
 };
