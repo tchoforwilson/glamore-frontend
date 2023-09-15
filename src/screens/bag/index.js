@@ -1,8 +1,8 @@
-import { Box, Container, Grid } from "@mui/material";
-import { default as nn } from "./bag.module.css";
-import { Add, Remove, Delete } from "@mui/icons-material";
 import { useState } from "react";
+import { Box, Container, Grid } from "@mui/material";
+import { Add, Remove, Delete } from "@mui/icons-material";
 import img1 from "../../assets/moreimg/img1.jpg";
+import { default as nn } from "./bag.module.css";
 
 // This button may be redefined in components to be used by other screens
 const CheckoutButton = () => {

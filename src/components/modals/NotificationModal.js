@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { Box, Grid, Container } from "@mui/material";
+import { SignalCellularNullOutlined } from "@mui/icons-material";
 import { default as nn } from "./modals.module.css";
 import img3 from "../../assets/moreimg/img3.jpg";
-import { useState } from "react";
-import { SignalCellularNullOutlined } from "@mui/icons-material";
 
 const NotificationItem = ({ image, description, toggle }) => {
   /**
