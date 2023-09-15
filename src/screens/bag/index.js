@@ -2,11 +2,10 @@ import { useState } from "react";
 import { Box, Container, Grid } from "@mui/material";
 import { Add, Remove, Delete } from "@mui/icons-material";
 import img1 from "../../assets/moreimg/img1.jpg";
-import { default as nn } from "./bag.module.css";
 
 // This button may be redefined in components to be used by other screens
 const CheckoutButton = () => {
-  return <button className={nn.checkout_btn}>Checkout</button>;
+  return <button className="bag__checkout_btn">Checkout</button>;
 };
 
 const AddRemoveButton = ({ type, add, remove }) => {
@@ -27,7 +26,7 @@ const AddRemoveButton = ({ type, add, remove }) => {
         }
       }}
       type="button"
-      className={nn.addRemove_button}
+      className="bag__add_rem_btn"
     >
       {type === "add" ? <Add /> : <Remove />}
     </button>
@@ -61,7 +60,7 @@ const BagItem = ({ itemName, quantity, price, discount, size }) => {
   return (
     <Grid container columns={10} sx={{ padding: "1rem 0" }}>
       <Grid item xs={3}>
-        <img src={img1} className={nn.item_image} />
+        <img src={img1} className="bag__item__image"/>
       </Grid>
       <Grid item xs={6}>
         <Box
@@ -80,7 +79,7 @@ const BagItem = ({ itemName, quantity, price, discount, size }) => {
             <input
               value={qty}
               type="number"
-              className={nn.item_input}
+              className="bag__item__input"
               onChange={(e) => {
                 const num = Number(e.target.value);
                 if (typeof num === "number" && !isNaN(num)) {
@@ -96,9 +95,9 @@ const BagItem = ({ itemName, quantity, price, discount, size }) => {
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", gap: "12px" }}>
             {discount ? (
-              <span className={nn.discount_price}>XAF {discountedPrice}</span>
+              <span className="bag__item__discount_price">XAF {discountedPrice}</span>
             ) : null}
-            <span className={`${discount ? nn.old_price : null}`}>
+            <span className={`${discount ? "bag__item__old_price" : null}`}>
               XAF {price}
             </span>
           </Box>
@@ -112,8 +111,8 @@ const BagItem = ({ itemName, quantity, price, discount, size }) => {
             gap: "1rem",
           }}
         >
-          <span className={nn.item_size}>XXL</span>
-          <Delete className={nn.delete_icon} />
+          <span className="bag__item__size">XXL</span>
+          <Delete className="bag__delete_icon" />
         </Box>
       </Grid>
     </Grid>
@@ -137,7 +136,7 @@ export default function Bag() {
       >
         {/* Mobile topbar here */}
         {/* Header here */}
-        <div className={nn.bagItem_container}>
+        <div className="bag__item__container">
           <BagItem
             itemName="Joggers White Signed T-shirt"
             quantity={4}
@@ -176,10 +175,10 @@ export default function Bag() {
           />
           <Box sx={{ margin: "2rem 0" }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-              <button type="button" className={nn.promo_btn}>
+              <button type="button" className="bag__promo_btn">
                 Insert Promo Code
               </button>
-              <button type="button" className={nn.apply_btn}>
+              <button type="button" className="bag__apply_btn">
                 Apply
               </button>
             </Box>
@@ -191,7 +190,7 @@ export default function Bag() {
               }}
             >
               <p>Sub total</p>
-              <p className={nn.item_total}>XAF 2,800</p>
+              <p className="bag__item__total">XAF 2,800</p>
             </Box>
             <Box
               sx={{
@@ -201,7 +200,7 @@ export default function Bag() {
               }}
             >
               <p>Delivery</p>
-              <p className={nn.item_total}>XAF 800</p>
+              <p className="bag__item__total">XAF 800</p>
             </Box>
           </Box>
         </div>
@@ -213,7 +212,7 @@ export default function Bag() {
           }}
         >
           <p>Total</p>
-          <p className={nn.item_total}>XAF 3,600</p>
+          <p className="bag__item__total">XAF 3,600</p>
         </Box>
         <Box
           sx={{
