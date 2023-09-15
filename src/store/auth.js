@@ -16,7 +16,6 @@ const slice = createSlice({
     loading: false,
     token: userToken,
     resetToken: false,
-    message: null,
     error: null,
   },
   reducers: {
@@ -27,7 +26,6 @@ const slice = createSlice({
       auth.token = action.payload.token;
       localStorage.setItem("token", auth.token);
       setCookie("token", auth.token);
-      auth.message = action.payload.message;
       auth.isAuthenticated = true;
       auth.loading = false;
     },
