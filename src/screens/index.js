@@ -5,3 +5,5 @@ export { default as SignUpScreen } from "./signup";
 
 /** PROTECTEC ROUTES SCREENS BEGIN WITH APP  */
 export { default as AppHomeScreen } from "./app-home";
+export {default as AppOrdersScreen} from './app-orders'
+export {default as AppBagScreen} from './app-bag'

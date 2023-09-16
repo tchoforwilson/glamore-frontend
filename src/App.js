@@ -8,6 +8,8 @@ import {
   LoginScreen,
   SignUpScreen,
   AppHomeScreen,
+  AppBagScreen,
+  AppOrdersScreen
 } from "./screens";
 
 const App = () => {
@@ -15,6 +17,8 @@ const App = () => {
     <Provider store={store}>
       <Routes>
         <Route path="/home" element={<AppHomeScreen />} />
+        <Route path="/orders" element={<AppOrdersScreen />} />
+        <Route path="/bag" element={<AppBagScreen />} />
         <Route path="/signup" element={<SignUpScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/welcome" element={<WelcomeScreen />} />
