@@ -18,7 +18,7 @@ const SearchWidgetInput = ({ placeholder = "Search", onChange }) => {
   };
 
   return (
-    <form>
+    <form className="search">
       {query === "" ? (
         <SearchOutlinedIcon className="search-widget__icon" />
       ) : (
@@ -33,7 +33,7 @@ const SearchWidgetInput = ({ placeholder = "Search", onChange }) => {
         placeholder={placeholder}
         value={query}
         className="search-widget__input"
-        autocomplete="off"
+        autoComplete="off"
         onChange={handleChange}
       />
     </form>

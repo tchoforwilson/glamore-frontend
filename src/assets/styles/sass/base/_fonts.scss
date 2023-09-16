@@ -38,3 +38,16 @@
     url("../../../fonts/made_okine_sans/MADEOkineSansPERSONALUSE-ThinOutline.otf")
       format("opentype");
 }
+
+@font-face {
+  font-family: "Mustica Pro";
+  src:
+    local("Mustica Pro") url("../../../fonts/mustica-pro/MusticaPro-Black.otf")
+      format("opentype"),
+    url("../../../fonts/mustica-pro/MusticaPro-BlackItalic.otf")
+      format("opentype"),
+    url("../../../fonts/mustica-pro/MusticaPro-Bold.otf") format("opentype"),
+    url("../../../fonts/mustica-pro/MusticaPro-BoldItalic.otf")
+      format("opentype"),
+    url("../../../fonts/mustica-pro/MusticaPro-Light.otf") format("opentype");
+}
