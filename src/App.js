@@ -8,7 +8,7 @@ import {
   LoginScreen,
   SignUpScreen,
   OrdersScreen,
-  BagScreen
+  BagScreen,
 } from "./screens";
 
 const App = () => {

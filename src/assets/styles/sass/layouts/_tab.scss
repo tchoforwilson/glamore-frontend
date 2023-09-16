@@ -1,0 +1,46 @@
+@use "../abstracts/variables" as *;
+
+/**
+* Order tab
+**/
+
+.order-tab {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.5rem;
+
+  &__item {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $color-black;
+    text-transform: capitalize;
+    &:active,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 5rem;
+  }
+
+  /**
+  * Search field
+  */
+  .search-widget {
+    &__input {
+      background-color: $color-green;
+      border-radius: 0.4rem;
+      &::placeholder {
+        color: rgba($color-white, 0.7);
+        font-size: 1.3rem;
+        font-weight: 400;
+      }
+    }
+    &__icon {
+      color: $color-white;
+    }
+  }
+}

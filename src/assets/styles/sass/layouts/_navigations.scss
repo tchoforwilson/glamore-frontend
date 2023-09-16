@@ -22,3 +22,49 @@
     }
   }
 }
+
+/**App Navigation */
+.app-nav {
+  padding: 2rem 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  &__collapse {
+    display: flex;
+    align-items: center;
+  }
+
+  &__menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item:not(:first) {
+    margin: 2rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: $color-black;
+      text-transform: capitalize;
+      font-size: $default-font-size;
+      font-weight: 500;
+      display: inline-block;
+      padding: 1rem 2rem;
+      transition: all 0.4s;
+    }
+    &:active,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+  }
+}
