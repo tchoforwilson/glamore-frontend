@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NavBar from "../../layouts/navbar";
-import { SearchURLContext } from "../../context";
+import { SearchURLContext } from "../../contexts";
 
 const AppHome = () => {
   const [searchUrl] = useState("products");

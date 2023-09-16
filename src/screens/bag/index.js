@@ -61,7 +61,7 @@ const BagItem = ({ itemName, quantity, price, discount, size }) => {
   return (
     <Grid container columns={10} sx={{ padding: "1rem 0" }}>
       <Grid item xs={3}>
-        <img src={img1} className={nn.item_image} />
+        <img src={img1} className={nn.item_image} alt="nothing" />
       </Grid>
       <Grid item xs={6}>
         <Box
@@ -123,9 +123,7 @@ const BagItem = ({ itemName, quantity, price, discount, size }) => {
 export default function Bag() {
   return (
     <Container disableGutters={true} maxWidth="xl">
-      <Box sx={{ display: { xs: "none", md: "block" } }}>
-        
-      </Box>
+      <Box sx={{ display: { xs: "none", md: "block" } }}></Box>
       <Box
         sx={{
           display: {
