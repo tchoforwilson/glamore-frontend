@@ -92,7 +92,7 @@ export default function Orders() {
                             return (
                               <tr key={val}>
                                 <td>James 4 items</td>
-                                <td className="font-semibold">
+                                <td className="text--semibold">
                                   Total: 36, 500 FCFA
                                 </td>
                                 <td className="font-sm">19 minutes ago</td>
@@ -174,8 +174,8 @@ const OrderItem = () => {
         <a href="#" className="order__info__Link">
           JamesW202
         </a>
-        <span className="font-semibold">Total: 35,650 FCFA</span>
-        <span className="text-sm font-semibold">Quantity: 5</span>
+        <span className="text--semibold">Total: 35,650 FCFA</span>
+        <span className="text-sm text--semibold">Quantity: 5</span>
         <span className="text-sm">19 minutes ago</span>
         <span className="text-sm">#5d6cidk6s6foodf00</span>
         <button className="order__fetch_btn">Fetch for sale</button>
