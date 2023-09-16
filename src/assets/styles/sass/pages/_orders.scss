@@ -1,0 +1,50 @@
+@use "../abstracts/variables" as *;
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  border-bottom: 0.14rem solid rgba($color-secondary, 0.7);
+  font-family: $font-mustica-pro;
+  font-weight: 600;
+  font-size: 1.4rem;
+  &:not(:last-child) {
+    margin-bottom: 0.3rem;
+  }
+
+  /**
+  * space span
+  */
+
+  & > * > span {
+    margin-right: 1rem;
+  }
+
+  /**
+  * Order button styles
+  */
+  &__button {
+    color: $color-green-1;
+    font-weight: 600;
+    font-size: 1.3rem;
+    padding: 0.6rem 1rem;
+    background-color: transparent;
+
+    border: 0.12rem solid $color-secondary;
+    border-radius: 0.3rem;
+    text-transform: capitalize;
+  }
+
+  &__status {
+    background-color: $color-purple;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 1rem;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+}
