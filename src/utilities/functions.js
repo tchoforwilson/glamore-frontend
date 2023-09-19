@@ -1,3 +1,8 @@
+/**
+ * @breif Create a search query name and value  from an object.
+ * @param {Object} query Query object
+ * @returns {String}
+ */
 export const createQuery = (query) => {
   const searchQuery = [];
 
