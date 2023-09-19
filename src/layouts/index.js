@@ -1,3 +1,4 @@
 export * from "./header";
-export * from "./tab";
 export * from "./sidebar";
+export * from "./tabs";
+export * from "./screen";
