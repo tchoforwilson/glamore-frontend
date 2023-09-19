@@ -24,6 +24,10 @@
   align-items: center;
 }
 
+.align-items--between {
+  align-items: space-between;
+}
+
 .justify-content--start {
   justify-content: flex-start;
 }
@@ -32,15 +36,60 @@
   justify-content: center;
 }
 
+.justify-content--between {
+  justify-content: space-between;
+}
+
 /*MARGINS*/
-.mb--2 {
-  margin-bottom: 2rem;
+
+//Auto margins
+
+$auto-margin-sides: top, right, bottom, left;
+$auto-margin-prefixes: t, s, b, e;
+
+.m-auto {
+  margin: auto;
 }
 
-.mt--2 {
-  margin-top: 2rem;
+@each $side, $prefix in $auto-margin-sides {
+  .m#{$prefix}-auto {
+    margin-#{$prefix}: auto;
+  }
 }
 
-.ms--4 {
-  margin-left: 4rem;
+@for $i from 1 through 5 {
+  // Top margins
+  .mt-#{$i} {
+    margin-left: #{$i}rem;
+  }
+  // Right margins
+  .me-#{$i} {
+    margin-left: #{$i}rem;
+  }
+
+  // Bottom margins
+  .mb-#{$i} {
+    margin-left: #{$i}rem;
+  }
+
+  // Left margins
+  .ms-#{$i} {
+    margin-left: #{$i}rem;
+  }
+}
+
+/**
+* HEIGHT  
+*/
+
+$values: 25, 50, 75, 100;
+$unit: "%";
+
+@each $value in $values {
+  .h-#{$value} {
+    height: #{$value}#{$unit};
+  }
+  .w-#{$value} {
+    width: #{$value}#{$unit};
+  }
 }
