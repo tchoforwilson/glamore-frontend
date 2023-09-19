@@ -9,6 +9,8 @@ import {
   SignUpScreen,
   OrdersScreen,
   BagScreen,
+  MarketinScreen,
+  FinanceScreen,
 } from "./screens";
 
 const App = () => {
@@ -16,6 +18,8 @@ const App = () => {
     <Provider store={store}>
       <Routes>
         <Route path="/orders" element={<OrdersScreen />} />
+        <Route path="/finances" element={<FinanceScreen />} />
+        <Route path="/marketing" element={<MarketinScreen />} />
         <Route path="/signup" element={<SignUpScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/home" element={<HomeScreen />} />
