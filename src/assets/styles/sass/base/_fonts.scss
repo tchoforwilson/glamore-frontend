@@ -51,3 +51,9 @@
       format("opentype"),
     url("../../../fonts/mustica-pro/MusticaPro-Light.otf") format("opentype");
 }
+
+@font-face {
+  font-family: "Fax Sans";
+  src: local("Fax Sans") url("../../../fonts/fax-sans/Fax_Sans_Beta.otf")
+    format("opentype");
+}
