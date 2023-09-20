@@ -11,6 +11,7 @@ import {
   BagScreen,
   MarketinScreen,
   FinanceScreen,
+  StoreSettingScreen,
 } from "./screens";
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/orders" element={<OrdersScreen />} />
         <Route path="/finances" element={<FinanceScreen />} />
         <Route path="/marketing" element={<MarketinScreen />} />
+        <Route path="/settings" element={<StoreSettingScreen />} />
         <Route path="/signup" element={<SignUpScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/home" element={<HomeScreen />} />
