@@ -1,5 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import { SearchWidget } from "../../components/searchwiget";
 
 const NavBar = ({ onSearch }) => {
@@ -21,9 +25,15 @@ const NavBar = ({ onSearch }) => {
         </ul>
         <SearchWidget onSearch={handleSearch} />
         <div className="app-nav__profile">
-          <Link className="app-nav__profile-carts">Carts</Link>
-          <div className="app-nav__profile-notifications">Notification</div>
-          <Link className="app-nav__profile-user" to="/profile"></Link>
+          <Link className="app-nav__profile-carts">
+            <ShoppingBagOutlinedIcon />
+          </Link>
+          <div className="app-nav__profile-notifications">
+            <NotificationsOutlinedIcon />
+          </div>
+          <Link className="app-nav__profile-user" to="/profile">
+            <AccountCircleOutlinedIcon />
+          </Link>
         </div>
       </div>
     </nav>
