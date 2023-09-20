@@ -9,3 +9,4 @@ export { default as BagScreen } from "./bag";
 export * from "./orders";
 export * from "./finances";
 export * from "./marketing";
+export * from "./store-setting";
