@@ -1,0 +1,118 @@
+
+.store{
+
+}
+.storeProfile{
+    /* border: 1px solid blue; */
+    width: 70%;
+    margin: 1rem auto;
+}
+.profile{
+    width: 100%;
+    position: relative;
+}
+.profileBackground {
+    width: 65rem;
+    height: 25rem;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 1rem;
+    margin: 0 auto;
+    display: block;
+}
+.profileLogo{
+
+    position: absolute;
+    background-color: #fff;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    transform: translate(-50%, -70%);
+    left: 50%;
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}   
+.profileLogo img{
+    width:6.8rem;
+    height: 6.9rem;
+    border-radius: 50%;
+}
+
+.btnPrevious {
+    position: absolute;
+    top: 18%;
+    transform: translateX(-100%);
+}
+.profileDetails {
+    text-align: center;
+    margin-top: 5rem;
+}
+.profileDetails h3{
+    font-size: 2.5rem;
+}
+.profileDetails span{
+    font-size: 1.6rem;
+}
+.action{
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+}
+.action button {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.actionFollow{
+    background-color: #000;
+    color: #dfd9d9;
+    padding: .5rem 2.5rem;
+    border-radius: .5rem;
+}
+.actionShare{
+    color: #303030;
+    padding: .5rem 2.5rem;
+    border-radius: .5rem;
+    font-weight: bold;
+    border: .2rem solid #303030;
+}
+.actionShare svg{
+    margin-left: 1rem;
+}
+.storeProducts {
+    /* border: 1px solid red; */
+    margin-top: 6rem;
+}
+
+.storeProducts h4{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+}
+.products{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.productCard{
+    /* border: 1px solid black; */
+    background-color: #dfd9d9;
+}
+.productDetail{
+    background-color: #fff;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+.productDetail span{
+    display: block;
+}
+.productPrice{
+    text-transform: uppercase;
+}
