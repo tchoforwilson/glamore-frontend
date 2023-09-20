@@ -1,0 +1,48 @@
+@use "../abstracts/variables" as *;
+
+.setting-background-image {
+  object-fit: contain;
+  resize: both;
+  width: 100%;
+  height: 5rem;
+}
+
+[class^="section-setting"] {
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-setting {
+  &-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/**
+* Settings buttons
+*/
+.setting-button {
+  padding: 0.5rem 2.5rem;
+  &:link,
+  &:visited {
+    border: 0.13rem solid $color-secondary;
+    color: $color-black;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+  }
+  &:hover,
+  &:active {
+    background-color: $color-primary;
+    color: $color-white;
+    transition: ease 0.4s;
+  }
+}
