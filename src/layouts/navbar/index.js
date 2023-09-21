@@ -25,9 +25,10 @@ const NavBar = ({ onSearch }) => {
         </ul>
         <SearchWidget onSearch={handleSearch} />
         <div className="app-nav__profile">
-          <Link className="app-nav__profile-carts">
+          <div className="app-nav__profile-carts">
             <ShoppingBagOutlinedIcon />
-          </Link>
+            <span>1 item</span>
+          </div>
           <div className="app-nav__profile-notifications">
             <NotificationsOutlinedIcon />
           </div>
