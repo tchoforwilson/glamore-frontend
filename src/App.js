@@ -12,6 +12,7 @@ import {
   MarketinScreen,
   FinanceScreen,
   StoreSettingScreen,
+  ShopScreen,
 } from "./screens";
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/signup" element={<SignUpScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/home" element={<HomeScreen />} />
+        <Route path="/shop" element={<ShopScreen />} />
         <Route path="/bag" element={<BagScreen />} />
         <Route path="/" element={<WelcomeScreen />} />
       </Routes>
