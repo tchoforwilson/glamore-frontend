@@ -1,0 +1,122 @@
+.store {
+	&-profile {
+		/* border: 1px solid blue; */
+		width: 70%;
+		margin: 1rem auto;
+
+		.profile {
+			width: 100%;
+			position: relative;
+
+			&__background {
+				width: 65rem;
+				height: 25rem;
+				border-radius: 1rem;
+				box-shadow: 0 1rem 1rem;
+				margin: 0 auto;
+				display: block;
+			}
+
+			&__logo {
+				position: absolute;
+				background-color: #fff;
+				width: 7rem;
+				height: 7rem;
+				border-radius: 50%;
+				transform: translate(-50%, -70%);
+				left: 50%;
+				padding: 0.5rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			&__logo img {
+				width: 6.8rem;
+				height: 6.9rem;
+				border-radius: 50%;
+			}
+
+			&__details {
+				text-align: center;
+				margin-top: 5rem;
+
+				.action {
+					margin-top: 2.5rem;
+					display: flex;
+					align-items: center;
+					gap: 2rem;
+					justify-content: center;
+
+					& button {
+						font-size: 1.4rem;
+						text-transform: capitalize;
+						cursor: pointer;
+					}
+					&__follow {
+						background-color: #000;
+						color: #dfd9d9;
+						padding: 0.5rem 2.5rem;
+						border-radius: 0.5rem;
+					}
+					&__share {
+						color: #303030;
+						padding: 0.5rem 2.5rem;
+						border-radius: 0.5rem;
+						font-weight: bold;
+						border: 0.2rem solid #303030;
+					}
+					&__share svg {
+						margin-left: 1rem;
+					}
+				}
+			}
+			&__details h3 {
+				font-size: 2.5rem;
+			}
+			&__details span {
+				font-size: 1.6rem;
+			}
+		}
+	}
+	&-products {
+		margin-top: 6rem;
+
+		& h4 {
+			text-align: center;
+			font-size: 2rem;
+			margin-bottom: 2.5rem;
+		}
+
+		.products {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 2rem;
+			flex-wrap: wrap;
+
+			&-card {
+				/* border: 1px solid black; */
+				background-color: #dfd9d9;
+			}
+			&__detail {
+				background-color: #fff;
+				padding: 1rem;
+				text-align: center;
+				font-weight: bold;
+				font-size: 1.3rem;
+			}
+			&__detail span {
+				display: block;
+			}
+			&__price {
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+.btn-previous {
+	position: absolute;
+	top: 18%;
+	transform: translateX(-100%);
+}
