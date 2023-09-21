@@ -1,8 +1,6 @@
-import { Box, Grid, Container } from "@mui/material";
-import { default as nn } from "./modals.module.css";
-import img3 from "../../assets/moreimg/img3.jpg";
 import { useState } from "react";
-import { SignalCellularNullOutlined } from "@mui/icons-material";
+import { Box, Grid, Container } from "@mui/material";
+import img3 from "../../assets/moreimg/img3.jpg";
 
 const NotificationItem = ({ image, description, toggle }) => {
   /**
@@ -17,7 +15,7 @@ const NotificationItem = ({ image, description, toggle }) => {
   return (
     <Grid container fontSize="14px"  columns={6} sx={{ padding: "1rem" }}>
       <Grid item xs={2} md={1}>
-        <img src={img3} className={nn.notification_item_image} />
+        <img src={img3} className="notification__item__image" />
       </Grid>
       <Grid item xs={4} md={5} sx={{paddingX: ".5rem"}}>
         <Box
@@ -28,7 +26,7 @@ const NotificationItem = ({ image, description, toggle }) => {
           }}
         >
           <p>Kaki shoes from @Lawrence's store</p>
-          <button className={nn.notification_item_btn}>On it's way!!</button>
+          <button className="notification__item__btn">On it's way!!</button>
         </Box>
       </Grid>
     </Grid>
@@ -47,11 +45,11 @@ export default function NotificationModal({ toggle }) {
    *
    */
   if (!show) {
-    return SignalCellularNullOutlined;
+    return null
   }
   return (
     <div
-      className={nn.notificationModal_container}
+      className="notification__modal__container"
       onClick={(e) => {
         // This complex for testing purposes, all hide/show actions will be managed by parent component
         if (toggle) {
@@ -74,7 +72,7 @@ export default function NotificationModal({ toggle }) {
         
         }}
       >
-        <div className={nn.notificationModal_header}>
+        <div className="notification__header">
             <h3>5 new notifications</h3>
         </div>
         <NotificationItem />
