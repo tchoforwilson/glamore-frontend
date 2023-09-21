@@ -16,6 +16,7 @@ const AppInput = ({ name, placeholder, type = "text", ...otherProps }) => {
       placeholder={placeholder}
       type={type}
       {...otherProps}
+      style={{ cursor: "text" }}
     />
   );
 };
