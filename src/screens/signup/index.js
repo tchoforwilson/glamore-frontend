@@ -1,8 +1,10 @@
-import { Grid, Box } from "@mui/material";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
+import { Grid, Box, Stack } from "@mui/material";
 import { FormContainer, FormField } from "../../components/forms";
 import { BackButton, SubmitButton } from "../../components/buttons";
+import { signup } from "../../store/auth";
 
 const validationSchema = Yup.object().shape({
   firstname: Yup.string().required("First Name required").label("First Name"),
@@ -23,19 +25,20 @@ const validationSchema = Yup.object().shape({
     .required("Please confirm password")
     .label("Confirm password"),
 });
+
 const SignUpScreen = () => {
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.auth);
   const handlesubmit = (values) => {
-    console.log("Submitted", values);
+    dispatch(signup(values));
   };
   return (
-    <Box>
+    <Box className="screen-signup">
       <Grid container spacing={0}>
-        <Grid item md={1}>
-          <div style={{ width: "100%" }}></div>
-        </Grid>
+        <Grid item md={1}></Grid>
         <Grid item md={6}>
           <h1 className="heading-primary">
-            Create your glamore{" "}
+            Create your glamore
             <span className="heading-primary__newline">account.</span>
           </h1>
           <FormContainer
@@ -50,14 +53,10 @@ const SignUpScreen = () => {
             validationSchema={validationSchema}
             onSubmit={handlesubmit}
           >
-            <Grid container spacing={5}>
-              <Grid item xs={12} sm={6}>
-                <FormField name="firstname" placeholder="First name" />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <FormField name="lastname" placeholder="Last name" />
-              </Grid>
-            </Grid>
+            <Stack direction="row" spacing={5}>
+              <FormField name="firstname" placeholder="First name" />
+              <FormField name="lastname" placeholder="Last name" />
+            </Stack>
             <Grid container spacing={5}>
               <Grid item xs={12} sm={6}>
                 <FormField name="email" placeholder="E-mail" />
@@ -89,23 +88,20 @@ const SignUpScreen = () => {
                 alignItems: "center",
               }}
             >
-              <SubmitButton title="Sign Up" />
+              <SubmitButton title="Sign Up" loading={loading} />
             </Box>
           </FormContainer>
           <BackButton to="/" />
         </Grid>
         <Grid item md={5}>
-          <Box sx={{ height: "100vh" }}>
-            <img
-              src={require("../../assets/images/hat-boy.webp")}
-              alt="Hat Boy"
-              style={{
-                height: "100vh",
-                backgroundPosition: "center",
-                objectFit: "contain",
-              }}
-            />
-          </Box>
+          <img
+            src={require("../../assets/images/hat-boy.webp")}
+            alt="Hat Boy"
+            style={{
+              maxWidth: "100%",
+              height: "100%",
+            }}
+          />
         </Grid>
       </Grid>
     </Box>

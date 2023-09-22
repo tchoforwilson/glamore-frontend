@@ -4,6 +4,13 @@
     margin-bottom: 4rem;
   }
 
+  &__label {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $color-black;
+    margin-left: 2rem;
+  }
+
   &__input {
     border: 0;
     border-bottom: 2px solid $color-secondary;
@@ -13,6 +20,15 @@
     padding: 0.3rem 0.1rem;
     transition: all 0.3s;
     width: 98%;
+
+    &--label {
+      border: 0.13rem solid $color-secondary;
+      border-radius: 0.3rem;
+      color: $color-secondary;
+      font-size: 1.6rem;
+      font-weight: 300;
+      padding: 0.7rem 1.7rem;
+    }
   }
 
   &__error {

@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as *;
+
+.plan {
+  padding: 2rem 5rem;
+  box-shadow: 0 0 0.4rem rgba($color-black, 0.4);
+  border-radius: 1.2rem;
+  color: $color-black;
+  text-align: center;
+  height: auto;
+
+  &__bill {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  &__line {
+    border-bottom: 0.35rem solid $color-black;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 30%;
+  }
+
+  & p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  & a {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &--premuim {
+    position: relative;
+  }
+}

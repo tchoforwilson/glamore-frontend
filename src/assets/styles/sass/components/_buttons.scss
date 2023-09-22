@@ -25,6 +25,7 @@
   &--white {
     border: 0.2rem solid $color-secondary;
     color: $color-secondary;
+    background-color: $color-white;
   }
 
   &:hover {
@@ -44,6 +45,15 @@
     margin-top: 3rem;
     cursor: pointer;
   }
+
+  /**
+  * Upgrade
+  */
+  display: flex;
+  align-items: center;
+  background-color: $color-primary;
+  color: $color-white;
+  font-size: 1.5rem;
 }
 
 /* user profile  button */
