@@ -13,12 +13,14 @@ import {
   FinanceScreen,
   StoreSettingScreen,
   ShopScreen,
+  ProfileScreen,
 } from "./screens";
 
 const App = () => {
   return (
     <Provider store={store}>
       <Routes>
+        <Route path="/profile" element={<ProfileScreen />} />
         <Route path="/orders" element={<OrdersScreen />} />
         <Route path="/finances" element={<FinanceScreen />} />
         <Route path="/marketing" element={<MarketinScreen />} />
