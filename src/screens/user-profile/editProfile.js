@@ -2,11 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Box } from "@mui/material";
 
-/**
- * @breif Render a back link with name "edit profile" and "edit icon"
- * @param {String} to Link to the form
- * @returns {JSX}
- */
 const EditProfile = ({ to, icon: IconComponent, text }) => {
     return (
       <Box

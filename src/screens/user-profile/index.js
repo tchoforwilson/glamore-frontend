@@ -13,8 +13,8 @@ const Item = styled(Paper)(() => ({
   }));
   
 
-const UserProfile = () => {
-    return <>
+const ProfileScreen = () => {
+    return <React.Fragment>
     <Container 
       sx={{
         display: 'flex',
@@ -74,7 +74,7 @@ const UserProfile = () => {
             </Grid>
         </Box>
     </Container>
-    </>;
+    </React.Fragment>;
 }
 
-export default UserProfile;
+export default ProfileScreen;
