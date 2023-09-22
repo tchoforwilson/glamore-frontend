@@ -26,6 +26,7 @@
 /**App Navigation */
 .app-nav {
   padding: 2rem 0rem;
+  margin-bottom: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +55,7 @@
       font-size: $default-font-size;
       font-weight: 500;
       display: inline-block;
-      padding: 1rem 2rem;
+      padding: 1rem 1.5rem;
       transition: all 0.4s;
     }
     &:active,
@@ -66,5 +67,19 @@
   &__profile {
     display: flex;
     align-items: center;
+    margin-left: 3rem;
+
+    &-carts {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0.16rem solid $color-black;
+      border-radius: 2rem;
+      padding: 0.3rem 1rem;
+    }
   }
+}
+
+.app-nav .search-widget {
+  margin-left: 1.5rem;
 }

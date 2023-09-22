@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavBar } from "../../layouts";
 import { SearchURLContext } from "../../contexts";
 
-const AppHome = () => {
-  const [searchUrl] = useState("products");
+const ShopScreen = () => {
   return (
     <React.Fragment>
-      <SearchURLContext.Provider value={{ searchUrl }}>
+      <SearchURLContext.Provider value={{ searchUrl: "products" }}>
         <NavBar />
       </SearchURLContext.Provider>
       <main></main>
@@ -14,4 +13,4 @@ const AppHome = () => {
   );
 };
 
-export default AppHome;
+export default ShopScreen;

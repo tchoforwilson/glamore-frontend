@@ -1,4 +1,9 @@
 @font-face {
+  font-family: "Raleway";
+  src: url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap");
+}
+
+@font-face {
   font-family: "Flamante sans";
   src:
     local("Flamante sans")
@@ -56,4 +61,14 @@
   font-family: "Fax Sans";
   src: local("Fax Sans") url("../../../fonts/fax-sans/Fax_Sans_Beta.otf")
     format("opentype");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  src:
+    local("Source Sans 3")
+      url("../../../fonts/Source_Sans_3/static/SourceSans3-Medium.ttf")
+      format("truetype"),
+    url("../../../fonts/Source_Sans_3/static/SourceSans3-SemiBold.ttf")
+      format("truetype");
 }
