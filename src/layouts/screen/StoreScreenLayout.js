@@ -10,7 +10,7 @@ import { SideBar } from "../sidebar";
  */
 const StoreScreenLayout = ({ children }) => {
   return (
-    <Stack sx={{ height: "100vh" }} direction="row" spacing={5}>
+    <Stack sx={{ height: "100vh" }} direction="row" spacing={1}>
       <Box sx={{ width: "20%", height: "100vh" }}>
         <SideBar />
       </Box>
