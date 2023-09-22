@@ -5,7 +5,11 @@ export { default as SignUpScreen } from "./signup";
 
 export * from "./shop";
 
-/** PROTECTEC ROUTES SCREENS BEGIN WITH APP  */
+/** PROTECTED ROUTES SCREENS BEGIN WITH APP  */
+// User pages
+export * from "./profile";
+
+// Store pages
 export { default as AppHomeScreen } from "./app-home";
 export { default as BagScreen } from "./bag";
 export * from "./orders";
