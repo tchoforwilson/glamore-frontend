@@ -1,0 +1,23 @@
+@use "../abstracts/variables" as *;
+
+.product-card {
+  margin-bottom: 2rem;
+  & figcaption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__name {
+    color: $color-primary;
+    font-family: $font-raleway;
+    font-size: 1.125;
+    font-weight: 700;
+  }
+
+  &__price {
+    color: rgba($color-primary, 0.72);
+    font-size: 1.125;
+    font-weight: 500;
+  }
+}
