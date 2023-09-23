@@ -1,0 +1,122 @@
+@use "../abstracts/variables" as *;
+
+.bag {
+  &__add_rem_btn {
+    padding: 0.5rem;
+    display: flex;
+    border-radius: 100%;
+    border: 2px solid #707070;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    transition: all ease-in-out 200ms;
+    & > * {
+      cursor: inherit;
+    }
+    &:hover {
+      background-color: #707070;
+      color: #f7f5f3;
+    }
+  }
+  &__checkout_btn {
+    color: $color-white;
+    background-color: $color-black;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all ease-in-out 200ms;
+    text-transform: uppercase;
+    font-weight: 600;
+    &:hover {
+      background-color: lighten($color-black, 10%);
+    }
+  }
+  &__promo_btn {
+    padding: 1rem;
+    background-color: lighten($color-secondary, 50%);
+    border: 1px solid lighten($color-secondary, 40%);
+    color: $color-green;
+    flex-grow: 1;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: all ease-in-out 200ms;
+    &:hover {
+      background-color: lighten($color-secondary, 40%);
+    }
+  }
+  &__apply_btn {
+    padding: 1rem 2rem;
+    color: $color-white;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    background-color: $color-green;
+    transition: all ease-in-out 200ms;
+    &:hover {
+      background-color: darken($color-green, 10%);
+    }
+  }
+  &__delete_icon {
+    color: $color-red;
+    cursor: pointer;
+    transition: all ease-in-out 200ms;
+    & > * {
+      cursor: inherit;
+    }
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+      color: darken($color-red, 10%);
+    }
+  }
+  &__item {
+    &__image {
+      height: 100%;
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 1rem;
+      object-fit: cover;
+      font-weight: bold;
+    }
+    &__size {
+      font-weight: 600;
+    }
+    &__input {
+      width: 4rem;
+      text-align: center;
+      cursor: text;
+      appearance: none;
+      padding: 0.5rem;
+      border: none;
+      border-bottom: 2px solid #707070;
+      outline: none;
+    }
+    input &__input[type="number"] {
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
+    input &__input::-webkit-inner-spin-button,
+    input &__input::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &__discount_price {
+      font-weight: 600;
+      color: var(--toastify-color-success);
+    }
+    &__old_price {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+    &__container {
+      > * {
+        border-bottom: 1px solid #70707050;
+      }
+
+      &:first-child {
+        border-top: 1px solid #70707050;
+      }
+    }
+  }
+}
