@@ -15,3 +15,8 @@ export const createQuery = (query) => {
   // Join  the array into string with '&' separator
   return searchQuery.join("&");
 };
+
+/**
+ * @breif A formatter for numbers
+ */
+export const numberFormatter = new Intl.NumberFormat();
