@@ -10,12 +10,11 @@ import { Link, useLocation } from "react-router-dom";
  */
 const SideBarItem = ({ icon, title, to }) => {
   const location = useLocation();
-  const pathname = location.pathname.replace("/", "");
-
+  const pathname = location.pathname;
   return (
     <Link
       to={to}
-      className={`sidebar__item ${pathname === title ? "active" : ""}`}
+      className={`sidebar__item ${pathname === to ? "active" : ""}`}
     >
       <span className="sidebar__icon"></span>
       <span className="sidebar__title">{title}</span>
