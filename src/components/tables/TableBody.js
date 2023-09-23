@@ -33,11 +33,13 @@ const TableBody = () => {
    */
   const { data, columns } = useContext(TableContext);
   return (
-    <tbody>
+    <tbody className="table-body">
       {data.map((item, index) => (
-        <tr key={item._id || index + 1}>
+        <tr key={item._id || index + 1} className="table-body__row">
           {columns.map((column) => (
-            <td key={createKey(item, column)}>{renderCell(item, column)}</td>
+            <td key={createKey(item, column)} className="table-body__column">
+              {renderCell(item, column)}
+            </td>
           ))}
         </tr>
       ))}
