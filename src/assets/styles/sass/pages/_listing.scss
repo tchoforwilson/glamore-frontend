@@ -1,7 +1,7 @@
 @use "../abstracts/variables" as *;
 
 /*
-* Listing 
+* Add Listing button
 */
 
 .btn-add-listing {
@@ -30,7 +30,7 @@
 .listing-table {
   margin-top: 2rem;
   table-layout: fixed;
-
+  // Image
   &__img {
     max-width: 100%;
     height: 8rem;
@@ -38,9 +38,9 @@
     object-fit: contain;
     object-position: center;
   }
-
+  // table head
   .table-head {
-    background-color: $color-light;
+    background-color: $color-light-grey;
 
     &__item {
       font-weight: 600;
@@ -51,6 +51,8 @@
       padding: 0.3rem 0rem;
     }
   }
+
+  // Table body
   .table-body {
     &__row {
       margin: 2rem 0rem;
@@ -63,6 +65,7 @@
     }
   }
 
+  // Table icon
   &__icon {
     color: $color-twining-vine;
     font-size: 2.5rem !important;
