@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import NavBar from "../../layouts/navbar";
+import { NavBar } from "../../layouts";
 import { SearchURLContext } from "../../contexts";
 
 const AppHome = () => {
