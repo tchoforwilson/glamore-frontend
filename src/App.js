@@ -1,7 +1,7 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { Routes, Route } from "react-router-dom";
-import store from "./store/configureStore";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { Routes, Route } from 'react-router-dom';
+import store from './store/configureStore';
 import {
   DashBoardScreen,
   ListingScreen,
