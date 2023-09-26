@@ -13,7 +13,7 @@ import { numberFormatter } from "../../utilities/functions";
 const ProductItem = ({ image, price, description, iconType }) => {
   return (
     <figure className="product-item">
-      <img src={image} alt={description} />
+      <img src={image} alt={description} className="product-item__img" />
       <figcaption className="product-item__details">
         <h4 className="product-item__price">
           {numberFormatter.format(price)} <span className="ms-1">FCFA</span>

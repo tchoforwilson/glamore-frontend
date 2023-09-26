@@ -44,13 +44,13 @@ const ListingScreen = () => {
                 price: 500,
               },
               {
-                _id: "ab7848",
+                _id: "ab56848",
                 imageCover: require("../../assets/images/list.jpg"),
                 name: "Patched Detail Tee & Drawstring",
                 price: 700,
               },
               {
-                _id: "ab7848",
+                _id: "abw348",
                 imageCover: require("../../assets/images/list.jpg"),
                 name: "Manfinity Homme Men",
                 price: 800,

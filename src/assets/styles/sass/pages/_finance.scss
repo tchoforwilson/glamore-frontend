@@ -4,7 +4,7 @@
   border: 0.13rem solid rgba($color-secondary, 43%);
   border-radius: 0.3rem;
   color: $color-black;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
   text-transform: capitalize;
   padding: 0.4rem 1.5rem;
@@ -29,17 +29,17 @@
   }
 
   &__title {
-    font-size: 1.4375rem;
+    font-size: 1.4rem;
   }
 
   &__figure {
-    font-size: 3.875rem;
+    font-size: 3rem;
   }
 
   &__button {
     &:link,
     &:visited {
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: $color-black;
 
       border: 0.13rem solid $color-secondary;
@@ -72,15 +72,15 @@
   margin: 1rem 0.2rem;
 
   &__title {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
   }
 
   &__percentage {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   &__amount {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   &__currency {
