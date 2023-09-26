@@ -50,3 +50,16 @@ ORDER: Base + Typography > general layout + grid > page layout > components
     }
   }
 }
+
+/**
+* Responsiveness for mobile devices
+*/
+
+@mixin respond-mobile {
+  @include respond(phone) {
+    @content;
+  }
+  @include respond(tablet) {
+    @content;
+  }
+}
