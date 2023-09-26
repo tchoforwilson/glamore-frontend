@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Stack } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { StoreHeader, StoreScreenLayout } from "../../layouts";
+import { AddProductModal } from "../../components/modals";
 import { AppSelect } from "../../components/inputs";
 import { ListingTable } from "../../components/tables";
 
 const ListingScreen = () => {
+  const [openModal, setOpenModal] = useState(true);
+
+  /**
+   * @breif Open add listing modal when clicked
+   */
   const handleAddListingClick = () => {
-    // This should trigger the add listing modal
+    setOpenModal(true);
   };
   return (
     <StoreScreenLayout>
@@ -59,6 +65,8 @@ const ListingScreen = () => {
           />
         </Box>
       </Box>
+      {/** Add Listing modal */}
+      <AddProductModal isOpen={openModal} />
     </StoreScreenLayout>
   );
 };
