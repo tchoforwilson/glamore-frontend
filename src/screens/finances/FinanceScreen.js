@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Box, Grid } from "@mui/material";
 import { StoreHeader, StoreScreenLayout } from "../../layouts";
-import { Link } from "react-router-dom";
 import FinanceItem from "./FinanceItem";
+import { numberFormatter } from "../../utilities/functions";
 
 const FinanceScreen = () => {
   return (
@@ -58,16 +59,19 @@ const FinanceScreen = () => {
                 <p className="fees__title">Commission fees</p>
                 <h2 className="fees__percentage">15%</h2>
                 <div className="fees__amount">
-                  112,185.5 <span className="fees__currency">FCFA</span>
+                  {numberFormatter.format(112185.5)}
+                  <span className="fees__currency">FCFA</span>
                 </div>
               </div>
               <div className="fees advertisement">
                 <p className="fees__title">Advertisement fees</p>
                 <div className="fees__amount">
-                  112,185.5 <span className="fees__currency">FCFA</span>
+                  {numberFormatter.format(112, 185.5)}
+                  <span className="fees__currency">FCFA</span>
                 </div>
                 <p className="fees__text">
-                  6,520 advertized products since June 16th 2023
+                  {numberFormatter.format(6520)} advertized products since June
+                  16th 2023
                 </p>
               </div>
             </div>

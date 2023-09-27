@@ -5,7 +5,7 @@ import SideBarItem from "./SideBarItem";
 
 const items = [
   { title: "dashboard", to: "/dashboard" },
-  { title: "Listings", to: "/listings" },
+  { title: "listings", to: "/listings" },
   { title: "orders", to: "/orders" },
   { title: "finances", to: "/finances" },
   { title: "marketing", to: "/marketing" },
@@ -27,7 +27,7 @@ const SideBar = () => {
       </div>
       <div className="sidebar__menu">
         {items.map((item, index) => (
-          <SideBarItem key={index + 1} title={item.title} />
+          <SideBarItem key={index + 1} title={item.title} to={item.to} />
         ))}
       </div>
     </div>

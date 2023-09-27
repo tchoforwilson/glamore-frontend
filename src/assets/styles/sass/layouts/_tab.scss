@@ -16,9 +16,12 @@
     font-weight: 500;
     color: $color-black;
     text-transform: capitalize;
-    &:active,
+    border-bottom: 0.15rem solid transparent;
     &:hover {
-      text-decoration: underline;
+      border-bottom: 0.15rem solid $color-secondary;
+    }
+    &.active {
+      border-bottom: 0.15rem solid $color-primary;
     }
   }
 

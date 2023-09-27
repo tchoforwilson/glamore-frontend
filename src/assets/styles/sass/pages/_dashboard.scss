@@ -1,0 +1,120 @@
+@use "../abstracts/variables" as *;
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-evenly;
+  box-shadow: 0 0 0.3rem rgba($color-black, 0.2);
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-radius: 1rem;
+
+  &__item {
+    padding-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__separator {
+    border-left: 0.15rem solid $color-secondary;
+  }
+
+  &__title {
+    color: $color-ancestral-water;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  &__number {
+    color: $color-black;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  &__icon {
+    border-radius: 2rem;
+    font-size: 2rem !important;
+    padding: 0.2rem;
+    &.downward {
+      background-color: $color-flower-girl;
+      color: $color-red;
+    }
+    &.upward {
+      background-color: $color-twining-vine;
+      color: $color-green;
+    }
+  }
+
+  &__percentage {
+    font-weight: 500;
+    font-size: 1.2rem;
+    &.increase {
+      color: $color-twining-vine;
+    }
+    &.decrease {
+      color: $color-flower-girl;
+    }
+  }
+
+  &__secondary {
+    color: $color-black;
+    font-size: 1.7rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 2rem 0rem;
+  }
+
+  &__tertiary {
+    color: $color-black;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+  }
+}
+
+.dashboard-product-items {
+  // display: flex;
+  // justify-content: space-evenly;
+  // align-items: center;
+  // flex-wrap: wrap;
+  display: inline-block;
+}
+
+.product-item {
+  object-fit: contain;
+  object-position: center;
+  position: relative;
+  display: inline-block;
+  max-width: 12rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 2rem;
+  &__details {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  &__img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    resize: both;
+    object-position: center;
+  }
+  &__icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 2rem;
+    background-color: $color-white;
+    font-size: 2rem !important;
+    color: $color-twining-vine;
+  }
+}

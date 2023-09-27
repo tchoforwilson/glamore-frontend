@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { SearchURLContext } from "../../contexts";
 import { SearchWidget } from "../../components/searchwiget";
 
@@ -10,6 +10,9 @@ const OrderTab = ({ onTabClick }) => {
     sectActiveTab(tab);
     onTabClick(tab);
   };
+
+  // Search path url
+  const searchPath = useMemo(() => ({ searchUrl: "orders" }), []); // value is cached by useMemo
 
   return (
     <div className="order-tab">
@@ -24,7 +27,7 @@ const OrderTab = ({ onTabClick }) => {
           </span>
         ))}
       </div>
-      <SearchURLContext.Provider value={{ searchUrl: "orders" }}>
+      <SearchURLContext.Provider value={searchPath}>
         <SearchWidget placeholder="Search all orders" />
       </SearchURLContext.Provider>
     </div>

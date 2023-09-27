@@ -24,16 +24,16 @@ const NavBar = ({ onSearch }) => {
           </li>
         </ul>
         <SearchWidget onSearch={handleSearch} />
-        <div className="app-nav__profile">
-          <div className="app-nav__profile-carts">
-            <ShoppingBagOutlinedIcon />
+        <div className="nav-profile">
+          <div className="nav-profile__cart">
+            <ShoppingBagOutlinedIcon className="nav-profile__icon" />
             <span>1 item</span>
           </div>
-          <div className="app-nav__profile-notifications">
-            <NotificationsOutlinedIcon />
+          <div className="nav-profile__notification">
+            <NotificationsOutlinedIcon className="nav-profile__icon" />
           </div>
-          <Link className="app-nav__profile-user" to="/profile">
-            <AccountCircleOutlinedIcon />
+          <Link className="nav-profile__user" to="/profile">
+            <AccountCircleOutlinedIcon className="nav-profile__icon" />
           </Link>
         </div>
       </div>
