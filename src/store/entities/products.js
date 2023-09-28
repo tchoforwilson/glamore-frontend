@@ -6,12 +6,15 @@ const slice = createSlice({
   name: "products",
   initialState: {
     list: [],
-    loading: false,
+    currentProduct: null,
     error: null,
+    loading: false,
+    addCategoryLoading: false,
   },
   reducers: {
     PRODUCTS_REQUESTED: (products) => {
       products.loading = true;
+      products.error = null;
     },
     PRODUCTS_RECEIVED: (products, action) => {
       products.list = action.payload.data;
@@ -21,6 +24,20 @@ const slice = createSlice({
       products.loading = false;
       products.error = action.payload.message;
     },
+
+    ADD_PRODUCT_BEGIN: (products) => {
+      products.addCategoryLoading = true;
+      products.currentProduct = null;
+    },
+    ADD_PRODUCT_SUCCESS: (products, action) => {
+      products.list.push(action.payload.data);
+      products.currentProduct = action.payload.data;
+      products.addCategoryLoading = false;
+    },
+    ADD_PRODUCT_FAILED: (products, action) => {
+      products.addCategoryLoading = false;
+      products.error = action.payload.message;
+    },
   },
 });
 
@@ -28,6 +45,10 @@ export const {
   PRODUCTS_REQUESTED,
   PRODUCTS_RECEIVED,
   PRODUCTS_REQUEST_FAILED,
+
+  ADD_PRODUCT_BEGIN,
+  ADD_PRODUCT_SUCCESS,
+  ADD_PRODUCT_FAILED,
 } = slice.actions;
 
 // Action creators
@@ -51,5 +72,19 @@ export const getAllProducts = (searchQuery) => (dispatch) => {
     })
   );
 };
+
+/**
+ * @breif Add a new product
+ * @param {Object} product Product object to be added.
+ * @returns
+ */
+export const addProduct = (product) =>
+  apiCallBegan({
+    url: URL,
+    data: product,
+    onStart: ADD_PRODUCT_BEGIN.type,
+    onSuccess: ADD_PRODUCT_SUCCESS.type,
+    onError: ADD_PRODUCT_FAILED.type,
+  });
 
 export default slice.reducer;
