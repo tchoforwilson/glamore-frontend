@@ -15,11 +15,11 @@ const NotificationItem = ({ image, description, toggle }) => {
    *  */
 
   return (
-    <Grid container fontSize="14px"  columns={6} sx={{ padding: "1rem" }}>
+    <Grid container fontSize="14px" columns={6} sx={{ padding: "1rem" }}>
       <Grid item xs={2} md={1}>
-        <img src={img3} className={nn.notification_item_image} />
+        <img src={img3} className={nn.notification_item_image} alt="item" />
       </Grid>
-      <Grid item xs={4} md={5} sx={{paddingX: ".5rem"}}>
+      <Grid item xs={4} md={5} sx={{ paddingX: ".5rem" }}>
         <Box
           sx={{
             display: "flex",
@@ -55,12 +55,11 @@ export default function NotificationModal({ toggle }) {
       onClick={(e) => {
         // This complex for testing purposes, all hide/show actions will be managed by parent component
         if (toggle) {
-            
           toggle();
         } else {
-            if(e.target == e.currentTarget){
-                toggleShow((prev) => !prev);
-            }
+          if (e.target === e.currentTarget) {
+            toggleShow((prev) => !prev);
+          }
         }
       }}
     >
@@ -71,11 +70,10 @@ export default function NotificationModal({ toggle }) {
           backgroundColor: "#f1f1f1",
           marginX: "auto",
           marginY: "1rem",
-        
         }}
       >
         <div className={nn.notificationModal_header}>
-            <h3>5 new notifications</h3>
+          <h3>5 new notifications</h3>
         </div>
         <NotificationItem />
         <NotificationItem />
