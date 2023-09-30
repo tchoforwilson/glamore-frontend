@@ -11,7 +11,8 @@
     margin-left: 2rem;
   }
 
-  &__input {
+  &__input,
+  &__textarea {
     border: 0;
     border-bottom: 2px solid $color-secondary;
     display: block;
@@ -29,6 +30,18 @@
       font-weight: 300;
       padding: 0.7rem 1.7rem;
     }
+    &--bordered {
+      border: 0.14rem solid $color-secondary;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      color: $color-black;
+    }
+    &--bordered::placeholder {
+      color: $color-black;
+      font-size: 1.4rem;
+      font-weight: 500;
+      text-transform: capitalize;
+    }
   }
 
   &__error {
@@ -36,5 +49,19 @@
     color: $color-red;
     margin-top: 0.5rem;
     margin-left: 0.1rem;
+  }
+}
+
+/**
+* Form check
+**/
+.form-check {
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+  display: flex;
+  align-items: center;
+  &__label {
+    margin-left: 1rem;
   }
 }

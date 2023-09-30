@@ -50,3 +50,34 @@ ORDER: Base + Typography > general layout + grid > page layout > components
     }
   }
 }
+
+/**
+* Responsiveness for mobile devices
+*/
+
+@mixin respond-mobile {
+  @include respond(phone) {
+    @content;
+  }
+  @include respond(tablet) {
+    @content;
+  }
+}
+
+/**
+* Load fonts
+*/
+@mixin font(
+  $name,
+  $filename,
+  $weight: normal,
+  $format: truetype,
+  $style: normal
+) {
+  @font-face {
+    font-family: #{$name};
+    src: url("../../../fonts/" + $filename) format($format);
+    font-weight: $weight;
+    font-style: $style;
+  }
+}

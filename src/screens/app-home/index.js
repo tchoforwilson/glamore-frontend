@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useMemo } from "react";
 import { NavBar } from "../../layouts";
 import { SearchURLContext } from "../../contexts";
 
 const AppHome = () => {
-  const [searchUrl] = useState("products");
+  const searchURL = useMemo(() => ({ searchUrl: "products" }), []);
   return (
     <React.Fragment>
-      <SearchURLContext.Provider value={{ searchUrl }}>
+      <SearchURLContext.Provider value={searchURL}>
         <NavBar />
       </SearchURLContext.Provider>
       <main></main>

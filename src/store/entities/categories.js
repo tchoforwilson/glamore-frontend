@@ -6,13 +6,18 @@ const slice = createSlice({
   name: "categories",
   initialState: {
     list: [],
-    loading: false,
     error: null,
     currentCategory: null,
+    loading: false,
+    addCategoryLoading: false,
+    getCategoryLoading: false,
+    updateCategoryLoading: false,
+    deleteCategoryLoading: false,
   },
   reducers: {
     GET_CATEGORIES_REQUESTED: (categories) => {
       categories.loading = true;
+      categories.error = null;
     },
     GET_CATEGORIES_SUCCESS: (categories, action) => {
       categories.list = action.payload.data;
@@ -20,6 +25,22 @@ const slice = createSlice({
     },
     GET_CATEGORIES_FAILED: (categories, action) => {
       categories.loading = false;
+      categories.error = action.payload.message;
+    },
+
+    ADD_CATEGORY_BEGIN: (categories, action) => {
+      categories.addCategoryLoading = true;
+      categories.error = null;
+      categories.currentCategory = null;
+    },
+    ADD_CATEGORY_SUCCESS: (categories, action) => {
+      categories.list.push(action.payload.data);
+      categories.currentCategory = action.payload.data;
+      categories.addCategoryLoading = false;
+    },
+    ADD_CATEGORY_FAILED: (categories, action) => {
+      categories.addCategoryLoading = false;
+      categories.error = action.payload.message;
     },
   },
 });
@@ -28,6 +49,10 @@ export const {
   GET_CATEGORIES_REQUESTED,
   GET_CATEGORIES_SUCCESS,
   GET_CATEGORIES_FAILED,
+
+  ADD_CATEGORY_BEGIN,
+  ADD_CATEGORY_SUCCESS,
+  ADD_CATEGORY_FAILED,
 } = slice.actions;
 
 /**
@@ -50,5 +75,19 @@ export const getAllCategories = (searchQuery) => {
     onError: GET_CATEGORIES_FAILED.type,
   });
 };
+
+/**
+ * @breif Add a new product category t
+ * @param {Object} category Category object to be added
+ * @returns
+ */
+export const addCategory = (category) =>
+  apiCallBegan({
+    url: URL,
+    data: category,
+    onStart: ADD_CATEGORY_BEGIN.type,
+    onSuccess: ADD_CATEGORY_SUCCESS.type,
+    onError: ADD_CATEGORY_FAILED.type,
+  });
 
 export default slice.reducer;
