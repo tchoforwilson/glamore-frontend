@@ -32,14 +32,6 @@
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s;
-  }
-}
-
-.add-product-section {
-  &__header {
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: $color-black;
-    margin-bottom: 2rem;
+    overflow-y: scroll;
   }
 }

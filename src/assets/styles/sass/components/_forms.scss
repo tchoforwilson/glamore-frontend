@@ -11,7 +11,8 @@
     margin-left: 2rem;
   }
 
-  &__input {
+  &__input,
+  &__textarea {
     border: 0;
     border-bottom: 2px solid $color-secondary;
     display: block;
@@ -48,5 +49,19 @@
     color: $color-red;
     margin-top: 0.5rem;
     margin-left: 0.1rem;
+  }
+}
+
+/**
+* Form check
+**/
+.form-check {
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+  display: flex;
+  align-items: center;
+  &__label {
+    margin-left: 1rem;
   }
 }

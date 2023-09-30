@@ -49,9 +49,13 @@
   /**
   * Upgrade
   */
-  display: flex;
-  align-items: center;
-  background-color: $color-primary;
-  color: $color-white;
-  font-size: 1.5rem;
+  &--upgrade {
+    display: flex;
+    align-items: center;
+    background-color: $color-primary;
+    color: $color-white;
+    font-size: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
 }
