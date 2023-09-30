@@ -7,15 +7,15 @@ const FormCheckBox = ({ name, label }) => {
   const { values, errors, touched, setFieldValue, setFieldTouched } =
     useFormikContext();
   return (
-    <div class="form__group form-check">
+    <div className="form-check">
       <AppCheckBox
         name={name}
-        value={values[name]}
+        checked={values[name]}
         onChange={(e) => setFieldValue(name, e.target.value)}
         onBlur={() => setFieldTouched(name)}
         className="form-check__input"
       />
-      <label htmlFor={name} class="form-check__label">
+      <label htmlFor={name} className="form-check__label">
         {label}
       </label>
       <FormErrorMessage error={errors[name]} visible={touched[name]} />
