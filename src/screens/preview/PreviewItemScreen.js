@@ -5,8 +5,7 @@ import { SearchURLContext } from '../../contexts';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-
-import { ProductCard } from '../../components/cards';
+import { PreviewCard, ProductCard } from '../../components/cards';
 
 const product = { name: 'Cotton beige T-shirt', price: 700, currency: 'XAF' };
 
@@ -18,7 +17,7 @@ function PreviewItemScreen() {
 			</SearchURLContext.Provider>
 			<section className="section-preview">
 				<div className="preview">
-
+					<PreviewCard />
 					<ArrowBackIcon className="back" />
 				</div>
 			</section>
