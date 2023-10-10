@@ -1,4 +1,4 @@
-export { default as WelcomeScreen } from "./welcome";
+export * from "./welcome";
 export { default as HomeScreen } from "./home";
 export * from "./login";
 export { default as SignUpScreen } from "./signup";
@@ -21,3 +21,4 @@ export * from "./marketing";
 export * from "./store-setting";
 export * from "./not-found";
 export * from "./categories";
+export * from "./preview";

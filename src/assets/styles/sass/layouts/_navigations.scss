@@ -83,7 +83,7 @@
     }
   }
 
-  &__item:not(:first) {
+  &__item:not(:first-child) {
     margin: 2rem;
   }
 

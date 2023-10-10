@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { NavBar } from "../navbar";
-import { SearchURLContext } from "../../contexts";
-import { NavBarContext } from "../../contexts";
+import { SearchURLContext, NavBarContext } from "../../contexts";
 
 /**
  * @breif Render application screen layout
