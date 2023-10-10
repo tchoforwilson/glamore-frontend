@@ -1,0 +1,30 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.store-main {
+  width: 80%;
+  height: 100vh;
+  padding: 2rem;
+  overflow-y: scroll;
+  @include respond-mobile {
+    height: 100dvh;
+    width: 100%;
+    margin-left: 0 !important;
+  }
+}
+
+.store-content {
+  padding: 2rem;
+  width: 100%;
+  @include respond-desk {
+    height: 100vh;
+  }
+  @include respond-mobile {
+    height: 100dvh;
+    margin-top: 2rem;
+  }
+  &--orders {
+    box-shadow: 0 0 0.5rem rgba($color-black, 0.4);
+    border-radius: 1rem;
+  }
+}
