@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { NavBar } from "../../layouts";
 import { SearchURLContext } from "../../contexts";
 
-const AppHome = () => {
+const HomeScreen = () => {
   const searchURL = useMemo(() => ({ searchUrl: "products" }), []);
   return (
     <React.Fragment>
@@ -14,4 +14,4 @@ const AppHome = () => {
   );
 };
 
-export default AppHome;
+export default HomeScreen;

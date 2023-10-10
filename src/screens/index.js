@@ -1,18 +1,25 @@
-export * from "./welcome";
-export { default as HomeScreen } from "./home";
+/**
+ * AUTHENTICATION SCREENS
+ */
 export * from "./login";
-export { default as SignUpScreen } from "./signup";
+export * from "./signup";
 
+/**
+ * PUBLIC SCREENS
+ */
+export * from "./welcome";
+export * from "./info";
+export * from "./home";
 export * from "./shop";
 
-/** PROTECTED ROUTES SCREENS BEGIN WITH APP  */
-// User pages
+/**
+ * PROTECTED ROUTE REQUIRING ID
+ */
 export * from "./profile";
-export * from "./product";
+export * from "./preview-product";
+export * from "./preview-store";
 
 // Store pages
-export { default as AppHomeScreen } from "./app-home";
-export { default as BagScreen } from "./bag";
 export * from "./dashboard";
 export * from "./listings";
 export * from "./orders";
@@ -20,5 +27,3 @@ export * from "./finances";
 export * from "./marketing";
 export * from "./store-setting";
 export * from "./not-found";
-export * from "./categories";
-export * from "./preview";
