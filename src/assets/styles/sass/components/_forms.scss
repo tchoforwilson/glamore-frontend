@@ -32,7 +32,7 @@
     }
     &--bordered {
       border: 0.14rem solid $color-secondary;
-      padding: 1rem 2rem;
+      padding: 0.5rem 2rem;
       border-radius: 1rem;
       color: $color-black;
     }
@@ -56,12 +56,30 @@
 * Form check
 **/
 .form-check {
-  &:not(:last-child) {
-    margin-bottom: 4rem;
-  }
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   &__label {
     margin-left: 1rem;
+  }
+}
+
+/*
+* Form Select
+*/
+.form-select {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  &__input {
+    font-size: 1.4rem;
+    font-weight: 400;
+
+    &--bordered {
+      border: 0.14rem solid $color-secondary;
+      padding: 0.5rem 2rem;
+      border-radius: 1rem;
+      color: $color-black;
+    }
   }
 }

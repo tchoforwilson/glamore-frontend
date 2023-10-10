@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import { StoreHeader, StoreScreenLayout, OrderTab } from "../../layouts";
+import { StoreScreenLayout, OrderTab } from "../../layouts";
 import OrderItem from "./OrderItem";
 
 const orders = [
@@ -41,21 +41,14 @@ const orders = [
 
 const OrdersScreen = () => {
   return (
-    <StoreScreenLayout>
-      <StoreHeader title="Orders" />
-      <OrderTab />
-      <Box
-        sx={{
-          width: "100%",
-          height: "100%",
-          padding: "3rem",
-          boxShadow: "0 0 0.5rem rgba(0,0,0, 0.4)",
-          borderRadius: "1rem",
-        }}
-      >
-        {orders.map((order) => (
-          <OrderItem key={order._id} order={order} />
-        ))}
+    <StoreScreenLayout title="Orders">
+      <Box className="store-content">
+        <OrderTab />
+        <div className="orders">
+          {orders.map((order) => (
+            <OrderItem key={order._id} order={order} />
+          ))}
+        </div>
       </Box>
     </StoreScreenLayout>
   );

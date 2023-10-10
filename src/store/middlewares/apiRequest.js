@@ -26,20 +26,23 @@ const apiRequest =
       if (onSuccess) dispatch({ type: onSuccess, payload: res.data });
     } catch (error) {
       if (
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
+        (error?.response &&
+          error?.response?.data &&
+          error?.response?.data?.message) ||
+        error?.message ||
+        error?.toString()
       ) {
-        console.log(error.response);
+        console.log(error?.response);
         const data = {
           message:
-            error.response.data.message || error.message || error.toString(),
-          status: error.response.data.status || error.status,
+            error?.response?.data?.message ||
+            error?.message ||
+            error?.toString(),
+          status: error?.response?.data?.status || error?.status,
         };
         dispatch(actions.apiCallFailed(data));
-        if (onError) dispatch({ type: onError, payload: error.response.data });
+        if (onError)
+          dispatch({ type: onError, payload: error?.response?.data });
       }
     }
   };

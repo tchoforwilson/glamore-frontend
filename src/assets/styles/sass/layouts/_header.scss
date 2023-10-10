@@ -1,8 +1,35 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .header {
-  font-weight: 500;
-  font-size: 1.8rem;
-  color: $color-black;
-  text-transform: capitalize;
+  &__title {
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: $color-black;
+    text-transform: capitalize;
+    @include respond-mobile {
+      color: $color-white;
+    }
+  }
+
+  &__icon {
+    display: none !important;
+    color: $color-white;
+    font-size: 3rem !important;
+    @include respond-mobile {
+      display: inline-block !important;
+    }
+  }
+
+  @include respond-mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: $color-primary;
+    z-index: 4;
+  }
 }

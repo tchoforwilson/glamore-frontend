@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .dashboard-header {
   display: flex;
@@ -9,12 +10,19 @@
   padding-bottom: 1.5rem;
   border-radius: 1rem;
 
+  @include respond-mobile {
+  }
+
   &__item {
     padding-right: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @include respond-mobile {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
   }
 
   &__separator {
@@ -73,6 +81,9 @@
     font-weight: 500;
     text-transform: capitalize;
     margin-bottom: 1rem;
+    @include respond-mobile {
+      text-align: center;
+    }
   }
 }
 
@@ -82,6 +93,7 @@
   // align-items: center;
   // flex-wrap: wrap;
   display: inline-block;
+  text-align: center;
 }
 
 .product-item {
@@ -89,7 +101,7 @@
   object-position: center;
   position: relative;
   display: inline-block;
-  max-width: 12rem;
+  width: 14rem;
   margin-left: 1rem;
   margin-right: 1rem;
   margin-bottom: 2rem;

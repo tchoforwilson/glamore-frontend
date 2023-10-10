@@ -1,26 +1,13 @@
 import React from "react";
 import { Box } from "@mui/material";
-import { StoreHeader, StoreScreenLayout } from "../../layouts";
+import { StoreScreenLayout } from "../../layouts";
 import { UpgradeButton } from "../../components/buttons";
 
 const MarketingScreen = () => {
   return (
-    <StoreScreenLayout>
-      <StoreHeader title="Marketing & Promotion" />
-      <Box
-        sx={{
-          width: "100%",
-          height: "100vh",
-          padding: "3rem",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-evenly",
-            alignItems: "flex-start",
-          }}
-        >
+    <StoreScreenLayout title="Marketing & Promotion">
+      <Box className="store-content">
+        <div className="marketing">
           <div className="plan plan-standard">
             <p>Standard Marketing Plan</p>
             <div className="plan__bill">2500/month</div>
@@ -45,7 +32,7 @@ const MarketingScreen = () => {
             <p>Priority Listing in Trending Products</p>
             <UpgradeButton />
           </div>
-        </Box>
+        </div>
       </Box>
     </StoreScreenLayout>
   );

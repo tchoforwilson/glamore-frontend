@@ -9,6 +9,7 @@ const slice = createSlice({
     error: null,
     currentCategory: null,
     loading: false,
+    count: 0,
     addCategoryLoading: false,
     getCategoryLoading: false,
     updateCategoryLoading: false,
@@ -42,6 +43,10 @@ const slice = createSlice({
       categories.addCategoryLoading = false;
       categories.error = action.payload.message;
     },
+
+    GET_CATEGORIES_COUNT: (categories, action) => {
+      categories.count = action.payload.data;
+    },
   },
 });
 
@@ -53,6 +58,8 @@ export const {
   ADD_CATEGORY_BEGIN,
   ADD_CATEGORY_SUCCESS,
   ADD_CATEGORY_FAILED,
+
+  GET_CATEGORIES_COUNT,
 } = slice.actions;
 
 /**
@@ -89,5 +96,19 @@ export const addCategory = (category) =>
     onSuccess: ADD_CATEGORY_SUCCESS.type,
     onError: ADD_CATEGORY_FAILED.type,
   });
+
+/**
+ * @breif Count the number of categories in the database
+ * @param {Object} countQuery Count query object
+ * @returns
+ */
+export const getCategoriesCount = (countQuery) => {
+  const query = createQuery(countQuery);
+
+  return apiCallBegan({
+    url: `${URL}/count?${query}`,
+    onSuccess: GET_CATEGORIES_COUNT.type,
+  });
+};
 
 export default slice.reducer;

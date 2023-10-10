@@ -1,15 +1,20 @@
 @use "../abstracts/variables" as *;
 
+.orders {
+  box-shadow: 0 0 0.5rem rgba($color-black, 0.4);
+  border-radius: 1rem;
+}
+
 .order-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0.5rem;
-  border-bottom: 0.14rem solid rgba($color-secondary, 0.7);
   font-family: $font-mustica-pro;
   font-weight: 600;
   font-size: 1.4rem;
   &:not(:last-child) {
+    border-bottom: 0.14rem solid rgba($color-secondary, 0.7);
     margin-bottom: 0.3rem;
   }
 

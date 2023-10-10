@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Stack } from "@mui/material";
-import { StoreHeader, StoreScreenLayout } from "../../layouts";
+import { StoreScreenLayout } from "../../layouts";
 import { AppSelect } from "../../components/inputs";
 import DashBoardHeaderItem from "./DashBoardHeaderItem";
 import ProductItem from "./ProductItem";
@@ -8,15 +8,8 @@ import orderedImage from "../../assets/images/most-ordered.jpg";
 
 const DashBoardScreen = () => {
   return (
-    <StoreScreenLayout>
-      <StoreHeader title="dashboard" />
-      <Box
-        sx={{
-          width: "100%",
-          height: "100vh",
-          padding: "3rem",
-        }}
-      >
+    <StoreScreenLayout title="dashboard">
+      <Box className="store-content">
         <div className="w-100 d-flex justify-content--end">
           <AppSelect name="date" items={[{ id: "-1", name: "Last 7days" }]} />
         </div>

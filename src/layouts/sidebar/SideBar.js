@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { SearchWidget } from "../../components/searchwiget";
 import { SearchURLContext } from "../../contexts";
 import SideBarItem from "./SideBarItem";
@@ -13,6 +13,7 @@ const items = [
 ];
 
 const SideBar = () => {
+  const searchURL = useMemo(() => ({ searchUrl: "orders" }), []);
   return (
     <div className="sidebar">
       <img
@@ -21,7 +22,7 @@ const SideBar = () => {
         className="sidebar__logo"
       />
       <div className="sidebar__search">
-        <SearchURLContext.Provider value={{ searchUrl: "orders" }}>
+        <SearchURLContext.Provider value={searchURL}>
           <SearchWidget />
         </SearchURLContext.Provider>
       </div>

@@ -1,4 +1,12 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.section-profile {
+  width: 100%;
+  @include respond-mobile {
+    padding: 2rem;
+  }
+}
 
 .profile {
   margin-left: auto;
@@ -8,6 +16,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @include respond-mobile {
+    max-width: 100%;
+  }
 
   & figure {
     margin-bottom: 3rem;
@@ -31,13 +43,15 @@
   }
 
   &__button {
+    display: flex;
+    align-items: center;
     &:link,
     &:visited {
       text-transform: capitalize;
       color: $color-primary;
       opacity: 1;
       & span {
-        margin-left: 2rem;
+        margin-left: 1.5rem;
         font-size: 1rem;
         font-weight: 700;
       }
@@ -50,23 +64,26 @@
   }
 
   &__icon {
-    font-size: 2.5rem !important;
+    font-size: 2.2rem !important;
     color: $color-secondary;
   }
 }
 
 .section-header {
   color: #111;
+  font-weight: 400;
+  font-family: $font-source-sans, "san-serif";
+  font-size: 1.5rem;
   text-align: center;
   text-transform: capitalize;
   text-decoration: underline;
-  font-family: $font-source-sans, "san-serif";
-  font-weight: 400;
-  font-size: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .product-items {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  // display: flex;
+  // justify-content: center;
+  // flex-wrap: wrap;
+  display: inline-block;
+  text-align: center;
 }

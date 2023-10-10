@@ -10,9 +10,9 @@ import React from "react";
  */
 const FinanceItem = ({ title, figure, description, children }) => {
   return (
-    <div className="finance">
-      <span className="finance__title">{title}</span>
-      <h2 className="finance__figure">
+    <div className="finance-item">
+      <span className="finance-item__title">{title}</span>
+      <h2 className="finance-item__figure">
         {figure} {description && <span className="ms-1">{description}</span>}
       </h2>
       {children && children}

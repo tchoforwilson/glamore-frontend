@@ -1,18 +1,18 @@
 import React from "react";
+import { currencyFormatter } from "../../utilities/functions";
 
 const ProductCard = ({ product, ...otherProps }) => {
   return (
-    <figure className="card product-card">
+    <figure className="card product-card" {...otherProps}>
       <img
-        src={require("../../assets/images/t-shirt.jpg")}
+        src={require("../../assets/images/list.jpg")}
         alt={product.name}
         className="product-card__image"
       />
       <figcaption>
         <p className="product-card__name">{product.name}</p>
         <p className="product-card__price">
-          <span>{product.currency}</span>
-          <span>{product.price}</span>
+          {currencyFormatter(product.currency, product.price)}
         </p>
       </figcaption>
     </figure>

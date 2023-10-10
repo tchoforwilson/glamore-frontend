@@ -1,4 +1,5 @@
 import React from "react";
+import { numberFormatter } from "../../utilities/functions";
 
 const OrderItem = ({ order }) => {
   return (
@@ -10,7 +11,7 @@ const OrderItem = ({ order }) => {
       </div>
       <div className="order-item__total">
         <span>Total:</span>
-        <span>{order.amount}</span>
+        <span>{numberFormatter.format(order.amount)}</span>
         <span>{order.currency}</span>
       </div>
       <div className="order-item__time">

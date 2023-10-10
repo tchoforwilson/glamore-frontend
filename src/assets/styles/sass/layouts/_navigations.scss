@@ -32,21 +32,68 @@
   align-items: center;
   width: 100%;
 
+  @include respond-mobile {
+    position: relative;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: $color-primary;
+    box-shadow: 0 0 0.4rem rgba($color-black, 0.3);
+  }
+
+  &__icon {
+    font-size: 2.5rem !important;
+    display: none !important;
+    @include respond-mobile {
+      display: inline-block !important;
+      color: $color-white;
+    }
+  }
+
   &__collapse {
     display: flex;
     align-items: center;
+    @include respond-mobile {
+      display: none;
+    }
+    /* Nav collapse is active*/
+    &.active {
+      background-color: $color-primary;
+      display: inline-block;
+      position: absolute;
+      top: 5rem;
+      left: 0;
+      right: 0;
+    }
+    /* Search Widget*/
+    &.active .search-widget {
+      margin-left: 0rem;
+      padding: 1rem 1.5rem;
+    }
+    &.active .search-widget .search-widget__input {
+      border-radius: 0.5rem;
+    }
   }
 
   &__menu {
     list-style: none;
     display: flex;
     align-items: center;
+    @include respond-mobile {
+      flex-direction: column;
+    }
   }
 
   &__item:not(:first) {
     margin: 2rem;
   }
 
+  &__item {
+    @include respond-mobile {
+      width: 100%;
+    }
+  }
+
+  /* Nav Links*/
   &__link {
     &:link,
     &:visited {
@@ -57,6 +104,9 @@
       display: inline-block;
       padding: 1rem 1.5rem;
       transition: all 0.4s;
+      @include respond-mobile {
+        color: $color-white;
+      }
     }
     &:active,
     &:hover {
@@ -78,13 +128,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 0.16rem solid $color-black;
+    border: 0.13rem solid $color-black;
     border-radius: 2rem;
-    padding: 0.1rem 1rem 0.1rem 0.1rem;
+    padding: 0.2rem 0.8rem;
+    & span {
+      font-size: 1.6rem;
+    }
+    @include respond-mobile {
+      color: $color-white;
+      border: 0.13rem solid $color-white;
+    }
   }
 
   &__icon {
     font-size: 2.5rem !important;
+    @include respond-mobile {
+      color: $color-white;
+    }
   }
 }
 

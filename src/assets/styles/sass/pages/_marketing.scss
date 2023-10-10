@@ -1,4 +1,17 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.marketing {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+
+  @include respond-mobile {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 .plan {
   padding: 2rem 5rem;
@@ -7,6 +20,10 @@
   color: $color-black;
   text-align: center;
   height: auto;
+  @include respond-mobile {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
 
   &__bill {
     font-size: 2rem;

@@ -7,9 +7,11 @@ import { AppSelect } from "../inputs";
  * @breif Render a form select field
  * @param {String} name Form select name
  * @param {Array} items Form select items list
+ * @param {Boolean} multiple Form select multiple items
+ * @param {Boolean} isBordered Form with borders
  * @returns
  */
-const FormSelect = ({ name, items, isBordered = false }) => {
+const FormSelect = ({ name, items, multiple = false, isBordered = false }) => {
   const { values, errors, touched, setFieldValue, setFieldTouched } =
     useFormikContext();
   return (
@@ -17,6 +19,7 @@ const FormSelect = ({ name, items, isBordered = false }) => {
       <AppSelect
         name={name}
         items={items}
+        multiple={multiple}
         value={values[name]}
         onChange={(e) => setFieldValue(name, e.target.value)}
         onBlur={() => setFieldTouched(name)}

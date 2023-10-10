@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Stack } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import { StoreHeader, StoreScreenLayout } from "../../layouts";
+import { StoreScreenLayout } from "../../layouts";
 import { AddProductModal } from "../../components/modals";
 import { AppSelect } from "../../components/inputs";
 import { ListingTable } from "../../components/tables";
@@ -16,8 +16,7 @@ const ListingScreen = () => {
     setOpenModal(true);
   };
   return (
-    <StoreScreenLayout>
-      <StoreHeader title="product catalogue" />
+    <StoreScreenLayout title="product catalogue">
       <Box
         sx={{
           width: "100%",

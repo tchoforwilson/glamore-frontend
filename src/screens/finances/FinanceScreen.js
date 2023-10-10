@@ -1,53 +1,64 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Box, Grid } from "@mui/material";
-import { StoreHeader, StoreScreenLayout } from "../../layouts";
+import { StoreScreenLayout } from "../../layouts";
 import FinanceItem from "./FinanceItem";
 import { numberFormatter } from "../../utilities/functions";
 
 const FinanceScreen = () => {
   return (
-    <StoreScreenLayout>
-      <StoreHeader title="Finances & Overview" />
-      <Box
-        sx={{
-          width: "100%",
-          height: "100vh",
-          padding: "2rem",
-        }}
-      >
+    <StoreScreenLayout title="Finances & Overview">
+      <Box className="store-content">
         <Link to="finace-report" className="finance-report">
           download finance report
         </Link>
         <Grid container spacing={3}>
           <Grid item md={4} sm={12}>
-            <FinanceItem title="Discount sales" figure={52} description="FCFA">
-              <Link to="/cash-out" className="finance__button">
+            <FinanceItem
+              title="Discount sales"
+              figure={numberFormatter.format(52)}
+              description="FCFA"
+            >
+              <Link to="/cash-out" className="finance-item__button">
                 cashout
               </Link>
             </FinanceItem>
             <FinanceItem
               title="Discount sales"
-              figure={52}
+              figure={numberFormatter.format(52)}
               description="Items"
             />
-            <div className="d-flex justify-content--between">
-              <FinanceItem title="Positive reviews" figure={163} />
-              <FinanceItem title="Negative reviews" figure={4} />
-            </div>
+
+            <Grid container spacing={2}>
+              <Grid item sx={6}>
+                <FinanceItem
+                  title="Positive reviews"
+                  figure={numberFormatter.format(163)}
+                />
+              </Grid>
+              <Grid item sx={6}>
+                <FinanceItem
+                  title="Negative reviews"
+                  figure={numberFormatter.format(4)}
+                />
+              </Grid>
+            </Grid>
           </Grid>
           <Grid item md={4} sm={12}>
             <FinanceItem
               title="Average customer order amount"
-              figure="10,600"
+              figure={numberFormatter.format(10600)}
               description="FCFA"
             />
             <FinanceItem
               title="Average recurring customers"
-              figure={251}
+              figure={numberFormatter.format(251)}
               description="People"
             />
-            <FinanceItem title="New customers" figure={250}>
+            <FinanceItem
+              title="New customers"
+              figure={numberFormatter.format(250)}
+            >
               <p>
                 Since January 31<sub>st</sub> 2023
               </p>

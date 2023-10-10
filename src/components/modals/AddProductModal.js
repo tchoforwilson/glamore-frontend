@@ -45,12 +45,26 @@ const AddProductModal = ({ isOpen = false }) => {
                 />
                 <div className="d-flex justify-content--between align-items--center">
                   <FormSelect
+                    name="category"
+                    items={[{ id: "-1", name: "Category" }]}
+                    isBordered={true}
+                  />
+                  <FormSelect
+                    name="materials"
+                    items={[{ id: "-1", name: "Materials" }]}
+                    isBordered={true}
+                  />
+                </div>
+                <div className="d-flex justify-content--between align-items--center">
+                  <FormSelect
                     name="gender"
                     items={[{ id: "-1", name: "Gender" }]}
+                    isBordered={true}
                   />
                   <FormSelect
                     name="materials"
                     items={[{ id: "-1", name: "Colors" }]}
+                    isBordered={true}
                   />
                 </div>
                 <div className="ms-3">

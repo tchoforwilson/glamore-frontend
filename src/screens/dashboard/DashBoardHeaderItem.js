@@ -1,6 +1,7 @@
 import React from "react";
 import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined";
 import ArrowUpwardOutlinedIcon from "@mui/icons-material/ArrowUpwardOutlined";
+import { numberFormatter } from "../../utilities/functions";
 
 /**
  * @breif Display a single dashboard header item
@@ -16,11 +17,12 @@ const DashBoardHeaderItem = ({
   percentage,
   increase = true,
 }) => {
-  const nf = new Intl.NumberFormat();
   return (
     <div className="dashboard-header__item">
       <span className="dashboard-header__title">{title}</span>
-      <h1 className="dashboard-header__number">{nf.format(number)}</h1>
+      <h1 className="dashboard-header__number">
+        {numberFormatter.format(number)}
+      </h1>
       <div className="d-flex align-items--center">
         {increase ? (
           <ArrowUpwardOutlinedIcon className="dashboard-header__icon upward" />

@@ -56,10 +56,22 @@ ORDER: Base + Typography > general layout + grid > page layout > components
 */
 
 @mixin respond-mobile {
+  @include respond(tablet) {
+    @content;
+  }
   @include respond(phone) {
     @content;
   }
-  @include respond(tablet) {
+}
+
+/**
+* Responsiveness for big devices
+*/
+@mixin respond-desk {
+  @include respond(desktop) {
+    @content;
+  }
+  @include respond(laptop) {
     @content;
   }
 }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Box, Container, Grid } from "@mui/material";
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import * as Yup from "yup";
-import { StoreHeader, StoreScreenLayout } from "../../layouts";
+import { StoreScreenLayout } from "../../layouts";
 import { FormContainer, FormFieldLabel } from "../../components/forms";
 import { SubmitButton } from "../../components/buttons";
 
@@ -23,13 +23,12 @@ const StoreSettingScreen = () => {
   };
 
   return (
-    <StoreScreenLayout>
-      <StoreHeader title="Store settings" />
+    <StoreScreenLayout title="Store settings">
       <Box
         sx={{
           width: "100%",
           height: "100vh",
-          padding: "3rem",
+          padding: "2rem",
         }}
       >
         <Container>
@@ -42,7 +41,13 @@ const StoreSettingScreen = () => {
                     style={{
                       backgroundImage: `url(${require("./background.png")})`,
                     }}
-                  ></div>
+                  >
+                    <img
+                      className="setting-store-logo"
+                      src={require(`../../assets/images/profile.png`)}
+                      alt="Store Logo"
+                    />
+                  </div>
                 </Grid>
               </Grid>
             </section>
