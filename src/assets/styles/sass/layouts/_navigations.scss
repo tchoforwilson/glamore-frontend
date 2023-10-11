@@ -105,6 +105,8 @@
       padding: 1rem 1.5rem;
       transition: all 0.4s;
       @include respond-mobile {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
         color: $color-white;
       }
     }
