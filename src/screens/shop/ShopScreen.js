@@ -1,17 +1,10 @@
-import React, { useMemo } from "react";
-import { NavBar } from "../../layouts";
-import { SearchURLContext } from "../../contexts";
+import React from "react";
+import { AppScreenLayout } from "../../layouts";
+import { useParams } from "react-router-dom";
 
 const ShopScreen = () => {
-  const searchURL = useMemo(() => ({ searchUrl: "products" }), []);
-  return (
-    <React.Fragment>
-      <SearchURLContext.Provider value={searchURL}>
-        <NavBar />
-      </SearchURLContext.Provider>
-      <main></main>
-    </React.Fragment>
-  );
+  const { id } = useParams();
+  return <AppScreenLayout searchPath={`${id}/products`}></AppScreenLayout>;
 };
 
 export default ShopScreen;
