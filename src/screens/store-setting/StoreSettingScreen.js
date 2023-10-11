@@ -34,7 +34,7 @@ const StoreSettingScreen = () => {
         <Container>
           <div className="h-100 w-100 d-flex flex-column align-items--center justify-content--center">
             <section className="section-setting-image">
-              <Grid container>
+              <Grid container sx={{ justifyContent: "center" }}>
                 <Grid item md={8}>
                   <div
                     className="setting-background-image"
@@ -63,14 +63,14 @@ const StoreSettingScreen = () => {
                 onSubmit={handleSubmit}
               >
                 <Grid container spacing={6} sx={{ marginBottom: "2.5rem" }}>
-                  <Grid item md={6}>
+                  <Grid item md={6} sm={12}>
                     <FormFieldLabel
                       label="Store name"
                       name="name"
                       placeholder="Store name"
                     />
                   </Grid>
-                  <Grid item md={6}>
+                  <Grid item md={6} sm={12}>
                     <FormFieldLabel
                       label="Email"
                       name="email"
@@ -80,14 +80,14 @@ const StoreSettingScreen = () => {
                   </Grid>
                 </Grid>
                 <Grid container spacing={6} sx={{ marginBottom: "2.5rem" }}>
-                  <Grid item md={6}>
+                  <Grid item md={6} sm={12}>
                     <FormFieldLabel
                       label="Location"
                       name="location"
                       placeholder="Store location"
                     />
                   </Grid>
-                  <Grid item md={6}>
+                  <Grid item md={6} sm={12}>
                     <FormFieldLabel
                       label="Phone Address"
                       name="phone"
