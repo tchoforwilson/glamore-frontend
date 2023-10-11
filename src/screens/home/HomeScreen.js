@@ -1,17 +1,8 @@
-import React, { useMemo } from "react";
-import { NavBar } from "../../layouts";
-import { SearchURLContext } from "../../contexts";
+import React from "react";
+import { AppScreenLayout } from "../../layouts";
 
 const HomeScreen = () => {
-  const searchURL = useMemo(() => ({ searchUrl: "products" }), []);
-  return (
-    <React.Fragment>
-      <SearchURLContext.Provider value={searchURL}>
-        <NavBar />
-      </SearchURLContext.Provider>
-      <main></main>
-    </React.Fragment>
-  );
+  return <AppScreenLayout searchPath="products"></AppScreenLayout>;
 };
 
 export default HomeScreen;
