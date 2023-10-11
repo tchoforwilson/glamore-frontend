@@ -20,7 +20,7 @@ const NavBar = ({ onSearch }) => {
       />
       <div className={`app-nav__collapse ${isOpen ? "active" : ""}`}>
         <ul className="app-nav__menu">
-          <NavLink title="home" to="/app-home" />
+          <NavLink title="home" to="/home" />
           <NavLink title="shop" to="/shop" />
         </ul>
         <SearchWidget onSearch={handleSearch} />
