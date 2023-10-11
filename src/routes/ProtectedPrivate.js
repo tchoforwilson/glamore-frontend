@@ -1,5 +1,5 @@
-import Protected from "./protected";
-import Private from "./private";
+import Protected from "./Protected";
+import Private from "./Private";
 
 /**
  * @breif Protected and restrict route to users of particular roles
