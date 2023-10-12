@@ -12,14 +12,15 @@
 
 .product-card {
   margin-bottom: 2rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  width: 24rem;
-  height: 24rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  width: 22rem;
+  height: 25rem;
+  padding: 0.5rem;
   display: inline-block;
   @include respond-mobile {
     width: 16rem;
-    height: 16rem;
+    height: 18rem;
   }
   & figcaption {
     text-align: center;
