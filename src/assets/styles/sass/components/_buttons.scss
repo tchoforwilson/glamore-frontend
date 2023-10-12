@@ -80,6 +80,9 @@
   color: $color-light-grey;
   text-transform: capitalize;
   border-color: $color-black;
+  &:hover {
+    box-shadow: 0.1rem 0.1rem 0.1rem rgba($color-black, $alpha: 0.15);
+  }
 }
 
 /**
@@ -90,6 +93,9 @@
   justify-content: center;
   align-items: center;
   border-color: $color-secondary;
+  &:hover {
+    box-shadow: 0.1rem 0.1rem 0.1rem rgba($color-black, $alpha: 0.15);
+  }
 
   &__text {
     text-transform: capitalize;
