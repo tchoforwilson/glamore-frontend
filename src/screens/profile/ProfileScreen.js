@@ -36,7 +36,10 @@ const ProfileScreen = () => {
         </div>
       </section>
       <section className="section-items">
-        <h2 className="section-header">saved items</h2>
+        <div className="section-header">
+          <span className="section-header__item active">saved items</span>
+          <span className="section-header__item">shops you follow</span>
+        </div>
         <div className="product-items">
           {Array.from({ length: 20 }).map((_, index) => (
             <ProductCard key={index} product={product} />
