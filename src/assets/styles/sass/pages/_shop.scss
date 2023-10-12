@@ -1,0 +1,48 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.shop-categories {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  overflow-x: scroll; /* for Chrome, Safari, and Opera */
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+
+  &__icon {
+    font-size: 3rem !important;
+    @include respond-mobile {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    background-color: $color-ancestral-water;
+    font-size: 1.125rem;
+    font-weight: 400;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    text-transform: capitalize;
+    &.active {
+      background-color: $color-twining-vine;
+      color: $color-white;
+    }
+    @include respond-mobile {
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+.shop-products {
+  &__items {
+    margin-top: 2rem;
+    display: inline-block;
+    text-align: center;
+  }
+}
