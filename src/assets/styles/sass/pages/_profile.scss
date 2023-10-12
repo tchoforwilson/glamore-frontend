@@ -70,14 +70,26 @@
 }
 
 .section-header {
-  color: #111;
-  font-weight: 400;
-  font-family: $font-source-sans, "san-serif";
-  font-size: 1.5rem;
-  text-align: center;
-  text-transform: capitalize;
-  text-decoration: underline;
+  display: flex;
   margin-bottom: 2rem;
+  justify-content: center;
+  &__item {
+    color: #111;
+    font-weight: 400;
+    font-family: $font-source-sans, "san-serif";
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    border-bottom: 0.15rem solid transparent;
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+    &:hover {
+      border-color: $color-primary;
+    }
+    &.active {
+      border-color: #111;
+    }
+  }
 }
 
 .product-items {
