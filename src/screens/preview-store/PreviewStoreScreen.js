@@ -16,7 +16,7 @@ const PreviewStoreScreen = () => {
       <Container>
         {/* Store Images */}
         <section className="preview-store__section section-images">
-          <Grid container spacing={1}>
+          <Grid container spacing={1} sx={{ justifyContent: "center" }}>
             <Grid
               item
               md={1}
@@ -28,12 +28,12 @@ const PreviewStoreScreen = () => {
               </div>
             </Grid>
             <Grid item md={11} sm={11}>
-              <div
-                className="preview-store__background"
-                style={{
-                  backgroundImage: `url(${require("./background.png")})`,
-                }}
-              >
+              <div className="preview-store__images">
+                <img
+                  src={require("../../assets/images/hat-boy.png")}
+                  className="preview-store__background"
+                  alt="store background"
+                />
                 <img
                   src={require("../../assets/images/profile.png")}
                   className="preview-store__logo"
