@@ -17,6 +17,14 @@
     align-items: flex-start;
   }
 
+  &__menu {
+    @include respond-mobile {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
   &__item {
     font-size: 1.3rem;
     font-weight: 500;
@@ -41,6 +49,7 @@
   .search-widget {
     @include respond-mobile {
       margin: 1rem 0rem;
+      width: 100%;
     }
     &__input {
       background-color: $color-green;
