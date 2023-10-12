@@ -1,34 +1,14 @@
 @use "../abstracts/variables" as *;
 
-.section-quality,
-.section-items,
-.section-orders,
-.section-us {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: $color-isabelline;
-}
-
-.section-items {
-  background-color: $color-white;
-}
-
-.section-us {
-  background-color: $color-platinum;
-}
-
-p.or {
-  color: $color-secondary;
-  font-size: 1.6rem;
-  font-weight: 700;
-}
-
-.section-icon {
-  color: $color-secondary;
-  font-size: 4rem !important;
-  margin-top: 3rem;
-}
-.section-img {
+[class^="home"] {
   width: 100%;
-  height: auto;
+  margin-bottom: 4rem;
+}
+
+.home-header {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
 }
