@@ -9,8 +9,8 @@ import { Link, useLocation } from "react-router-dom";
 const NavLink = ({ title, to }) => {
   const location = useLocation();
   return (
-    <li className={`app-nav__item ${location.pathname === to ? "active" : ""}`}>
-      <Link className="app-nav__link" to={to}>
+    <li className={`nav__item ${location.pathname === to ? "active" : ""}`}>
+      <Link className="nav__link" to={to}>
         {title}
       </Link>
     </li>
