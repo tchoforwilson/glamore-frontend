@@ -44,6 +44,10 @@
   justify-content: space-between;
 }
 
+.justify-content--evenly {
+  justify-content: space-evenly;
+}
+
 /*MARGINS*/
 
 //Auto margins
@@ -74,16 +78,16 @@ $auto-margin-prefixes: t, s, b, e;
 @for $i from 1 through 5 {
   // Top margins
   .mt-#{$i} {
-    margin-left: #{$i}rem;
+    margin-top: #{$i}rem;
   }
   // Right margins
   .me-#{$i} {
-    margin-left: #{$i}rem;
+    margin-right: #{$i}rem;
   }
 
   // Bottom margins
   .mb-#{$i} {
-    margin-left: #{$i}rem;
+    margin-bottom: #{$i}rem;
   }
 
   // Left margins
