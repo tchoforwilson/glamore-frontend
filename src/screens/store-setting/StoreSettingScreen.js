@@ -35,15 +35,15 @@ const StoreSettingScreen = () => {
           <div className="h-100 w-100 d-flex flex-column align-items--center justify-content--center">
             <section className="section-setting-image">
               <Grid container sx={{ justifyContent: "center" }}>
-                <Grid item md={8}>
-                  <div
-                    className="setting-background-image"
-                    style={{
-                      backgroundImage: `url(${require("./background.png")})`,
-                    }}
-                  >
+                <Grid item md={10} sm={12} sx={{ width: "100%" }}>
+                  <div className="setting-images">
                     <img
-                      className="setting-store-logo"
+                      src={require("./background.png")}
+                      className="setting-images__background"
+                      alt="store background"
+                    />
+                    <img
+                      className="setting-images__logo"
                       src={require(`../../assets/images/profile.png`)}
                       alt="Store Logo"
                     />
