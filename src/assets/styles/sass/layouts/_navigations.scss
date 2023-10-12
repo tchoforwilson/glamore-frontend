@@ -24,7 +24,7 @@
 }
 
 /**App Navigation */
-.app-nav {
+.nav {
   padding: 2rem 0rem;
   display: flex;
   justify-content: center;
@@ -101,7 +101,7 @@
       font-size: $default-font-size;
       font-weight: 500;
       display: inline-block;
-      padding: 1rem 1.5rem;
+      padding: 1rem;
       transition: all 0.4s;
       @include respond-mobile {
         padding-top: 0.5rem;
@@ -112,6 +112,27 @@
     &:active,
     &:hover {
       text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  /* Search widget*/
+
+  & .search-widget {
+    margin-left: 2rem;
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 3rem;
+
+  &__item {
+    padding: 0.5rem 2rem;
+    &:not(:first-child) {
+      margin-left: 2rem;
     }
   }
 }
@@ -123,6 +144,7 @@
   margin-left: 3rem;
   & > * {
     margin: 0rem 1rem;
+    cursor: pointer;
   }
 
   &__cart {
@@ -132,6 +154,7 @@
     border: 0.13rem solid $color-black;
     border-radius: 2rem;
     padding: 0.2rem 0.8rem;
+    cursor: pointer;
     & span {
       font-size: 1.6rem;
     }
@@ -141,8 +164,26 @@
     }
   }
 
+  &__notification {
+    position: relative;
+    cursor: pointer;
+  }
+  &__badge {
+    position: absolute;
+    left: 1.5rem;
+    top: -1rem;
+    background-color: $color-red;
+    border-radius: 5rem;
+    padding: 0.2rem;
+    color: $color-white;
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+
   &__icon {
-    font-size: 2.5rem !important;
+    cursor: pointer;
+    color: $color-primary;
+    font-size: 3rem !important;
     @include respond-mobile {
       color: $color-white;
     }
