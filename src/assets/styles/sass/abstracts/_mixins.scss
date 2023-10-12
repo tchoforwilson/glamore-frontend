@@ -65,6 +65,16 @@ ORDER: Base + Typography > general layout + grid > page layout > components
 }
 
 /**
+* Responsiveness for tablets and small laptops
+*/
+
+@mixin respond-tablab {
+  @include respond(laptop) {
+    @content;
+  }
+}
+
+/**
 * Responsiveness for big devices
 */
 @mixin respond-desk {
