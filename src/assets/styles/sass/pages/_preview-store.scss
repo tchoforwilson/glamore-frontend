@@ -1,0 +1,67 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.preview-store__section {
+  &.section-store-products {
+    margin-top: 3rem;
+  }
+}
+.preview-store {
+  &__icon-container {
+    padding: 1rem;
+    text-align: center;
+    &:hover {
+      box-shadow: 0.3rem 0.3rem 0.3rem 0.3rem rgba($color-black, 0.15);
+      border-radius: 20rem; // TODO: This doesn't make the hover rounded make it rounded properly
+    }
+  }
+  &__icon {
+    color: $color-secondary;
+    font-size: 2.5rem !important;
+  }
+  &__background {
+    background-position: center;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 15rem;
+    width: 100%;
+    object-fit: contain;
+    resize: both;
+    object-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  &__logo {
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    object-fit: contain;
+    object-position: center;
+    resize: both;
+  }
+
+  &__name {
+    font-size: 2.75rem;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+  &__products {
+    font-size: 2.25rem;
+    font-weight: 400;
+    text-transform: lowercase;
+  }
+  &__header {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  &__items {
+    margin-top: 2rem;
+    display: inline-block;
+    text-align: center;
+  }
+}
