@@ -2,10 +2,11 @@
 @use "../abstracts/mixins" as *;
 
 .card {
-  box-shadow: 0 0 0.3rem rgba($color-black, 0.19);
+  box-shadow: 0 0 0.3rem rgba($color-black, 0.2);
+  border-radius: 0.4rem;
   &:hover {
     cursor: pointer;
-    box-shadow: 0 0 0.3rem rgba($color-black, 0.21);
+    box-shadow: 0 0 0.3rem rgba($color-black, 0.22);
   }
 }
 
@@ -24,11 +25,12 @@
     text-align: center;
   }
   &__image {
+    display: block;
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 20rem;
     resize: both;
     object-position: center;
+    object-fit: cover;
   }
   &__name {
     color: $color-primary;
