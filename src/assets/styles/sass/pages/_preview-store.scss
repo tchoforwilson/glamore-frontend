@@ -19,20 +19,20 @@
     color: $color-secondary;
     font-size: 2.5rem !important;
   }
+
+  &__images {
+    display: block;
+    text-align: center;
+  }
+
   &__background {
-    background-position: center;
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 15rem;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     resize: both;
     object-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
   }
+
   &__logo {
     border-radius: 50%;
     width: 10rem;
@@ -40,6 +40,7 @@
     object-fit: contain;
     object-position: center;
     resize: both;
+    margin-top: -6.5rem;
   }
 
   &__name {
