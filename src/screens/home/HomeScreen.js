@@ -9,7 +9,7 @@ const HomeScreen = () => {
         <section className="home-sellers">
           <h1 className="home-header">explore our best sellers</h1>
         </section>
-        <section className="home-categories">
+        <section className="home-categories" id="section-sticky">
           <h1 className="home-header">browse categories</h1>
         </section>
         <section className="home-essentials">

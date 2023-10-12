@@ -99,7 +99,7 @@
       color: $color-black;
       text-transform: capitalize;
       font-size: $default-font-size;
-      font-weight: 500;
+      font-weight: 400;
       display: inline-block;
       padding: 1rem;
       transition: all 0.4s;
@@ -192,4 +192,37 @@
 
 .app-nav .search-widget {
   margin-left: 1.5rem;
+}
+
+/* Sticky nav bar*/
+.nav.sticky {
+  position: fixed;
+  top: 0;
+  background-color: $color-primary;
+  box-shadow: 0rem 0rem 1rem rgba($color-black, 0.3);
+  z-index: 5;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  /*
+  * Nav links
+  */
+  & .nav__link {
+    color: $color-white;
+  }
+
+  /*
+  * Nav profile
+  */
+  & .nav-profile {
+    &__icon {
+      color: $color-white;
+    }
+    &__cart {
+      border-color: $color-white;
+    }
+    &__cart span {
+      color: $color-white;
+    }
+  }
 }

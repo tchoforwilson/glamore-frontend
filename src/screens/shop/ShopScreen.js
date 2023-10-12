@@ -42,7 +42,7 @@ const ShopScreen = () => {
             ))}
           </div>
         </section>
-        <section className="section-shop-products">
+        <section className="section-shop-products" id="section-sticky">
           <div className="shop-products__items">
             {Array.from({ length: 20 }).map((_, index) => (
               <ProductCard key={index} product={product} />

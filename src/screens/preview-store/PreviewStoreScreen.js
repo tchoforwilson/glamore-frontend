@@ -57,7 +57,10 @@ const PreviewStoreScreen = () => {
           </Grid>
         </section>
         {/* Store products */}
-        <section className="preview-store__section section-store-products">
+        <section
+          className="preview-store__section section-store-products"
+          id="section-sticky"
+        >
           <h2 className="preview-store__header">featured products</h2>
           <div className="preview-store__items">
             {Array.from({ length: 20 }).map((_, index) => (

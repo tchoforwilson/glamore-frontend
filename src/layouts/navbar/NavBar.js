@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
@@ -8,12 +8,29 @@ import MenuIcon from "@mui/icons-material/Menu";
 import NavLink from "./NavLink";
 import { SearchWidget } from "../../components/searchwiget";
 import { NavBarContext } from "../../contexts";
+import { useEffect } from "react";
 
 const NavBar = ({ onSearch }) => {
+  const [isSticky, setIsSticky] = useState(false);
   const { isOpen, toggleNavBar } = useContext(NavBarContext);
   const handleSearch = () => onSearch();
+
+  useEffect(() => {
+    const section = document.getElementById("section-sticky");
+    const handleScroll = () => {
+      const { top } = section.getBoundingClientRect();
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      setIsSticky(scrollTop >= top);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <nav className="nav">
+    <nav className={`nav ${isSticky ? "sticky" : ""}`}>
       <MenuIcon className="nav__icon" onClick={() => toggleNavBar(!isOpen)} />
       <div className={`nav__collapse ${isOpen ? "active" : ""}`}>
         <ul className="nav__menu">
@@ -23,14 +40,7 @@ const NavBar = ({ onSearch }) => {
         <SearchWidget onSearch={handleSearch} />
       </div>
       {/* Public links */}
-      <div className="nav-links">
-        <Link className="nav-links__item btn btn--white" to="/signup">
-          Create account
-        </Link>
-        <Link className="nav-links__item btn btn--secondary" to="/login">
-          Log in
-        </Link>
-      </div>
+
       {/* Private links */}
       <div className="nav-profile">
         <div className="nav-profile__cart">

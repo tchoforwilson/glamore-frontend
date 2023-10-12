@@ -35,7 +35,7 @@ const ProfileScreen = () => {
           </div>
         </div>
       </section>
-      <section className="section-items">
+      <section className="section-items" id="section-sticky">
         <div className="section-header">
           <span className="section-header__item active">saved items</span>
           <span className="section-header__item">shops you follow</span>
