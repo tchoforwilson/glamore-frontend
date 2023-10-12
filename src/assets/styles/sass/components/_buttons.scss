@@ -6,7 +6,7 @@
   font-family: $font-flamante, sans-serif;
   font-weight: 700;
   border-radius: 5px;
-  border: none;
+  border: 0.15rem solid transparent;
   background-color: transparent;
   text-align: center;
   opacity: 0.9;
@@ -14,6 +14,10 @@
 
   &:hover {
     opacity: 1;
+  }
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
   }
 
   &--secondary {
@@ -26,6 +30,11 @@
     border: 0.15rem solid $color-secondary;
     color: $color-secondary;
     background-color: $color-white;
+  }
+
+  &--black {
+    background-color: $color-black;
+    color: $color-white;
   }
 
   &:hover {
@@ -57,5 +66,38 @@
     font-size: 1.5rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+  }
+}
+
+/**
+  * Follow button
+  */
+
+.btn-follow {
+  font-size: 1.25rem;
+  font-weight: 100;
+  background-color: $color-black;
+  color: $color-light-grey;
+  text-transform: capitalize;
+  border-color: $color-black;
+}
+
+/**
+  * Share button
+  */
+.btn-share {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: $color-secondary;
+
+  &__text {
+    text-transform: capitalize;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  &__icon {
+    font-size: 2rem !important;
+    margin-left: 1rem;
   }
 }
