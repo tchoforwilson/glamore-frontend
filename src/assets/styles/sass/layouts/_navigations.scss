@@ -26,7 +26,6 @@
 /**App Navigation */
 .app-nav {
   padding: 2rem 0rem;
-  margin-bottom: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,9 +82,9 @@
     }
   }
 
-  &__item:not(:first-child) {
-    margin: 2rem;
-  }
+  // &__item:not(:first-child) {
+  //   margin: 2rem;
+  // }
 
   &__item {
     @include respond-mobile {
