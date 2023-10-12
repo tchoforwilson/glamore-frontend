@@ -1,18 +1,13 @@
-import React, { useMemo } from "react";
+import React from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { NavBar } from "../../layouts";
-import { SearchURLContext } from "../../contexts";
+import { AppScreenLayout } from "../../layouts";
 import { PreviewCard, ProductCard } from "../../components/cards";
 
 const product = { name: "Cotton beige T-shirt", price: 700, currency: "XAF" };
 
 function PreviewProductScreen() {
-  const searchURL = useMemo(() => ({ searchUrl: "products" }), []);
   return (
-    <React.Fragment>
-      <SearchURLContext.Provider value={searchURL}>
-        <NavBar />
-      </SearchURLContext.Provider>
+    <AppScreenLayout searchPath="products">
       <section className="section-preview">
         <div className="preview">
           <PreviewCard />
@@ -36,7 +31,7 @@ function PreviewProductScreen() {
           })}
         </div>
       </section>
-    </React.Fragment>
+    </AppScreenLayout>
   );
 }
 

@@ -1,5 +1,12 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 .row {
   max-width: $grid-width;
   margin: 0 auto;
+}
+
+.grid-container {
+  @include respond-mobile {
+    margin-left: 0 !important;
+  }
 }

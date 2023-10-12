@@ -62,7 +62,12 @@ const StoreSettingScreen = () => {
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
               >
-                <Grid container spacing={6} sx={{ marginBottom: "2.5rem" }}>
+                <Grid
+                  container
+                  spacing={6}
+                  sx={{ marginBottom: "2.5rem" }}
+                  className="grid-container"
+                >
                   <Grid item md={6} sm={12}>
                     <FormFieldLabel
                       label="Store name"
@@ -79,7 +84,12 @@ const StoreSettingScreen = () => {
                     />
                   </Grid>
                 </Grid>
-                <Grid container spacing={6} sx={{ marginBottom: "2.5rem" }}>
+                <Grid
+                  container
+                  spacing={6}
+                  sx={{ marginBottom: "2.5rem" }}
+                  className="grid-container"
+                >
                   <Grid item md={6} sm={12}>
                     <FormFieldLabel
                       label="Location"
