@@ -1,7 +1,7 @@
 @use "../abstracts/variables" as *;
 .modal {
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 5; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -20,11 +20,11 @@
     position: relative;
     background-color: $color-light;
     margin: auto;
-    padding: 3rem;
+    padding: 2rem;
     border: 1px solid $color-light;
     border-radius: 1.5rem;
     width: 90%;
-    height: 90vh;
+    height: 95vh;
     box-shadow:
       0 4px 8px 0 rgba(0, 0, 0, 0.2),
       0 6px 20px 0 rgba(0, 0, 0, 0.19);
