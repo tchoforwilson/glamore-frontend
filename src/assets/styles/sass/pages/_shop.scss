@@ -46,3 +46,49 @@
     text-align: center;
   }
 }
+
+/**
+* Sorted items modal
+*/
+.modal.sortedItems {
+  .modal__content {
+    background-color: $color-white;
+  }
+}
+.sortedItems {
+  &__group {
+    margin-bottom: 1.5rem;
+  }
+  &__field {
+    margin-left: 2rem;
+  }
+  &__label {
+    margin-bottom: 0.8rem;
+    text-transform: capitalize;
+  }
+  &__label,
+  & span {
+    color: $color-black;
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  & span {
+    text-transform: uppercase;
+  }
+
+  /*
+  * For colors
+  */
+  &__color {
+    border-radius: 0;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 0.5rem;
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+    &:checked {
+      accent-color: $color-white;
+    }
+  }
+}

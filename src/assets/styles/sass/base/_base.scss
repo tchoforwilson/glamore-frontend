@@ -36,7 +36,12 @@ html {
 
 body {
   box-sizing: border-box;
+  position: static;
+  overflow: auto;
   //padding: 2rem;
+  & ~ .modal.open {
+    position: fixed;
+  }
 }
 
 table,
@@ -52,4 +57,9 @@ th {
 
 table {
   border-collapse: collapse;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  display: none;
 }
