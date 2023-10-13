@@ -4,6 +4,7 @@ import TuneIcon from "@mui/icons-material/Tune";
 import { AppScreenLayout } from "../../layouts";
 import { ProductCard } from "../../components/cards";
 import CategoryItem from "./CategoryItem";
+import { SortedItemsModal } from "../../components/modals";
 
 const categories = [
   { name: "t-shirts", id: 1 },
@@ -22,6 +23,7 @@ const categories = [
 const product = { name: "Cotton beige T-shirt", price: 700, currency: "XAF" };
 
 const ShopScreen = () => {
+  const [openSortedModal, setOpenSortedModal] = useState(true);
   const [currentCategory, setCurrentCategory] = useState("jeans");
   const handleCategoryClick = (name) => () => {
     setCurrentCategory(name);
@@ -31,7 +33,10 @@ const ShopScreen = () => {
       <Container>
         <section className="section-shop-categories">
           <div className="shop-categories">
-            <TuneIcon className="shop-categories__icon" />
+            <TuneIcon
+              className="shop-categories__icon"
+              onClick={() => setOpenSortedModal(true)}
+            />
             {categories.map((category) => (
               <CategoryItem
                 name={category.name}
@@ -45,10 +50,12 @@ const ShopScreen = () => {
         <section className="section-shop-products" id="section-sticky">
           <div className="shop-products__items">
             {Array.from({ length: 20 }).map((_, index) => (
-              <ProductCard key={index} product={product} />
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </section>
+        {/** Sort item modal */}
+        <SortedItemsModal isOpen={openSortedModal} />
       </Container>
     </AppScreenLayout>
   );
