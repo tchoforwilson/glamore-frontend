@@ -12,18 +12,18 @@ const categories = [
   { name: "tank tops", id: 3 },
   { name: "jeans", id: 4 },
   { name: "skirts", id: 5 },
-  { name: "trench Coats", id: 7 },
-  { name: "tracksuits", id: 8 },
-  { name: "backpacks", id: 9 },
-  { name: "sneakers", id: 10 },
-  { name: "swimsuits", id: 11 },
-  { name: "bikinis", id: 12 },
+  { name: "trench Coats", id: 6 },
+  { name: "tracksuits", id: 7 },
+  { name: "backpacks", id: 8 },
+  { name: "sneakers", id: 9 },
+  { name: "swimsuits", id: 10 },
+  { name: "bikinis", id: 11 },
 ];
 
 const product = { name: "Cotton beige T-shirt", price: 700, currency: "XAF" };
 
 const ShopScreen = () => {
-  const [openSortedModal, setOpenSortedModal] = useState(true);
+  const [openSortedModal, setOpenSortedModal] = useState(false);
   const [currentCategory, setCurrentCategory] = useState("jeans");
   const handleCategoryClick = (name) => () => {
     setCurrentCategory(name);
@@ -39,9 +39,9 @@ const ShopScreen = () => {
             />
             {categories.map((category) => (
               <CategoryItem
+                key={category.id}
                 name={category.name}
                 active={currentCategory === category.name}
-                key={category.id}
                 onClick={handleCategoryClick(category.name)}
               />
             ))}
