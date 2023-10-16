@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Grid, Box } from "@mui/material";
 import * as Yup from "yup";
 import { FormContainer, FormField } from "../../components/forms";
@@ -19,10 +20,21 @@ const validationSchema = Yup.object().shape({
 
 const LoginScreen = () => {
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.auth);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const { loading, isAuthenticated, user } = useSelector((state) => state.auth);
+
   const handlesubmit = (values) => {
     dispatch(login(values));
   };
+
+  useEffect(() => {
+    if (isAuthenticated && user) navigate(from, { replace: true });
+  }, [navigate, from, user, isAuthenticated]);
+
   return (
     <Box>
       <Grid container spacing={0}>
