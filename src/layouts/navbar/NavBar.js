@@ -1,17 +1,18 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
-import NavLink from "./NavLink";
 import { SearchWidget } from "../../components/searchwiget";
+import NavLink from "./NavLink";
+import { CartDropdown } from "../../components/dropdown";
 import { NavBarContext } from "../../contexts";
-import { useEffect } from "react";
 
 const NavBar = ({ onSearch }) => {
   const [isSticky, setIsSticky] = useState(false);
+  const [showBag, setShowBag] = useState(false);
   const { isOpen, toggleNavBar } = useContext(NavBarContext);
   const handleSearch = () => onSearch();
 
@@ -44,8 +45,12 @@ const NavBar = ({ onSearch }) => {
       {/* Private links */}
       <div className="nav-profile">
         <div className="nav-profile__cart">
-          <ShoppingBagOutlinedIcon className="nav-profile__icon" />
+          <ShoppingBagOutlinedIcon
+            className="nav-profile__icon"
+            onClick={() => setShowBag(!showBag)}
+          />
           <span>1 item</span>
+          <CartDropdown active={showBag} />
         </div>
         <div className="nav-profile__notification">
           <NotificationsOutlinedIcon className="nav-profile__icon" />
