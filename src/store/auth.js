@@ -1,9 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { apiCallBegan } from "./apiCall";
 import { getCookie, removeCookie, setCookie } from "../utilities/cookies";
+import { authService } from "../services";
 
 // Initialize the user token from the local storage or cookie settings
 const userToken = localStorage.token || getCookie("token") || null;
+
+// Initialize authentication
+const isAuth = !!userToken;
+
+// Current user
+const currentUser = authService.getCurrentUser();
 
 /**
  * @breif Authentication slices
@@ -12,9 +19,10 @@ const userToken = localStorage.token || getCookie("token") || null;
 const slice = createSlice({
   name: "auth",
   initialState: {
-    isAuthenticated: false,
-    loading: false,
+    isAuthenticated: isAuth,
     token: userToken,
+    user: currentUser || null,
+    loading: false,
     resetToken: false,
     error: null,
   },
