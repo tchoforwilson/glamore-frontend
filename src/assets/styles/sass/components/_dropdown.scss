@@ -1,0 +1,28 @@
+@use "../abstracts/variables" as *;
+
+.dropdown {
+  background-color: $color-white;
+  box-shadow: 0 0.3rem 0.3rem rgba($color-black, 0.15);
+  display: none;
+  &.active {
+    display: block;
+  }
+  position: absolute;
+}
+
+.cart-dropdown {
+  top: 0;
+  width: 20rem;
+  height: 30rem;
+  right: 10%;
+  &__title {
+    font-size: 1.625rem;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+  &__items {
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+}

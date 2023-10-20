@@ -20,7 +20,12 @@ const categories = [
   { name: "bikinis", id: 11 },
 ];
 
-const product = { name: "Cotton beige T-shirt", price: 700, currency: "XAF" };
+const product = {
+  id: "1abc",
+  name: "Cotton beige T-shirt",
+  price: 700,
+  currency: "XAF",
+};
 
 const ShopScreen = () => {
   const [openSortedModal, setOpenSortedModal] = useState(false);
@@ -50,7 +55,7 @@ const ShopScreen = () => {
         <section className="section-shop-products" id="section-sticky">
           <div className="shop-products__items">
             {Array.from({ length: 20 }).map((_, index) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={Math.random() % 100} product={product} />
             ))}
           </div>
         </section>

@@ -6,9 +6,42 @@
 }
 
 .home-header {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 600;
   text-align: center;
   text-transform: capitalize;
   margin-bottom: 0.5rem;
+}
+
+/*
+* Best sellers
+*/
+.best-seller-item {
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  &__text {
+    text-transform: capitalize;
+    text-align: center;
+    color: $color-white;
+  }
+}
+.home-sellers {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__dots {
+    & span {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: $color-secondary;
+      margin: 0 0.5rem;
+    }
+  }
 }

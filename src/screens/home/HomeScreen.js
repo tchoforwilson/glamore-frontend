@@ -8,6 +8,13 @@ const HomeScreen = () => {
       <Container>
         <section className="home-sellers">
           <h1 className="home-header">explore our best sellers</h1>
+          <div className="home-sellers__container">
+            <div className="home-sellers__dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
         </section>
         <section className="home-categories" id="section-sticky">
           <h1 className="home-header">browse categories</h1>

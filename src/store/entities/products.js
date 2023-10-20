@@ -8,12 +8,13 @@ const slice = createSlice({
     list: [],
     currentProduct: null,
     error: null,
-    loading: false,
     count: 0,
+    loading: false,
     addProductLoading: false,
     getProductLoading: false,
   },
   reducers: {
+    // Get products
     PRODUCTS_REQUESTED: (products) => {
       products.loading = true;
       products.error = null;
@@ -27,6 +28,7 @@ const slice = createSlice({
       products.error = action.payload.message;
     },
 
+    // Add product
     ADD_PRODUCT_BEGIN: (products) => {
       products.addProductLoading = true;
       products.currentProduct = null;
@@ -41,6 +43,7 @@ const slice = createSlice({
       products.error = action.payload.message;
     },
 
+    // Get product
     GET_PRODUCT_BEGIN: (products, action) => {
       products.currentProduct = null;
       products.error = null;
@@ -56,6 +59,7 @@ const slice = createSlice({
       products.getProductLoading = false;
     },
 
+    // Get product count
     GET_PRODUCTS_COUNT: (products, action) => {
       products.count = action.payload.data;
     },
@@ -102,13 +106,13 @@ export const getAllProducts = (searchQuery) => (dispatch) => {
 
 /**
  * @breif Add a new product
- * @param {Object} product Product object to be added.
+ * @param {Object} data Product object to be added.
  * @returns
  */
-export const addProduct = (product) =>
+export const addProduct = (data) =>
   apiCallBegan({
     url: URL,
-    data: product,
+    data,
     onStart: ADD_PRODUCT_BEGIN.type,
     onSuccess: ADD_PRODUCT_SUCCESS.type,
     onError: ADD_PRODUCT_FAILED.type,

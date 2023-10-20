@@ -14,6 +14,7 @@ const NavBar = ({ onSearch }) => {
   const [isSticky, setIsSticky] = useState(false);
   const [showBag, setShowBag] = useState(false);
   const { isOpen, toggleNavBar } = useContext(NavBarContext);
+
   const handleSearch = () => onSearch();
 
   useEffect(() => {
