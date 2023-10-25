@@ -87,6 +87,7 @@
   // }
 
   &__item {
+    padding: 1rem;
     @include respond-mobile {
       width: 100%;
     }
@@ -101,8 +102,8 @@
       font-size: $default-font-size;
       font-weight: 400;
       display: inline-block;
-      padding: 1rem;
       transition: all 0.4s;
+      border-bottom: 0.15rem solid transparent;
       @include respond-mobile {
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
@@ -111,11 +112,11 @@
     }
     &:active,
     &:hover {
-      text-decoration: underline;
+      border-color: $color-primary;
       cursor: pointer;
     }
     &.active {
-      text-decoration: underline;
+      border-color: $color-primary;
     }
   }
 
