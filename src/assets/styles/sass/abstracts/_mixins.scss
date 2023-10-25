@@ -78,6 +78,9 @@ ORDER: Base + Typography > general layout + grid > page layout > components
 * Responsiveness for big devices
 */
 @mixin respond-desk {
+  @include respond(laptop) {
+    @content;
+  }
   @include respond(desktop) {
     @content;
   }

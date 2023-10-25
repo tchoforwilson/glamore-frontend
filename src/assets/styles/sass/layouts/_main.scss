@@ -22,6 +22,7 @@
   @include respond-mobile {
     height: 100dvh;
     margin-top: 2rem;
+    padding: 0rem;
   }
   &--orders {
     box-shadow: 0 0 0.5rem rgba($color-black, 0.4);
