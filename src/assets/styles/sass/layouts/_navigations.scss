@@ -213,6 +213,9 @@
   */
   & .nav__link {
     color: $color-white;
+    &.active {
+      border-color: $color-white;
+    }
   }
 
   /*
