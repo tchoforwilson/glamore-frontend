@@ -10,8 +10,12 @@ const DashBoardScreen = () => {
   return (
     <StoreScreenLayout title="dashboard">
       <Box className="store-content">
-        <div className="w-100 d-flex justify-content--end">
-          <AppSelect name="date" items={[{ id: "-1", name: "Last 7days" }]} />
+        <div className="w-100 d-flex justify-content--end my-2">
+          <AppSelect
+            name="date"
+            items={[{ id: "-1", name: "Last 7days" }]}
+            style={{ fontSize: "1.6rem", fontWeight: "600" }}
+          />
         </div>
         <div className="dashboard-header">
           <DashBoardHeaderItem
