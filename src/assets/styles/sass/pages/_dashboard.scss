@@ -11,6 +11,7 @@
   border-radius: 1rem;
 
   @include respond-mobile {
+    flex-wrap: wrap;
   }
 
   &__item {
@@ -20,31 +21,34 @@
     justify-content: center;
     align-items: center;
     @include respond-mobile {
-      padding-right: 0.5rem;
-      padding-left: 0.5rem;
+      width: 50%;
+      padding: 2rem 1rem;
     }
   }
 
   &__separator {
     border-left: 0.15rem solid $color-secondary;
+    @include respond-mobile {
+      display: none;
+    }
   }
 
   &__title {
     color: $color-ancestral-water;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 500;
     text-transform: capitalize;
   }
 
   &__number {
     color: $color-black;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
   }
 
   &__icon {
     border-radius: 2rem;
-    font-size: 2rem !important;
+    font-size: 3rem !important;
     padding: 0.2rem;
     &.downward {
       background-color: $color-flower-girl;
@@ -58,7 +62,7 @@
 
   &__percentage {
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     &.increase {
       color: $color-twining-vine;
     }
@@ -69,7 +73,7 @@
 
   &__secondary {
     color: $color-black;
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-weight: 500;
     text-transform: capitalize;
     margin: 2rem 0rem;
