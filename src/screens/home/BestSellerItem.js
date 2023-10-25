@@ -6,8 +6,9 @@
  */
 const BestSellerItem = ({ imageSrc, text }) => {
   return (
-    <div className="best-seller-item" style={{ backgroundImage: imageSrc }}>
-      <span className="best-seller-item__text">{text}</span>
+    <div className="best-seller-item">
+      <img className="best-seller-item__img" src={imageSrc} alt={text} />
+      <div className="best-seller-item__text">{text}</div>
     </div>
   );
 };
