@@ -94,6 +94,18 @@ $auto-margin-prefixes: t, s, b, e;
   .ms-#{$i} {
     margin-left: #{$i}rem;
   }
+
+  // Vertical margins
+  .my-#{$i} {
+    margin-top: #{$i}rem;
+    margin-bottom: #{$i}rem;
+  }
+
+  // Horizontal margins
+  .mx-#{$i} {
+    margin-left: #{$i}rem;
+    margin-right: #{$i}rem;
+  }
 }
 
 /**
