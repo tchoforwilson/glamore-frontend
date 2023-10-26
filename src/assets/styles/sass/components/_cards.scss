@@ -15,15 +15,16 @@
   margin-left: 1.5rem;
   margin-right: 1.5rem;
   width: 22rem;
-  height: 25rem;
+  // height: 28rem;
   padding: 0.5rem;
   display: inline-block;
   @include respond-mobile {
-    width: 16rem;
-    height: 18rem;
+    width: 20rem;
+    // height: 22rem;
   }
   & figcaption {
     text-align: center;
+    padding-bottom: 1rem;
   }
   &__image {
     display: block;
@@ -36,13 +37,13 @@
   &__name {
     color: $color-primary;
     font-family: $font-raleway;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-weight: 700;
   }
 
   &__price {
     color: rgba($color-primary, 0.72);
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-weight: 500;
   }
 }
