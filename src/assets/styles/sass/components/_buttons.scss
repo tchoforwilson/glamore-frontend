@@ -9,10 +9,12 @@
   border: 0.15rem solid transparent;
   background-color: transparent;
   text-align: center;
-  opacity: 0.9;
+  // opacity: 0.9; TODO rethink this
+  opacity: 1;
   width: fit-content;
 
   &:hover {
+    box-shadow: none;
     opacity: 1;
     cursor: pointer;
   }
@@ -36,10 +38,6 @@
   &--black {
     background-color: $color-black;
     color: $color-white;
-  }
-
-  &:hover {
-    box-shadow: none;
   }
 
   /*Submit button*/
@@ -87,24 +85,42 @@
 }
 
 /**
-  * Share button
+  * Share and Favorite button
   */
-.btn-share {
+.btn-share,
+.btn-favorite,
+.btn-bag {
   display: flex;
   justify-content: center;
   align-items: center;
   border-color: $color-secondary;
+  gap: 2rem;
   &:hover {
     box-shadow: 0.1rem 0.1rem 0.1rem rgba($color-black, $alpha: 0.15);
   }
 
   &__text {
     text-transform: capitalize;
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color-primary;
   }
   &__icon {
     font-size: 2rem !important;
-    margin-left: 1rem;
+    color: $color-primary;
+  }
+}
+
+/*
+* Add to bag button
+*/
+.btn-bag {
+  background-color: $color-primary;
+  border: none;
+  &__icon {
+    color: $color-white;
+  }
+  &__text {
+    color: $color-white;
   }
 }
