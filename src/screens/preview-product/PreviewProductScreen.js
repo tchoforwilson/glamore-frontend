@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, Container } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { AppScreenLayout } from "../../layouts";
 import { ProductCard } from "../../components/cards";
 import {
@@ -15,6 +17,30 @@ import { AppSelect } from "../../components/inputs";
 const product = { name: "Cotton beige T-shirt", price: 700, currency: "XAF" };
 
 const PreviewProductScreen = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [images] = useState([
+    require("./../../assets/images/sitting.jpg"),
+    require("./../../assets/images/t-shirt.jpg"),
+    require("./../../assets/images/least-popular.jpg"),
+  ]);
+
+  const [currenImage, setCurrentImage] = useState(images[activeIndex]);
+
+  const RenderDots = () => {
+    return Array.from({ length: images.length }, (_, index) => (
+      <span
+        key={index}
+        onClick={handleDotClick(index)}
+        className={index === activeIndex ? "active" : ""}
+      ></span>
+    ));
+  };
+
+  const handleDotClick = (index) => () => {
+    setActiveIndex(index);
+    setCurrentImage(images[index]);
+  };
+
   return (
     <AppScreenLayout searchPath="products">
       <section className="preview-product">
@@ -23,11 +49,20 @@ const PreviewProductScreen = () => {
           <div className="preview-product__item">
             <Grid container spacing={4}>
               <Grid item md={6} sm={12}>
-                <img
-                  src={require("./../../assets/images/sitting.jpg")}
-                  alt="Preview product"
-                  className="preview-product__img"
-                />
+                <div className="preview-product__images">
+                  <img
+                    src={currenImage}
+                    alt="Preview product"
+                    className="preview-product__img"
+                  />
+                  <div className="preview-product__arrows">
+                    <ArrowBackIosIcon className="arrow prev" />
+                    <ArrowForwardIosIcon className="arrow next" />
+                  </div>
+                  <div className="preview-product__dots">
+                    <RenderDots />
+                  </div>
+                </div>
               </Grid>
               <Grid item md={6} sm={12}>
                 <div className="d-flex align-items--center gap-6">
@@ -115,7 +150,7 @@ const PreviewProductScreen = () => {
         <Grid container className="justify-content--center">
           <Grid item md={10} sm={12}>
             <div className="preview-more__items">
-              {Array.from({ length: 6 }).map((_, index) => {
+              {Array.from({ length: 4 }).map((_, index) => {
                 return <ProductCard key={index} product={product} />;
               })}
             </div>
