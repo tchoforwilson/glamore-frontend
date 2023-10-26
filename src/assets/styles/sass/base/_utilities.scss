@@ -1,4 +1,7 @@
 @use "../abstracts/variables" as *;
+/* SCREEN SIZES */
+$screen-size: sm, md, lg, xlg, xxlg;
+
 /*BACKGROUND COLORS*/
 
 /*TEXT*/
@@ -121,5 +124,17 @@ $unit: "%";
   }
   .w-#{$value} {
     width: #{$value}#{$unit};
+  }
+}
+
+/**
+* GAP 
+*/
+$gaps: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
+$rem-unit: "rem";
+
+@each $gap in $gaps {
+  .gap-#{$gap} {
+    gap: #{$gap}rem;
   }
 }
