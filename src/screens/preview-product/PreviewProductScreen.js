@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, Container } from "@mui/material";
+import { Grid, Container, Rating } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -95,7 +95,7 @@ const PreviewProductScreen = () => {
                     </span>
                     <span className="preview-detail__percentage">30% off</span>
                   </div>
-                  <p className="preview-detail__description">
+                  <p className="preview-detail__description" style={{ fontSize: "1.2rem" }}>
                     Manfinity Homeme Men Letter Patched Detail Tee & Drawstring
                     Waist Track Shorts, Random Paisley Scarf Print Shirt &
                     Shorts Without Tee
@@ -103,7 +103,7 @@ const PreviewProductScreen = () => {
                 </div>
                 {/** Preview product actions */}
                 <div className="preview-action">
-                  <div className="preview-action__item d-flex gap-2">
+                  <div className="preview-action__item d-flex gap-2 justify-content-center">
                     <AppSelect
                       name="size"
                       items={["Size-XXL"]}
@@ -111,7 +111,7 @@ const PreviewProductScreen = () => {
                     />
                     <AddToBagButton />
                   </div>
-                  <div className="preview-action__item d-flex gap-2">
+                  <div className="preview-action__item d-flex gap-2 justify-content-center">
                     <FavoriteButton />
                     <ShareButton />
                   </div>
@@ -120,7 +120,11 @@ const PreviewProductScreen = () => {
                 <div className="preview-review">
                   <div className="d-flex gap-3">
                     <h3 className="preview-review__heading">reviews (15)</h3>
-                    <div className="preview-review__average-rating"></div>
+                    <div className="preview-review__average-rating">
+                      <Rating value={4.5}
+                        sx={{ '& .MuiRating-iconFilled': {color: 'black'}, '& .MuiRating-iconHover': { color: 'black'} }}
+                      />
+                    </div>
                   </div>
                   <div className="preview-review__items">
                     <div className="preview-review__review">
