@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { SvgIcon } from "@mui/material";
 
 /**
  * @breif Render side navigation
@@ -15,8 +16,11 @@ const SideBarItem = ({ icon, title, to }) => {
     <Link
       to={to}
       className={`sidebar__item ${pathname === to ? "active" : ""}`}
+      style={{ alignItems: "center", display: "flex" }}
     >
-      <span className="sidebar__icon"></span>
+      <span className="sidebar__icon me-1">
+        <img src={icon} alt="icon" style={{ height: 20, width: 20 }} />
+      </span>
       <span className="sidebar__title">{title}</span>
       <span className="sidebar__line"></span>
     </Link>
