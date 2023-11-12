@@ -121,7 +121,7 @@ const PreviewProductScreen = () => {
                   <div className="d-flex gap-3">
                     <h3 className="preview-review__heading">reviews (15)</h3>
                     <div className="preview-review__average-rating">
-                      <Rating value={4.5}
+                      <Rating defaultValue={4.5} precision={0.2}
                         sx={{ '& .MuiRating-iconFilled': {color: 'black'}, '& .MuiRating-iconHover': { color: 'black'} }}
                       />
                     </div>
