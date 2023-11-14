@@ -88,7 +88,7 @@ const ListingScreen = () => {
         </Box>
       </Box>
       {/** Add Listing modal */}
-      <AddProductModal isOpen={openModal} />
+      <AddProductModal open={openModal} onClose={() => setOpenModal(false)} />
     </StoreScreenLayout>
   );
 };
