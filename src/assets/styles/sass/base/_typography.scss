@@ -1,31 +1,38 @@
-@use "../abstracts/variables" as *;
-
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
 body {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  color: $color-primary;
-  line-height: 1.7;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	color: $color-primary;
+	line-height: 1.7;
 }
 
 .heading-primary {
-  font-family: "Raleway", sans-serif;
-  font-weight: 700;
-  font-size: 4rem;
-  font-style: normal;
-  color: $color-primary;
-  text-transform: none;
-  margin-bottom: 5rem;
-  &__newline {
-    display: block;
-    text-align: left;
-  }
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+	font-size: 4rem;
+	font-style: normal;
+	color: $color-primary;
+	text-transform: none;
+	margin-bottom: 5rem;
+	&__newline {
+		display: block;
+		text-align: left;
+		@include respond-mobile {
+			text-align: center;
+		}
+	}
+	background-position: top;
+	@include respond-mobile {
+		text-align: center;
+	}
 }
 
 .heading-secondary {
-  font-weight: 500;
-  font-size: 2.5rem;
-  text-transform: capitalize;
-  &__newline {
-    display: block;
-  }
+	font-weight: 500;
+	font-size: 2.5rem;
+	text-transform: capitalize;
+	&__newline {
+		display: block;
+	}
 }

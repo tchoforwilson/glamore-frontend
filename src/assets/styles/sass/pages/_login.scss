@@ -1,7 +1,29 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
 .login {
-  &__img {
-    background-image: url("../../../images/hat-boy.png");
-    background-size: cover;
-    background-position: center;
-  }
+	&__img {
+		background-image: url('../../../images/hat-boy.png');
+		background-size: cover;
+		background-position: center;
+	}
+	&__form {
+		// border: 1px solid red;
+		@include respond-mobile {
+			width: 80vw;
+			margin-left: 1rem;
+		}
+	}
+
+	&__pic {
+		height: 100vh;
+		width: auto;
+		background-position: center;
+		object-fit: cover;
+
+		@include respond-mobile {
+			width: 100vw;
+			background-position: top;
+			height: 40vh;
+		}
+	}
 }
