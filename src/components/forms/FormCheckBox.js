@@ -3,15 +3,15 @@ import { useFormikContext } from "formik";
 import FormErrorMessage from "./FormErrorMessage";
 import { AppCheckBox } from "../inputs";
 
-const FormCheckBox = ({ name, label }) => {
+const FormCheckBox = ({ name, label, checked }) => {
   const { values, errors, touched, setFieldValue, setFieldTouched } =
     useFormikContext();
   return (
     <div className="form-check">
       <AppCheckBox
         name={name}
-        checked={values[name]}
-        onChange={(e) => setFieldValue(name, e.target.value)}
+        checked={checked ?? values[name]}
+        onChange={(e) => setFieldValue(name, e.target.checked)}
         onBlur={() => setFieldTouched(name)}
         className="form-check__input"
       />

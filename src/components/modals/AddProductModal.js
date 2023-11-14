@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Grid, Modal } from "@mui/material";
+import { Accordion, AccordionSummary, AccordionDetails, Box, Button, Grid, Modal } from "@mui/material";
 import BackupOutlinedIcon from "@mui/icons-material/BackupOutlined";
 import {
   FormCheckBox,
@@ -9,15 +9,16 @@ import {
   FormTextArea,
 } from "../forms";
 import { UpgradeButton } from "../buttons";
+import { useFormikContext } from "formik";
 import classes from "./AddProductModal.module.scss";
 
 const initialValues = {
   name: "",
   price: "",
   category: "",
-  isCoupon: false,
+  hasCoupon: false,
   couponCode: "",
-  isDiscount: false,
+  hasDiscount: false,
   discount: "",
   materials: [],
   colors: [],
@@ -32,6 +33,9 @@ const AddProductModal = ({ open = false, onClose }) => {
   const addImageInputRef = React.useRef(null);
 
   const [images, setImages] = React.useState([]);
+  const [hasCoupon, setHasCoupon] = React.useState(false);
+  const [hasDiscount, setHasDiscount] = React.useState(false);
+  const [twoInOne, setTwoInOne] = React.useState(false);
 
   return (
     <Modal open={open} onClose={onClose} aria-labelledby="modal-add-product" aria-describedby="modal-add-product" sx={{ display: 'grid', height: '100%', width: '100%', placeContent: 'center' }} >
@@ -217,28 +221,50 @@ const AddProductModal = ({ open = false, onClose }) => {
                   <h4 className="section-marketing__header">Incentivisation</h4>
                   <div className="section-marketing__content">
                     <div className="incentivisation-item">
-                      <FormCheckBox name="isCoupon" label="coupons" />
-                      <span className="incentivisation-item__line"></span>
-                      <FormField
-                        name="couponCode"
-                        placeholder="Insert custom coupon code"
-                        isBordered={true}
-                      />
+                      <Accordion sx={{ width: '100%' }} expanded={hasCoupon} onChange={(e, isExpanded) => setHasCoupon(isExpanded)}>
+                        <AccordionSummary>
+                          <FormCheckBox name="hasCoupon" label="coupons" checked={hasCoupon} />
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <FormField
+                            name="couponCode"
+                            placeholder="Insert coupon code"
+                            isBordered={true}
+                          />
+                        </AccordionDetails>
+                      </Accordion>
                     </div>
                     <div className="incentivisation-item">
-                      <FormCheckBox name="isDiscount" label="discount" />
-                      <span className="incentivisation-item__line"></span>
-                      <FormField
-                        name="discount"
-                        placeholder="% OFF"
-                        isBordered={true}
-                      />
+                      <Accordion sx={{ width: '100%' }} expanded={hasDiscount} onChange={(e, isExpanded) => setHasDiscount(isExpanded)}>
+                        <AccordionSummary>
+                          <FormCheckBox name="hasDiscount" label="discount" checked={hasDiscount} />
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <Grid container spacing={1}>
+                            <Grid item xs={6}>
+                          <FormField
+                            name="discount"
+                            placeholder="% OFF"
+                            isBordered={true}
+                          />
+                            </Grid>
+                            <Grid item xs={6}>
+                              <FormField type="datetime-local" placeholder="discount deadline date" isBordered />
+                            </Grid>
+                          </Grid>
+                            The percentage discount to be deducted from the original price and deadline date
+                        </AccordionDetails>
+                      </Accordion>
                     </div>
                     <div className="incentivisation-item">
-                      <FormCheckBox name="twoInOne" label="2 for 1" />
-                      <span>
+                      <Accordion sx={{ width: '100%' }} expanded={twoInOne} onChange={(e, isExpanded) => setTwoInOne(isExpanded)}>
+                        <AccordionSummary>
+                      <FormCheckBox name="twoInOne" label="2 for 1" checked={twoInOne} />
+                        </AccordionSummary>
+                        <AccordionDetails>
                         Customers Gets Two Products For The Price of One
-                      </span>
+                        </AccordionDetails>
+                      </Accordion>
                     </div>
                   </div>
                 </div>
