@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Box, Button, Grid } from "@mui/material";
 import BackupOutlinedIcon from "@mui/icons-material/BackupOutlined";
 import {
   FormCheckBox,
@@ -9,6 +9,7 @@ import {
   FormTextArea,
 } from "../forms";
 import { UpgradeButton } from "../buttons";
+import classes from "./AddProductModal.module.scss";
 
 const initialValues = {
   name: "",
@@ -28,6 +29,9 @@ const AddProductModal = ({ isOpen = false }) => {
   const handleSubmit = (values) => {
     console.log(values);
   };
+  const addImageInputRef = React.useRef(null);
+
+  const [images, setImages] = React.useState([]);
 
   return (
     <div className={`modal add-product-modal ${isOpen ? "open" : "close"}`}>
@@ -43,40 +47,41 @@ const AddProductModal = ({ isOpen = false }) => {
                   type="text"
                   isBordered={true}
                 />
-                <div className="d-flex justify-content--between align-items--center">
-                  <FormSelect
-                    name="category"
-                    items={[{ id: "-1", name: "Category" }]}
-                    isBordered={true}
-                  />
-                  <FormSelect
-                    name="materials"
-                    items={[{ id: "-1", name: "Materials" }]}
-                    isBordered={true}
-                  />
-                </div>
-                <div className="d-flex justify-content--between align-items--center">
-                  <FormSelect
-                    name="gender"
-                    items={[{ id: "-1", name: "Gender" }]}
-                    isBordered={true}
-                  />
-                  <FormSelect
-                    name="materials"
-                    items={[{ id: "-1", name: "Colors" }]}
-                    isBordered={true}
-                  />
-                </div>
-                <div className="ms-3">
-                  <FormCheckBox
-                    name="isRenewable"
-                    label="This Product Is Renewable"
-                  />
-                  <FormCheckBox
-                    name="isPackage"
-                    label="This Product Is PrePackaged"
-                  />
-                </div>
+              </Grid>
+              <Grid item md={4}>
+                <FormField
+                  name="price"
+                  placeholder="Price"
+                  type="number"
+                  min="100"
+                  isBordered={true}
+                />
+              </Grid>
+              <Grid item md={4}>
+                <FormSelect
+                  name="gender"
+                  items={[
+                    { id: "-1", name: "Gender" },
+                    { id: "male", name: "Male" },
+                    { id: "female", name: "Female" },
+                  ]}
+                />
+              </Grid>
+              <Grid item md={4}>
+                <FormSelect
+                  name="gender"
+                  items={[
+                    { id: "-1", name: "Material" },
+                    { id: "male", name: "Male" },
+                    { id: "female", name: "Female" },
+                  ]}
+                />
+              </Grid>
+              <Grid item md={4}>
+                <FormSelect
+                  name="materials"
+                  items={[{ id: "-1", name: "Colors" }]}
+                />
               </Grid>
               <Grid item md={4}>
                 <FormTextArea
@@ -85,11 +90,119 @@ const AddProductModal = ({ isOpen = false }) => {
                   isBordered={true}
                 />
               </Grid>
-              <Grid item md={4}></Grid>
+              <Grid item md={4}>
+                <FormCheckBox
+                  name="isRenewable"
+                  label="This Product Is Renewable"
+                />
+              </Grid>
+              <Grid item md={4}>
+                <FormCheckBox
+                  name="isPackage"
+                  label="This Product Is PrePackaged"
+                />
+              </Grid>
             </Grid>
           </section>
-          <section className="add-product-section images">
+          <section
+            className="add-product-section images"
+            style={{ marginTop: "40px" }}
+          >
             <h1 className="add-product-section__header">Product images</h1>
+            <Grid container>
+              {images.map((image, index) => (
+                <Grid
+                  item
+                  xs={6}
+                  sm={4}
+                  md={3}
+                  lg={2}
+                  padding={1}
+                  sx={{ aspectRatio: "1/1.5", overflow: "hidden" }}
+                  key={index}
+                >
+                  <Box
+                    sx={{
+                      wdith: "100%",
+                      height: "100%",
+                      borderRadius: "15px",
+                      overflow: "hidden",
+                      position: "relative",
+                    }}
+                  >
+                    <img
+                      src={URL.createObjectURL(image)}
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        objectFit: "cover",
+                        objectPosition: "center",
+                      }}
+                      alt="new product"
+                    />
+                    <button
+                      style={{
+                        borderRadius: "50%",
+                        top: "5%",
+                        right: "3%",
+                        position: "absolute",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: "10px",
+                        color: "white",
+                        backgroundColor: "red",
+                        fontSize: "1.5rem",
+                        lineHeight: "0.9",
+                        cursor: "pointer",
+                      }}
+                      onClick={() =>
+                        setImages((value) =>
+                          value.filter((_, i) => i !== index),
+                        )
+                      }
+                    >
+                      x
+                    </button>
+                  </Box>
+                </Grid>
+              ))}
+              <Grid
+                item
+                xs={6}
+                sm={4}
+                md={3}
+                lg={2}
+                padding={2}
+                sx={{ aspectRatio: "1/1.5" }}
+              >
+                <React.Fragment>
+                  <Button
+                    variant="contained"
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      height: "100%",
+                      width: "100%",
+                      fontSize: "6rem",
+                      borderRadius: "15px",
+                    }}
+                    onClick={() => addImageInputRef.current?.click()}
+                  >
+                    +
+                  </Button>
+                  <input
+                    type="file"
+                    ref={addImageInputRef}
+                    style={{ display: "none" }}
+                    onChange={(event) =>
+                      setImages((value) => [...value, event.target.files[0]])
+                    }
+                  />
+                </React.Fragment>
+              </Grid>
+            </Grid>
           </section>
           <section className="add-product-section section-marketing">
             <h1 className="add-product-section__header">Marketing</h1>
@@ -113,7 +226,6 @@ const AddProductModal = ({ isOpen = false }) => {
                       <FormField
                         name="discount"
                         placeholder="% OFF"
-                        type="number"
                         isBordered={true}
                       />
                     </div>
