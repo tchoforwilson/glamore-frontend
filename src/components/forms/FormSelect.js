@@ -11,11 +11,11 @@ import { AppSelect } from "../inputs";
  * @param {Boolean} isBordered Form with borders
  * @returns
  */
-const FormSelect = ({ name, items, multiple = false, isBordered = false }) => {
+const FormSelect = ({ name, items, multiple = false, isBordered = false, style }) => {
   const { values, errors, touched, setFieldValue, setFieldTouched } =
     useFormikContext();
   return (
-    <div className="form-select">
+    <div className="form-select" style={{ ...style }}>
       <AppSelect
         name={name}
         items={items}
@@ -26,6 +26,7 @@ const FormSelect = ({ name, items, multiple = false, isBordered = false }) => {
         className={`form-select__input ${
           isBordered ? "form-select__input--bordered" : ""
         }`}
+        style={{ width: '100%' }}
       />
       <FormErrorMessage error={errors[name]} visible={touched[name]} />
     </div>
