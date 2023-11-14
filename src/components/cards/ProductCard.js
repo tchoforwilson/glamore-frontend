@@ -2,11 +2,16 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { currencyFormatter } from "../../utilities/functions";
 
-
 const ProductCard = ({ product, ...otherProps }) => {
   const navigate = useNavigate();
+  const handleClick = (id) => () =>
+    navigate(navigate(`/product/${id}`, { replace: true }));
   return (
-    <figure className="card product-card" {...otherProps} onClick={navigate(`/product/${product._id}`)}>
+    <figure
+      className="card product-card"
+      {...otherProps}
+      onClick={handleClick(product.id)}
+    >
       <img
         src={require("../../assets/images/list.jpg")}
         alt={product.name}
