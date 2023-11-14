@@ -25,7 +25,7 @@ const initialValues = {
   stock: "",
 };
 
-const AddProductModal = ({ open = false, onClose = () => {} }) => {
+const AddProductModal = ({ open = false, onClose }) => {
   const handleSubmit = (values) => {
     console.log(values);
   };
@@ -34,8 +34,7 @@ const AddProductModal = ({ open = false, onClose = () => {} }) => {
   const [images, setImages] = React.useState([]);
 
   return (
-    <Modal open={open} onClose={onClose} aria-labelledby="modal-add-product" aria-describedby="modal-add-product">
-      <Box sx={{ display: 'grid', height: '100%', width: '100%', placeContent: 'center' }} >
+    <Modal open={open} onClose={onClose} aria-labelledby="modal-add-product" aria-describedby="modal-add-product" sx={{ display: 'grid', height: '100%', width: '100%', placeContent: 'center' }} >
       <div className="modal__content">
         <FormContainer initialValues={initialValues}>
           <section className="add-product-section details">
@@ -61,6 +60,7 @@ const AddProductModal = ({ open = false, onClose = () => {} }) => {
               <Grid item md={4}>
                 <FormSelect
                   name="gender"
+                  style={{ height : '100%'}}
                   items={[
                     { id: "-1", name: "Gender" },
                     { id: "male", name: "Male" },
@@ -68,9 +68,10 @@ const AddProductModal = ({ open = false, onClose = () => {} }) => {
                   ]}
                 />
               </Grid>
-              <Grid item md={4}>
+              <Grid item md={4} >
                 <FormSelect
-                  name="gender"
+                  name="material"
+                  style={{ height : '100%'}}
                   items={[
                     { id: "-1", name: "Material" },
                     { id: "male", name: "Male" },
@@ -80,11 +81,12 @@ const AddProductModal = ({ open = false, onClose = () => {} }) => {
               </Grid>
               <Grid item md={4}>
                 <FormSelect
-                  name="materials"
+                  name="colors"
                   items={[{ id: "-1", name: "Colors" }]}
+                  style={{ height : '100%'}}
                 />
               </Grid>
-              <Grid item md={4}>
+              <Grid item md={12}>
                 <FormTextArea
                   name="description"
                   placeholder="description"
@@ -268,7 +270,6 @@ const AddProductModal = ({ open = false, onClose = () => {} }) => {
           </button>
         </FormContainer>
       </div>
-      </Box>
     </Modal>
   );
 };
