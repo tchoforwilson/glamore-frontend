@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Button, Grid, Modal } from "@mui/material";
 import BackupOutlinedIcon from "@mui/icons-material/BackupOutlined";
 import {
   FormCheckBox,
@@ -25,7 +25,7 @@ const initialValues = {
   stock: "",
 };
 
-const AddProductModal = ({ isOpen = false }) => {
+const AddProductModal = ({ open = false, onClose = () => {} }) => {
   const handleSubmit = (values) => {
     console.log(values);
   };
@@ -34,7 +34,8 @@ const AddProductModal = ({ isOpen = false }) => {
   const [images, setImages] = React.useState([]);
 
   return (
-    <div className={`modal add-product-modal ${isOpen ? "open" : "close"}`}>
+    <Modal open={open} onClose={onClose} aria-labelledby="modal-add-product" aria-describedby="modal-add-product">
+      <Box sx={{ display: 'grid', height: '100%', width: '100%', placeContent: 'center' }} >
       <div className="modal__content">
         <FormContainer initialValues={initialValues}>
           <section className="add-product-section details">
@@ -137,6 +138,8 @@ const AddProductModal = ({ isOpen = false }) => {
                         width: "100%",
                         objectFit: "cover",
                         objectPosition: "center",
+                        transition: "opacity 0.3s ease-in-out",
+                        opacity: 1,
                       }}
                       alt="new product"
                     />
@@ -265,7 +268,8 @@ const AddProductModal = ({ isOpen = false }) => {
           </button>
         </FormContainer>
       </div>
-    </div>
+      </Box>
+    </Modal>
   );
 };
 
