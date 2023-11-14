@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Container } from "@mui/material";
 import { AppScreenLayout } from "../../layouts";
+import { ProductCard } from "../../components/cards";
 import BestSellerItem from "./BestSellerItem";
+import Icon from "../../components/common/icon";
+import ToolTip from "../../components/common/ToolTip";
 
 const sellers = [
   {
@@ -21,6 +24,23 @@ const sellers = [
     image: require("../../assets/sellers/seller-4.jpg"),
   },
 ];
+
+const categories = [
+  { name: "hats", alt: "hats" },
+  { name: "underwear", alt: "underwear" },
+  { name: "bags", alt: "bag" },
+  { name: "suits", alt: "suits" },
+  { name: "shoes", alt: "shoes" },
+  { name: "hoodies", alt: "hoodies" },
+  { name: "t-shirts", alt: "t-shirts" },
+];
+
+const product = {
+  id: "1abc",
+  name: "Cotton beige T-shirt",
+  price: 700,
+  currency: "XAF",
+};
 
 const HomeScreen = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -82,14 +102,40 @@ const HomeScreen = () => {
             <RenderDots />
           </div>
         </section>
-        <section className="home-categories" id="section-sticky">
+        <section className="home-categories">
           <h1 className="home-header">browse categories</h1>
+          <div className="categories">
+            {categories.map((category) => (
+              <ToolTip
+                key={category.name}
+                component={
+                  <Icon
+                    src={require(`../../assets/icons/categories/${category.name}.svg`)}
+                    alt={categories.alt}
+                    className="categories__icon"
+                  />
+                }
+                message={category.name}
+                position="bottom"
+              />
+            ))}
+          </div>
         </section>
-        <section className="home-essentials">
+        <section className="home-essentials" id="section-sticky">
           <h1 className="home-header">the essentials</h1>
+          <div className="home-products__items">
+            {Array.from({ length: 20 }).map((_, index) => (
+              <ProductCard key={Math.random() % 100} product={product} />
+            ))}
+          </div>
         </section>
         <section className="home-popular">
           <h1 className="home-header">popular buys</h1>
+          <div className="home-products__items">
+            {Array.from({ length: 20 }).map((_, index) => (
+              <ProductCard key={Math.random() % 100} product={product} />
+            ))}
+          </div>
         </section>
       </Container>
     </AppScreenLayout>

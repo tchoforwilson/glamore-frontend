@@ -113,6 +113,7 @@ const AddProductModal = ({ isOpen = false }) => {
                       <FormField
                         name="discount"
                         placeholder="% OFF"
+                        type="number"
                         isBordered={true}
                       />
                     </div>
