@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { SvgIcon } from "@mui/material";
 
 /**
  * @breif Render side navigation
