@@ -23,6 +23,7 @@
   margin: 0 2rem;
   @include respond-mobile {
     width: 100%;
+    flex: 0 0 100%;
   }
   &__img {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
@@ -93,6 +94,17 @@
   &__container {
     display: flex;
     justify-content: center;
+    @include respond-mobile {
+      justify-content: space-between;
+      align-items: center;
+      white-space: nowrap;
+      overflow-x: scroll; /* for Chrome, Safari, and Opera */
+      -ms-overflow-style: none; /* for Internet Explorer, Edge */
+      scrollbar-width: none; /* for Firefox */
+      &::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+      }
+    }
   }
   &__dots {
     text-align: center;
