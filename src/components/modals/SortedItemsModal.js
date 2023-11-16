@@ -16,15 +16,15 @@ import {
 
 const validationSchema = Yup.object().shape({
   price: Yup.object().shape({
-    min: Yup.number().label("MIN"),
-    max: Yup.number().label("MAX"),
+    min: Yup.number(),
+    max: Yup.number(),
   }),
   colors: Yup.array().of(Yup.string()),
-  date: Yup.array().of(Yup.string()),
+  dates: Yup.array().of(Yup.string()),
   sortBy: Yup.array().of(Yup.string()),
-  brand: Yup.array().of(Yup.string()),
-  gender: Yup.array().of(Yup.string()),
-  size: Yup.array().of(Yup.string()),
+  brands: Yup.array().of(Yup.string()),
+  genders: Yup.array().of(Yup.string()),
+  sizes: Yup.array().of(Yup.string()),
   deals: Yup.array().of(Yup.string()),
   materials: Yup.array().of(Yup.string()),
 });
@@ -37,9 +37,9 @@ const initialValues = {
   colors: [],
   dates: [],
   sortBy: [],
-  brand: [],
-  gender: [],
-  size: [],
+  brands: [],
+  genders: [],
+  sizes: [],
   deals: [],
   materials: [],
 };
@@ -66,7 +66,7 @@ const SortedItemsModal = ({ isOpen }) => {
                       <span>min</span>
                       <FormField
                         name="price.min"
-                        placehoder="min"
+                        placeholder="min"
                         type="number"
                         isBordered={true}
                       />
@@ -79,7 +79,7 @@ const SortedItemsModal = ({ isOpen }) => {
                       <span>max</span>
                       <FormField
                         name="price.max"
-                        placehoder="min"
+                        placeholder="min"
                         type="number"
                         isBordered={true}
                       />
@@ -105,11 +105,12 @@ const SortedItemsModal = ({ isOpen }) => {
               <div className="sortedItems__group">
                 <div className="sortedItems__label">-Date</div>
                 <div className="sortedItems__field items">
-                  {dates.map((date, index) => (
+                  {dates.map((date) => (
                     <FormCheckBox
-                      key={date}
-                      name={`dates.${index}`}
-                      label={date}
+                      key={date.name}
+                      name="dates"
+                      label={date.name}
+                      value={date.value}
                     />
                   ))}
                 </div>
@@ -117,11 +118,12 @@ const SortedItemsModal = ({ isOpen }) => {
               <div className="sortedItems__group">
                 <div className="sortedItems__label">-Sort By</div>
                 <div className="sortedItems__field items">
-                  {sortBy.map((sort, index) => (
+                  {sortBy.map((sort) => (
                     <FormCheckBox
-                      key={sort}
-                      name={`dates.${index}`}
-                      label={sort}
+                      key={sort.name}
+                      name="sortBy"
+                      label={sort.name}
+                      value={sort.value}
                     />
                   ))}
                 </div>
@@ -129,11 +131,12 @@ const SortedItemsModal = ({ isOpen }) => {
               <div className="sortedItems__group">
                 <div className="sortedItems__label">-Brand</div>
                 <div className="sortedItems__field items">
-                  {brands.map((brand, index) => (
+                  {brands.map((brand) => (
                     <FormCheckBox
-                      key={brand}
-                      name={`dates.${index}`}
-                      label={brand}
+                      key={brand.name}
+                      name="brands"
+                      label={brand.name}
+                      value={brand.value}
                     />
                   ))}
                 </div>
@@ -141,11 +144,12 @@ const SortedItemsModal = ({ isOpen }) => {
               <div className="sortedItems__group">
                 <div className="sortedItems__label">-Gender</div>
                 <div className="sortedItems__field items">
-                  {genders.map((gender, index) => (
+                  {genders.map((gender) => (
                     <FormCheckBox
-                      key={gender}
-                      name={`dates.${index}`}
-                      label={gender}
+                      key={gender.name}
+                      name="genders"
+                      label={gender.name}
+                      value={gender.value}
                     />
                   ))}
                 </div>
@@ -155,11 +159,12 @@ const SortedItemsModal = ({ isOpen }) => {
               <div className="sortedItems__group">
                 <div className="sortedItems__label">-Size</div>
                 <div className="sortedItems__field items">
-                  {sizes.map((size, index) => (
+                  {sizes.map((size) => (
                     <FormCheckBox
-                      key={size}
-                      name={`sizes.${index}`}
-                      label={size}
+                      key={size.name}
+                      name="sizes"
+                      label={size.name}
+                      value={size.value}
                     />
                   ))}
                 </div>
@@ -167,11 +172,12 @@ const SortedItemsModal = ({ isOpen }) => {
               <div className="sortedItems__group">
                 <div className="sortedItems__label">-sales % deals</div>
                 <div className="sortedItems__field items">
-                  {deals.map((deal, index) => (
+                  {deals.map((deal) => (
                     <FormCheckBox
-                      key={deal}
-                      name={`deals.${index}`}
-                      label={deal}
+                      key={deal.name}
+                      name="deals"
+                      label={deal.name}
+                      value={deal.value}
                     />
                   ))}
                 </div>
@@ -179,11 +185,12 @@ const SortedItemsModal = ({ isOpen }) => {
               <div className="sortedItems__group">
                 <div className="sortedItems__label">-materials</div>
                 <div className="sortedItems__field items">
-                  {materials.map((material, index) => (
+                  {materials.map((material) => (
                     <FormCheckBox
-                      key={material}
-                      name={`materials.${index}`}
-                      label={material}
+                      key={material.name}
+                      name="materials"
+                      label={material.name}
+                      value={material.value}
                     />
                   ))}
                 </div>
