@@ -86,56 +86,62 @@ const HomeScreen = () => {
 
   return (
     <AppScreenLayout searchPath="products">
-      <section className="home-sellers">
-        <h1 className="home-header">explore our best sellers</h1>
-        <div className="home-sellers__container">
-          <RenderImages />
-          <span className="prev" onClick={handlePrevClick}>
-            &#10094;
-          </span>
-          <span className="next" onClick={handleNextClick}>
-            &#10095;
-          </span>
-        </div>
-        <div className="home-sellers__dots">
-          <RenderDots />
-        </div>
-      </section>
-      <section className="home-categories">
-        <h1 className="home-header">browse categories</h1>
-        <div className="categories">
-          {categories.map((category) => (
-            <ToolTip
-              key={category.name}
-              component={
-                <Icon
-                  src={require(`../../assets/icons/categories/${category.name}.svg`)}
-                  alt={categories.alt}
-                  className="categories__icon"
-                />
-              }
-              message={category.name}
-              position="bottom"
-            />
-          ))}
-        </div>
-      </section>
-      <section className="home-essentials" id="section-sticky">
-        <h1 className="home-header">the essentials</h1>
-        <div className="home-products__items">
-          {Array.from({ length: 20 }).map((_, index) => (
-            <ProductCard key={Math.random() % 100} product={product} />
-          ))}
-        </div>
-      </section>
-      <section className="home-popular">
-        <h1 className="home-header">popular buys</h1>
-        <div className="home-products__items">
-          {Array.from({ length: 20 }).map((_, index) => (
-            <ProductCard key={Math.random() % 100} product={product} />
-          ))}
-        </div>
-      </section>
+      <Container>
+        {/* Section best sellers */}
+        <section className="home-sellers">
+          <h1 className="home-header">explore our best sellers</h1>
+          <div className="home-sellers__container">
+            <RenderImages />
+            <span className="prev" onClick={handlePrevClick}>
+              &#10094;
+            </span>
+            <span className="next" onClick={handleNextClick}>
+              &#10095;
+            </span>
+          </div>
+          <div className="home-sellers__dots">
+            <RenderDots />
+          </div>
+        </section>
+        {/** Section Categories */}
+        <section className="home-categories">
+          <h1 className="home-header">browse categories</h1>
+          <div className="categories">
+            {categories.map((category) => (
+              <ToolTip
+                key={category.name}
+                component={
+                  <Icon
+                    src={require(`../../assets/icons/categories/${category.name}.svg`)}
+                    alt={categories.alt}
+                    className="categories__icon"
+                  />
+                }
+                message={category.name}
+                position="bottom"
+              />
+            ))}
+          </div>
+        </section>
+        {/** Section Essentials */}
+        <section className="home-essentials" id="section-sticky">
+          <h1 className="home-header">the essentials</h1>
+          <div className="home-products__items">
+            {Array.from({ length: 20 }).map((_, index) => (
+              <ProductCard key={Math.random() % 100} product={product} />
+            ))}
+          </div>
+        </section>
+        {/** Section popular buys */}
+        <section className="home-popular">
+          <h1 className="home-header">popular buys</h1>
+          <div className="home-products__items">
+            {Array.from({ length: 20 }).map((_, index) => (
+              <ProductCard key={Math.random() % 100} product={product} />
+            ))}
+          </div>
+        </section>
+      </Container>
     </AppScreenLayout>
   );
 };
