@@ -35,33 +35,33 @@ const ShopScreen = () => {
   };
   return (
     <AppScreenLayout searchPath="products">
-      <Container>
-        <section className="section-shop-categories">
-          <div className="shop-categories">
-            <TuneIcon
-              className="shop-categories__icon"
-              onClick={() => setOpenSortedModal(true)}
+      {/** Section categories */}
+      <section className="section-shop-categories">
+        <div className="shop-categories">
+          <TuneIcon
+            className="shop-categories__icon"
+            onClick={() => setOpenSortedModal(true)}
+          />
+          {categories.map((category) => (
+            <CategoryItem
+              key={category.id}
+              name={category.name}
+              active={currentCategory === category.name}
+              onClick={handleCategoryClick(category.name)}
             />
-            {categories.map((category) => (
-              <CategoryItem
-                key={category.id}
-                name={category.name}
-                active={currentCategory === category.name}
-                onClick={handleCategoryClick(category.name)}
-              />
-            ))}
-          </div>
-        </section>
-        <section className="section-shop-products" id="section-sticky">
-          <div className="shop-products__items">
-            {Array.from({ length: 20 }).map((_, index) => (
-              <ProductCard key={Math.random() % 100} product={product} />
-            ))}
-          </div>
-        </section>
-        {/** Sort item modal */}
-        <SortedItemsModal isOpen={openSortedModal} />
-      </Container>
+          ))}
+        </div>
+      </section>
+      {/** Section product items */}
+      <section className="section-shop-products" id="section-sticky">
+        <div className="shop-products__items">
+          {Array.from({ length: 20 }).map((_, index) => (
+            <ProductCard key={Math.random() % 100} product={product} />
+          ))}
+        </div>
+      </section>
+      {/** Sort item modal */}
+      <SortedItemsModal isOpen={openSortedModal} />
     </AppScreenLayout>
   );
 };
