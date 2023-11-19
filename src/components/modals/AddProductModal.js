@@ -141,7 +141,7 @@ const AddProductModal = ({ open = false, onClose }) => {
                       }
                     />
                     <img src={coverImage ? URL.createObjectURL(coverImage) : ''} style={{ objectFit: 'cover', height: '100%', width: '100%', objectPosition: 'center' }} alt="" />
-                    <Box sx={{ position: 'absolute', inset: '0', '&:hover': { backgroundColor: 'rgba(55, 55, 55, 0.1)' } }} onClick={() => uploadProductCoverInputRef.current?.click()}></Box>
+                    <Box sx={{ position: 'absolute', inset: '0', cursor: 'pointer', '&:hover': { backgroundColor: 'rgba(55, 55, 55, 0.1)' } }} onClick={() => uploadProductCoverInputRef.current?.click()}></Box>
                   </Box>
                 </div>
               </Grid>
@@ -153,7 +153,7 @@ const AddProductModal = ({ open = false, onClose }) => {
             style={{ marginTop: "40px" }}
           >
             <h1 className="add-product-section__header">Product images</h1>
-            <Grid container sx={{ border: '1px solid black' }} >
+            <Grid container sx={{ border: '1px solid rgb(0 0 0 / .1)', borderRadius: '15px' }} >
               {images.map((image, index) => (
                 <Grid
                   item
