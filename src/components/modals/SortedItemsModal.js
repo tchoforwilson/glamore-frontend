@@ -66,7 +66,7 @@ const SortedItemsModal = ({ isOpen }) => {
                       <span>min</span>
                       <FormField
                         name="price.min"
-                        placeholder="min"
+                        placeholder="min price"
                         type="number"
                         isBordered={true}
                       />
@@ -79,7 +79,7 @@ const SortedItemsModal = ({ isOpen }) => {
                       <span>max</span>
                       <FormField
                         name="price.max"
-                        placeholder="min"
+                        placeholder="max price"
                         type="number"
                         isBordered={true}
                       />
