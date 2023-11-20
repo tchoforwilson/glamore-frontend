@@ -21,6 +21,7 @@
   position: relative;
   width: 30%;
   margin: 0 2rem;
+  transition: all 0.4s ease-out;
   @include respond-mobile {
     width: 100%;
     flex: 0 0 100%;
@@ -75,12 +76,12 @@
 
 /* Position the "next button" to the right */
 .next {
-  right: 1rem;
+  right: 15%;
   border-radius: 0.3rem 0 0 0.3rem;
   transform: translatex(1rem);
 }
 .prev {
-  left: 1rem;
+  left: 15%;
   transform: translatex(1rem);
 }
 
@@ -128,11 +129,50 @@
   &__container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    @include respond-mobile {
+      white-space: nowrap;
+      overflow-x: scroll; /* for Chrome, Safari, and Opera */
+      -ms-overflow-style: none; /* for Internet Explorer, Edge */
+      scrollbar-width: none; /* for Firefox */
+      &::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+      }
+    }
+    & > * {
+      @include respond-mobile {
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }
+      }
+    }
   }
 }
+
+/*
+* Style for icons
+*/
 .categories__icon {
   height: 8rem;
   width: 8rem;
+}
+
+/*
+* Forward and backward buttons
+*/
+.forward-btn,
+.backward-btn {
+  transition: all 0.4s ease-in-out;
+  @include respond-mobile {
+    display: none !important;
+  }
+}
+.forward,
+.backward {
+  font-size: 3rem !important;
+  @include respond-mobile {
+    display: none;
+  }
 }
 
 .home-products__items {
