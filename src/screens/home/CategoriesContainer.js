@@ -42,7 +42,6 @@ const SectionCategories = () => {
       <IconButton className="backward-btn" onClick={handlePrevClick}>
         <ArrowBackIosNewIcon className="backward" />
       </IconButton>
-
       {displayedCategories.map((category) => (
         <ToolTip
           key={category.name}
