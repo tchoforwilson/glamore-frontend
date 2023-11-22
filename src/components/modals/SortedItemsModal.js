@@ -1,8 +1,12 @@
 import React from "react";
 import * as Yup from "yup";
 import { Grid, Stack } from "@mui/material";
-import { FormCheckBox, FormContainer, FormField } from "../forms";
-import { AppCheckBox } from "../inputs";
+import {
+  FormCheckBox,
+  FormCheckColor,
+  FormContainer,
+  FormField,
+} from "../forms";
 import { SubmitButton } from "../buttons";
 import {
   deals,
@@ -53,8 +57,6 @@ const initialValues = {
  * @returns
  */
 const SortedItemsModal = ({ isOpen, handleSubmit, handleReset }) => {
-  // const [colors, setColors] = useState([]);
-  // const handleAppcheckBoxChange = () => {};
   return (
     <article className={`modal sortedItems ${isOpen ? "open" : "close"}`}>
       <div className="modal__content">
@@ -102,21 +104,12 @@ const SortedItemsModal = ({ isOpen, handleSubmit, handleReset }) => {
                 <div className="sortedItems__label">-Colors</div>
                 <div className="sortedItems__field colors">
                   {colors.map((color) => (
-                    <div className="sortedItems__colors-container">
-                      <AppCheckBox
-                        key={color.name}
-                        name="colors"
-                        value={color.code}
-                        className="sortedItems__color"
-                        style={{
-                          appearance: "none",
-                          backgroundColor: color.code,
-                        }}
-                      />
-                      <span className="sortedItems__color-name">
-                        {color.name}
-                      </span>
-                    </div>
+                    <FormCheckColor
+                      key={color.name}
+                      name="colors"
+                      label={color.name}
+                      value={color.code}
+                    />
                   ))}
                 </div>
               </div>
