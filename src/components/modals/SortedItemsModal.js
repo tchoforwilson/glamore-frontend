@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import { Grid, Stack } from "@mui/material";
 import { FormCheckBox, FormContainer, FormField } from "../forms";
 import { AppCheckBox } from "../inputs";
+import { SubmitButton } from "../buttons";
 import {
   deals,
   dates,
@@ -44,13 +45,23 @@ const initialValues = {
   materials: [],
 };
 
-const SortedItemsModal = ({ isOpen }) => {
+/**
+ *
+ * @param {Boolean} isOpen Variable for opening and closing modal dialog.
+ * @param {Function} Callback function when modal form is submitted.
+ * @param {Function} Callback function when modal form is resetted.
+ * @returns
+ */
+const SortedItemsModal = ({ isOpen, handleSubmit, handleReset }) => {
+  // const [colors, setColors] = useState([]);
+  // const handleAppcheckBoxChange = () => {};
   return (
     <article className={`modal sortedItems ${isOpen ? "open" : "close"}`}>
       <div className="modal__content">
         <FormContainer
           initialValues={initialValues}
           validationSchema={validationSchema}
+          onSubmit={handleSubmit}
         >
           <Grid container spacing={6}>
             <Grid item md={4} sm={4}>
@@ -91,12 +102,21 @@ const SortedItemsModal = ({ isOpen }) => {
                 <div className="sortedItems__label">-Colors</div>
                 <div className="sortedItems__field colors">
                   {colors.map((color) => (
-                    <AppCheckBox
-                      key={color}
-                      name="colors"
-                      className="sortedItems__color"
-                      style={{ appearance: "none", backgroundColor: color }}
-                    />
+                    <div className="sortedItems__colors-container">
+                      <AppCheckBox
+                        key={color.name}
+                        name="colors"
+                        value={color.code}
+                        className="sortedItems__color"
+                        style={{
+                          appearance: "none",
+                          backgroundColor: color.code,
+                        }}
+                      />
+                      <span className="sortedItems__color-name">
+                        {color.name}
+                      </span>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -195,6 +215,19 @@ const SortedItemsModal = ({ isOpen }) => {
                   ))}
                 </div>
               </div>
+            </Grid>
+            <Grid item md={12} sm={12}>
+              <Stack direction="row" spacing={6} className="sortedItems__btns">
+                <button
+                  type="reset"
+                  name="reset"
+                  className="btn btn--primary btn--reset"
+                  onClick={handleReset}
+                >
+                  Cancel
+                </button>
+                <SubmitButton title="Apply" />
+              </Stack>
             </Grid>
           </Grid>
         </FormContainer>
