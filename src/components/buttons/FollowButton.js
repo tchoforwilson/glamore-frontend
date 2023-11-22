@@ -10,7 +10,7 @@ const FollowButton = ({ isFollowing = false, onClick }) => {
   const handleClick = () => onClick;
   return (
     <button className="btn btn-follow" onClick={handleClick}>
-      {isFollowing ? " follow this store" : "unfollow"}
+      {!isFollowing ? " follow this store" : "unfollow"}
     </button>
   );
 };
