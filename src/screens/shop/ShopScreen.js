@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Container } from "@mui/material";
 import TuneIcon from "@mui/icons-material/Tune";
 import { AppScreenLayout } from "../../layouts";
+import CategoriesContainer from "./CategoriesContainer";
 import { ProductCard } from "../../components/cards";
-import CategoryItem from "./CategoryItem";
 import { SortedItemsModal } from "../../components/modals";
 
 const categories = [
@@ -33,35 +33,46 @@ const ShopScreen = () => {
   const handleCategoryClick = (name) => () => {
     setCurrentCategory(name);
   };
+  const handleSubmit = (data) => {
+    console.log(data);
+  };
+  const handleReset = (resetForm) => {
+    resetForm();
+  };
   return (
     <AppScreenLayout searchPath="products">
-      {/** Section categories */}
-      <section className="section-shop-categories">
-        <div className="shop-categories">
-          <TuneIcon
-            className="shop-categories__icon"
-            onClick={() => setOpenSortedModal(true)}
-          />
-          {categories.map((category) => (
-            <CategoryItem
-              key={category.id}
-              name={category.name}
-              active={currentCategory === category.name}
-              onClick={handleCategoryClick(category.name)}
+      <Container>
+        {/** Section categories */}
+        <section className="section-shop-categories">
+          <div className="shop-categories">
+            <TuneIcon
+              className="shop-categories__tune"
+              onClick={() => setOpenSortedModal(true)}
             />
-          ))}
-        </div>
-      </section>
-      {/** Section product items */}
-      <section className="section-shop-products" id="section-sticky">
-        <div className="shop-products__items">
-          {Array.from({ length: 20 }).map((_, index) => (
-            <ProductCard key={Math.random() % 100} product={product} />
-          ))}
-        </div>
-      </section>
+            {
+              <CategoriesContainer
+                categories={categories}
+                currentCategory={currentCategory}
+                handleCategoryClick={handleCategoryClick}
+              />
+            }
+          </div>
+        </section>
+        {/** Section product items */}
+        <section className="section-shop-products" id="section-sticky">
+          <div className="shop-products__items">
+            {Array.from({ length: 20 }).map((_, index) => (
+              <ProductCard key={Math.random() % 100} product={product} />
+            ))}
+          </div>
+        </section>
+      </Container>
       {/** Sort item modal */}
-      <SortedItemsModal isOpen={openSortedModal} />
+      <SortedItemsModal
+        isOpen={openSortedModal}
+        handleSubmit={handleSubmit}
+        handleReset={handleReset}
+      />
     </AppScreenLayout>
   );
 };
