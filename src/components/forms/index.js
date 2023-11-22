@@ -1,5 +1,6 @@
 export { default as FormContainer } from "./FormContainer";
 export { default as FormCheckBox } from "./FormCheckBox";
+export { default as FormCheckColor } from "./FormCheckColor";
 export { default as FormField } from "./FormField";
 export { default as FormFieldLabel } from "./FormFieldLabel";
 export { default as FormSelect } from "./FormSelect";
