@@ -101,41 +101,24 @@
   & span {
     text-transform: uppercase;
   }
-
-  /*
-  * For colors
-  */
-
-  &__colors-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-
-  &__color {
-    border-radius: 0;
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 0.5rem;
-    &:not(:first-child) {
-      margin-left: 1rem;
-    }
-    &:checked {
-      accent-color: $color-white;
-    }
-  }
-
-  &__color-name {
-    text-transform: lowercase !important;
-    font-size: 1rem !important;
-    font-weight: 300 !important;
-    text-align: center !important;
-  }
-
   &__btns {
     justify-content: flex-end !important;
     @include respond-mobile {
       justify-content: center !important;
     }
+  }
+}
+
+/*
+* increase form check input and label size
+*/
+
+.form-check {
+  &__label {
+    font-weight: 700;
+  }
+  &__input {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }
