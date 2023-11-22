@@ -26,16 +26,35 @@
   }
 
   &__image {
-    width: 6rem;
-    height: 6rem;
+    display: block;
+    margin: 0 auto;
+    width: 8rem;
+    height: 8rem;
     border-radius: 12rem;
+  }
+  &__details {
+    position: relative;
+    margin: 0 auto;
+    & span {
+      display: block;
+    }
   }
   &__name {
     color: $color-primary;
-    font-size: 1.4rem;
+    font-size: 2.2rem;
     font-weight: 500;
     text-align: center;
     text-transform: uppercase;
+  }
+
+  &__shops {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 300;
+    cursor: pointer;
+    &:hover {
+      color: $color-secondary;
+    }
   }
 
   &__links {
@@ -79,7 +98,7 @@
     font-family: $font-source-sans, "san-serif";
     font-size: 1.5rem;
     text-transform: capitalize;
-    border-bottom: 0.15rem solid transparent;
+    border-bottom: 0.2rem solid transparent;
     &:not(:last-child) {
       margin-right: 2rem;
     }
@@ -98,4 +117,70 @@
   // flex-wrap: wrap;
   display: inline-block;
   text-align: center;
+}
+
+/*
+* Followed stores
+*/
+
+.follow-shop {
+  position: absolute;
+  width: 34.5rem;
+  max-height: 30rem;
+  border-radius: 1.5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: $color-white;
+  box-shadow: 0rem 0.4rem 5.6rem 0rem rgba(0, 0, 0, 0.15);
+  display: none;
+
+  &.active {
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__header {
+    margin: 0 auto;
+    gap: 1;
+    &-main {
+      color: $color-black;
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 500;
+    }
+    &-sub {
+      color: $color-black;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__img {
+    width: 5rem;
+    height: 5rem;
+    resize: both;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5rem;
+  }
+  &__name {
+    color: $color-black;
+    font-size: 1.6rem;
+    font-weight: 300;
+    text-transform: capitalize;
+  }
 }
