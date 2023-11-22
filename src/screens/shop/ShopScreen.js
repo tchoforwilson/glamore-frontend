@@ -36,8 +36,8 @@ const ShopScreen = () => {
   const handleSubmit = (data) => {
     console.log(data);
   };
-  const handleReset = (resetForm) => {
-    resetForm();
+  const handleReset = () => {
+    setOpenSortedModal(false);
   };
   return (
     <AppScreenLayout searchPath="products">
