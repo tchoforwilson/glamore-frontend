@@ -7,7 +7,7 @@ import FollowShopItem from "./FollowShopItem";
  * @param {Boolean} active Active state of follow store dropdown
  * @returns
  */
-const FollowedShops = ({ shops, active }) => {
+const FollowedShops = ({ shops, active = false }) => {
   return (
     <div className={`follow-shop ${active ? "active" : ""}`}>
       <div className="follow-shop__header">

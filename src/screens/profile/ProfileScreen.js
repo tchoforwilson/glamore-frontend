@@ -28,7 +28,7 @@ const shops = [
 ];
 
 const ProfileScreen = () => {
-  const [showShops, toggleShowShops] = useState(true);
+  const [showShops, toggleShowShops] = useState(false);
   return (
     <AppScreenLayout>
       <section className="section-profile">
@@ -43,9 +43,9 @@ const ProfileScreen = () => {
               <span className="profile__name">nfor gift</span>
               <span
                 className="profile__shops"
-                onClick={() => toggleShowShops(!showShops)}
+                onClick={() => { toggleShowShops(!showShops);console.log('hello') }}
               >
-                Following 225 shops
+                Following {shops.length} shops
               </span>
               <FollowedShops shops={shops} active={showShops} />
             </figcaption>
