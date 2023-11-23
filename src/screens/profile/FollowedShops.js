@@ -12,7 +12,7 @@ const FollowedShops = ({ shops, active }) => {
     <div className={`follow-shop ${active ? "active" : ""}`}>
       <div className="follow-shop__header">
         <h2 className="follow-shop__header-main">Shops you follow</h2>
-        <span className="follow-shop__header-sub">225</span>
+        <span className="follow-shop__header-sub">{shops.length}</span>
       </div>
       <div className="follow-shop__content">
         {shops.map((shop) => (

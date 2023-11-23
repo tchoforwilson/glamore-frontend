@@ -28,7 +28,7 @@ const shops = [
 ];
 
 const ProfileScreen = () => {
-  const [showShops, toggleShowShops] = useState(false);
+  const [showShops, toggleShowShops] = useState(true);
   return (
     <AppScreenLayout>
       <section className="section-profile">

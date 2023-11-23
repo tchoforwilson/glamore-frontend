@@ -131,8 +131,9 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
   background-color: $color-white;
-  box-shadow: 0rem 0.4rem 5.6rem 0rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0rem 0rem 3.5rem 0.8rem rgba(0, 0, 0, 0.25);
   display: none;
+  padding: 2rem;
 
   &.active {
     display: block;
@@ -143,6 +144,7 @@
   &__header {
     margin: 0 auto;
     gap: 1;
+    margin-bottom: 2rem;
     &-main {
       color: $color-black;
       text-align: center;
@@ -161,6 +163,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
+    overflow-y: auto;
   }
   &__item {
     display: flex;
@@ -182,5 +185,15 @@
     font-size: 1.6rem;
     font-weight: 300;
     text-transform: capitalize;
+  }
+
+  & .btn-follow {
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .follow-shop {
+    width: 90vw;
   }
 }
