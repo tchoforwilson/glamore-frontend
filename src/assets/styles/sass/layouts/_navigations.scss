@@ -247,14 +247,17 @@
   background-color: $color-white;
   box-shadow: 0rem 0.4rem 5.6rem 0rem rgba(0, 0, 0, 0.15);
   display: none;
+  z-index: 5;
+  @include respond-mobile {
+    width: 90dvw;
+  }
   &.active {
     display: block;
     top: 5rem;
     left: -12rem;
     @include respond-mobile {
-      width: 90%;
-      margin: 0 auto;
-      z-index: 5;
+      left: -100%;
+      transform: translate(-53%);
     }
   }
   &__header {
