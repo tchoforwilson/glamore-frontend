@@ -255,6 +255,7 @@
     display: block;
     top: 5rem;
     left: -12rem;
+    // TODO: Fix the responsive of this notification dropdown for all mobile devices
     @include respond-mobile {
       left: -100%;
       transform: translate(-53%);
