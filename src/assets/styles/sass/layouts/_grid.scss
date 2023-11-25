@@ -4,9 +4,34 @@
   max-width: $grid-width;
   margin: 0 auto;
 }
-
-.grid-container {
-  @include respond-mobile {
-    margin-left: 0 !important;
+.container {
+  @include grid-container;
+  @include respond(big-desktop) {
+    max-width: 132rem;
   }
+  @include respond(desktop) {
+    max-width: 114rem;
+  }
+  /*
+  * Laptops
+   */
+  @include respond(labtop) {
+    max-width: 96rem;
+  }
+  /*
+  * tablets
+   */
+  @include respond(tablet) {
+    max-width: 72rem;
+  }
+  /*
+  * Small devices
+   */
+  @include respond(phone) {
+    max-width: 54rem;
+  }
+}
+
+.container-fluid {
+  @include grid-container;
 }
