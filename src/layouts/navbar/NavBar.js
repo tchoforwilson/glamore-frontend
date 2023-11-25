@@ -52,7 +52,7 @@ const NavBar = ({ onSearch }) => {
         <div className="nav-profile">
           <div className="nav-profile__cart">
             <IconButton
-              className="nav-profile__btn"
+              className="nav-profile__btn nav-profile__btn--cart"
               onClick={() => setShowBag(!showBag)}
             >
               <ShoppingBagOutlinedIcon className="nav-profile__icon" />
