@@ -1,5 +1,5 @@
-import Protected from "./Protected";
-import Private from "./Private";
+import Protected from "./protected";
+import Private from "./private";
 
 /**
  * @breif Protected and restrict route to users of particular roles
@@ -7,7 +7,7 @@ import Private from "./Private";
  * @param {JSX} children Childrem components
  * @returns {JSX}
  */
-const ProtectedPrivate = ({ role, children }) => {
+const Restricted = ({ role, children }) => {
   return (
     <Protected>
       <Private role={role}>{children}</Private>
@@ -15,4 +15,4 @@ const ProtectedPrivate = ({ role, children }) => {
   );
 };
 
-export default ProtectedPrivate;
+export default Restricted;
