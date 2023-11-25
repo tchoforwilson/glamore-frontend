@@ -7,6 +7,7 @@ const slice = createSlice({
   initialState: {
     list: [],
     currentStore: null,
+    storeProducts: [],
     error: null,
     loading: false,
     count: 0,
@@ -14,8 +15,10 @@ const slice = createSlice({
     updateStoreLoading: false,
     getStoreLoading: false,
     deleteStoreLoading: false,
+    getStoreProductsLoading: false,
   },
   reducers: {
+    // Get all stores
     STORES_REQUESTED: (stores, action) => {
       stores.loading = true;
       stores.list = [];
@@ -30,6 +33,7 @@ const slice = createSlice({
       stores.error = action.payload.message;
     },
 
+    // Add new store
     ADD_STORE_BEGIN: (stores) => {
       stores.addStoreLoading = true;
       stores.error = null;
@@ -42,6 +46,8 @@ const slice = createSlice({
       stores.error = action.payload.message;
       stores.addStoreLoading = false;
     },
+
+    // Get Store
 
     GET_STORE_BEGIN: (stores, action) => {
       stores.currentStore = null;
@@ -57,6 +63,21 @@ const slice = createSlice({
       stores.getStoreLoading = false;
     },
 
+    // Get store products
+    GET_STORE_PRODUCTS_BEGIN: (stores) => {
+      stores.getStoreProductsLoading = true;
+    },
+
+    GET_STORE_PRODUCTS_SUCCESS: (stores, action) => {
+      stores.storeProducts = action.payload.data;
+      stores.getStoreProductsLoading = false;
+    },
+    GET_STORE_PRODUCTS_FAILED: (stores, action) => {
+      stores.getStoreProductsLoading = false;
+      stores.error = action.payload?.message;
+    },
+
+    // Get store counts
     GET_STORES_COUNT: (stores, action) => {
       stores.count = action.payload.data;
     },
@@ -76,12 +97,16 @@ export const {
   GET_STORE_SUCCESS,
   GET_STORE_FAILED,
 
+  GET_STORE_PRODUCTS_BEGIN,
+  GET_STORE_PRODUCTS_SUCCESS,
+  GET_STORE_PRODUCTS_FAILED,
+
   GET_STORES_COUNT,
 } = slice.actions;
 
 // Action creators
 
-const URL = "/stores";
+const url = "/stores";
 
 /**
  * @breif Fetch all stores from the database
@@ -93,7 +118,7 @@ export const getAllStores = (searchQuery) => (dispatch) => {
 
   dispatch(
     apiCallBegan({
-      url: `${URL}/${query}`,
+      url: `${url}/${query}`,
       onStart: STORES_REQUESTED.type,
       onSuccess: STORES_RECEIVED.type,
       onError: STORES_REQUEST_FAILED.type,
@@ -108,7 +133,7 @@ export const getAllStores = (searchQuery) => (dispatch) => {
  */
 export const addProduct = (store) =>
   apiCallBegan({
-    url: URL,
+    url: url,
     data: store,
     onStart: ADD_STORE_BEGIN.type,
     onSuccess: ADD_STORE_SUCCESS.type,
@@ -122,10 +147,23 @@ export const addProduct = (store) =>
  */
 export const getStore = (id) =>
   apiCallBegan({
-    url: `${URL}/${id}`,
+    url: `${url}/${id}`,
     onStart: GET_STORE_BEGIN.type,
     onSuccess: GET_STORE_SUCCESS.type,
     onError: GET_STORE_FAILED.type,
+  });
+
+/**
+ * @breif Get all stores products
+ * @param {String} id Store id
+ * @returns
+ */
+export const getStoreProducts = (id) =>
+  apiCallBegan({
+    url: `${url}/${id}/products`,
+    onStart: GET_STORE_PRODUCTS_BEGIN.type,
+    onSuccess: GET_STORE_PRODUCTS_SUCCESS.type,
+    onError: GET_STORE_PRODUCTS_FAILED.type,
   });
 
 /**
@@ -137,7 +175,7 @@ export const getStoresCount = (countQuery) => {
   let query = createQuery(countQuery);
 
   return apiCallBegan({
-    url: `${URL}/count?${query}`,
+    url: `${url}/count?${query}`,
     onSuccess: GET_STORES_COUNT.type,
   });
 };

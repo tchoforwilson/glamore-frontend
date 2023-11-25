@@ -66,7 +66,7 @@ export const {
  * @breif Action creators
  */
 
-const URL = "/categories";
+const url = "/categories";
 
 /**
  * @breif Dispatch action to get all categories
@@ -76,7 +76,7 @@ const URL = "/categories";
 export const getAllCategories = (searchQuery) => {
   let query = createQuery(searchQuery);
   return apiCallBegan({
-    url: `${URL}?${query}`,
+    url: `${url}?${query}`,
     onStart: GET_CATEGORIES_REQUESTED.type,
     onSuccess: GET_CATEGORIES_SUCCESS.type,
     onError: GET_CATEGORIES_FAILED.type,
@@ -90,7 +90,7 @@ export const getAllCategories = (searchQuery) => {
  */
 export const addCategory = (category) =>
   apiCallBegan({
-    url: URL,
+    url: url,
     data: category,
     onStart: ADD_CATEGORY_BEGIN.type,
     onSuccess: ADD_CATEGORY_SUCCESS.type,
@@ -106,7 +106,7 @@ export const getCategoriesCount = (countQuery) => {
   const query = createQuery(countQuery);
 
   return apiCallBegan({
-    url: `${URL}/count?${query}`,
+    url: `${url}/count?${query}`,
     onSuccess: GET_CATEGORIES_COUNT.type,
   });
 };

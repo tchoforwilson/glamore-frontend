@@ -12,11 +12,25 @@ const slice = createSlice({
     error: null,
     favoritesLoading: false,
     followsLoading: false,
+    getMeLoading: false,
+    getUsersLoading: false,
     getUserLoading: false,
   },
   reducers: {
+    // Current user
+    GET_ME_BEGIN: (users) => {
+      users.getMeLoading = true;
+    },
+    GET_ME_SUCCESS: (users, action) => {
+      users.currentUser = action.payload.data.user;
+      users.getMeLoading = false;
+    },
+    GET_ME_FAILED: (users, action) => {
+      users.getMeLoading = false;
+      users.error = action.payload.message;
+    },
     // Favorites
-    GET_FAVORITES_BEGIN: (users, action) => {
+    GET_FAVORITES_BEGIN: (users) => {
       users.favoritesLoading = true;
     },
     GET_FAVORITES_SUCCESS: (users, action) => {
@@ -29,7 +43,7 @@ const slice = createSlice({
     },
 
     // Follows
-    GET_FOLLOWS_BEGIN: (users, action) => {
+    GET_FOLLOWS_BEGIN: (users) => {
       users.followsLoading = true;
     },
     GET_FOLLOWS_SUCCESS: (users, action) => {
@@ -42,7 +56,7 @@ const slice = createSlice({
     },
 
     // Get user
-    GET_USER_BEGIN: (users, action) => {
+    GET_USER_BEGIN: (users) => {
       users.getUserLoading = true;
       users.currentUser = null;
     },
@@ -58,6 +72,10 @@ const slice = createSlice({
 });
 
 export const {
+  GET_ME_BEGIN,
+  GET_ME_SUCCESS,
+  GET_ME_FAILED,
+
   GET_FAVORITES_BEGIN,
   GET_FAVORITES_SUCCESS,
   GET_FAVORITES_FAILED,
@@ -73,16 +91,24 @@ export const {
 
 // Action creators
 
-const URL = "/users";
+const url = "/users";
+
+export const getMe = () =>
+  apiCallBegan({
+    url: `${url}/me`,
+    onStart: GET_ME_BEGIN.type,
+    onSuccess: GET_ME_SUCCESS.type,
+    onError: GET_ME_FAILED.type,
+  });
 
 /**
  * @breif Get user favorites items
  * @param {String} id  user id
  * @returns
  */
-export const favorites = (id) =>
+export const getMyfavorites = (id) =>
   apiCallBegan({
-    url: `${URL}/${id}/favorites`,
+    url: `${url}/${id}/my-favorites`,
     onStart: GET_FAVORITES_BEGIN.type,
     onSuccess: GET_FAVORITES_SUCCESS.type,
     onError: GET_FAVORITES_FAILED.type,
@@ -93,9 +119,9 @@ export const favorites = (id) =>
  * @param {String} id user id
  * @returns
  */
-export const getFollows = (id) =>
+export const getMyShops = (id) =>
   apiCallBegan({
-    url: `${URL}/${id}/follows`,
+    url: `${url}/${id}/my-shops`,
     onStart: GET_FOLLOWS_BEGIN.type,
     onSuccess: GET_FOLLOWS_SUCCESS.type,
     onError: GET_FOLLOWS_FAILED.type,
@@ -108,7 +134,7 @@ export const getFollows = (id) =>
  */
 export const getUser = (id) =>
   apiCallBegan({
-    url: `${URL}/${id}`,
+    url: `${url}/${id}`,
     onStart: GET_USER_BEGIN.type,
     onSuccess: GET_USER_SUCCESS.type,
     onError: GET_USER_FAILED.type,
