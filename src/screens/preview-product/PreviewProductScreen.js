@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { IconButton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { AppScreenLayout } from "../../layouts";
 import { ProductCard } from "../../components/cards";
 import {
@@ -40,6 +41,20 @@ const PreviewProductScreen = () => {
     setCurrentImage(images[index]);
   };
 
+  const handleNextClick = () => {
+    if (activeIndex !== images.length - 1) {
+      setActiveIndex(activeIndex + 1);
+      setCurrentImage(images[activeIndex]);
+    }
+  };
+
+  const handlePrevClick = () => {
+    if (activeIndex > 0) {
+      setActiveIndex(activeIndex - 1);
+      setCurrentImage(images[activeIndex]);
+    }
+  };
+
   return (
     <AppScreenLayout searchPath="products">
       <section className="preview-product">
@@ -57,8 +72,15 @@ const PreviewProductScreen = () => {
                   className="preview-product__img"
                 />
                 <div className="preview-product__arrows">
-                  <ArrowBackIosIcon className="arrow prev" />
-                  <ArrowForwardIosIcon className="arrow next" />
+                  <IconButton className="arrow__btn" onClick={handlePrevClick}>
+                    <KeyboardArrowLeftIcon className="arrow__icon" />
+                  </IconButton>
+                  <IconButton
+                    className="arrow__btn arrow__btn--next"
+                    onClick={handleNextClick}
+                  >
+                    <KeyboardArrowRightIcon className="arrow__icon" />
+                  </IconButton>
                 </div>
                 <div className="preview-product__dots">
                   <RenderDots />
