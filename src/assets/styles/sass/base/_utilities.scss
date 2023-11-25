@@ -22,33 +22,17 @@ $screen-size: sm, md, lg, xlg, xxlg;
 .flex-column {
   flex-direction: column;
 }
+$dir-prefixes: center, between, around, start, end, evenly;
+$directions: center, space-between, space-around, flex-start, flex-end,
+  space-evenly;
 
-.align-items--center {
-  align-items: center;
-}
-
-.align-items--between {
-  align-items: space-between;
-}
-
-.justify-content--start {
-  justify-content: flex-start;
-}
-
-.justify-content--end {
-  justify-content: flex-end;
-}
-
-.justify-content--center {
-  justify-content: center;
-}
-
-.justify-content--between {
-  justify-content: space-between;
-}
-
-.justify-content--evenly {
-  justify-content: space-evenly;
+@each $direction, $prefix in zip($directions, $dir-prefixes) {
+  .align-items--#{$prefix} {
+    align-items: #{$direction};
+  }
+  .justify-content--#{$prefix} {
+    justify-content: #{$direction};
+  }
 }
 
 /*MARGINS*/
@@ -72,7 +56,7 @@ $auto-margin-prefixes: t, s, b, e;
   margin-bottom: auto;
 }
 
-@each $side, $prefix in $auto-margin-sides {
+@each $side, $prefix in zip($auto-margin-sides, $auto-margin-prefixes) {
   .m#{$prefix}-auto {
     margin-#{$prefix}: auto;
   }
