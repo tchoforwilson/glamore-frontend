@@ -1,6 +1,40 @@
 @use "./../abstracts/variables" as *;
+@use "./../abstracts/mixins" as *;
 
 .preview-product {
+  &__container {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    @include respond-mobile {
+      flex-direction: column;
+    }
+  }
+
+  /*
+  * Heading style
+  */
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    @include respond-mobile {
+      align-items: center;
+    }
+  }
+
+  &__name {
+    display: none;
+    font-size: 2.5rem;
+    @include respond-mobile {
+      display: inline;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
   &__btn {
     font-size: 5rem !important;
     background-color: $color-white;
@@ -13,22 +47,27 @@
 
   &__item {
     width: 100%;
-    height: 100vh;
+    max-height: 85dvh;
     display: flex;
     border-radius: 2.5rem;
     box-shadow: 0rem 1rem 0.5rem rgba($color-black, 0.2);
+    @include respond-mobile {
+      max-height: none;
+      flex-direction: column;
+      box-shadow: none;
+    }
   }
 
   &__images {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
   }
 
   &__img {
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     resize: both;
     object-fit: cover;
     object-position: top;
@@ -38,7 +77,7 @@
     position: absolute;
     bottom: 1rem;
     right: 50%;
-    transform: translate(-50%);
+    transform: translateX(-50%);
     & .arrow {
       color: $color-black !important;
       font-size: 2rem !important;
@@ -73,6 +112,21 @@
       }
     }
   }
+  /*
+  * Product details
+  */
+  &__details {
+    padding: 3rem;
+    height: 100%;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    @include respond-mobile {
+      width: 100%;
+      padding: 0rem;
+    }
+  }
 }
 
 /*
@@ -82,6 +136,9 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  @include respond-mobile {
+    margin-top: 1rem;
+  }
   &__img {
     height: 7rem;
     width: 7rem;
@@ -104,8 +161,14 @@
 
 .preview-detail {
   margin-top: 2rem;
+  @include respond-mobile {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   &__title {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
   &__pricing {
     font-size: 1.5rem;
@@ -208,13 +271,18 @@
 .preview-more,
 .preview-addition {
   & h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: center;
     margin: 3rem 0rem;
     text-transform: capitalize;
   }
   &__items {
-    display: inline-block;
+    // display: inline-block;
     text-align: center;
   }
+}
+.preview-more__btn {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
 }
