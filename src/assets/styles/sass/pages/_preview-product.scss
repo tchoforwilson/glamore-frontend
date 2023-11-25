@@ -29,9 +29,7 @@
     font-size: 2.5rem;
     @include respond-mobile {
       display: inline;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      margin-right: auto;
     }
   }
 
@@ -74,19 +72,16 @@
   }
 
   &__arrows {
+    width: 100%;
     position: absolute;
-    bottom: 1rem;
-    right: 50%;
-    transform: translateX(-50%);
-    & .arrow {
-      color: $color-black !important;
-      font-size: 2rem !important;
-      background-color: $color-white;
-      padding: 1rem 1.5rem;
-    }
-
-    & .prev {
-      right: 1rem;
+    bottom: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // right: 50%;
+    // transform: translateX(-50%);
+    @include respond-mobile {
+      display: none;
     }
   }
 
@@ -130,6 +125,29 @@
 }
 
 /*
+* Arrow icons
+*/
+.arrow {
+  &__btn {
+    &:hover {
+      background-color: $color-white !important;
+      cursor: pointer;
+    }
+    font-size: 3rem !important;
+    &--prev {
+      margin-left: 4rem;
+    }
+    &--next {
+      margin-right: 4rem;
+    }
+  }
+  &__icon {
+    color: $color-primary !important;
+    font-size: 3rem !important;
+  }
+}
+
+/*
 * Shop Profile
 */
 .shop-profile {
@@ -168,10 +186,10 @@
     align-items: center;
   }
   &__title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   &__pricing {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-transform: capitalize;
     font-weight: 600;
     display: flex;
@@ -207,6 +225,18 @@
   align-items: center;
   margin: 2rem 0rem;
   gap: 3rem;
+  &__item {
+    & > * {
+      width: 18rem;
+    }
+    @include respond-mobile {
+      flex-direction: column;
+      & > * {
+        width: 30dvw;
+      }
+    }
+  }
+
   &__select {
     background-color: $color-primary;
     color: $color-white;
