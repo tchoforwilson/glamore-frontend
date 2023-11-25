@@ -37,46 +37,48 @@ const NavBar = ({ onSearch }) => {
   }, []);
   return (
     <nav className={`nav ${isSticky ? "sticky" : ""}`}>
-      <MenuIcon className="nav__icon" onClick={() => toggleNavBar(!isOpen)} />
-      <div className={`nav__collapse ${isOpen ? "active" : ""}`}>
-        <ul className="nav__menu">
-          <NavLink title="home" to="/home" />
-          <NavLink title="shop" to="/shop" />
-        </ul>
-        <SearchWidget onSearch={handleSearch} />
-      </div>
-      {/* Public links */}
+      <div className="container">
+        <MenuIcon className="nav__icon" onClick={() => toggleNavBar(!isOpen)} />
+        <div className={`nav__collapse ${isOpen ? "active" : ""}`}>
+          <ul className="nav__menu">
+            <NavLink title="home" to="/home" />
+            <NavLink title="shop" to="/shop" />
+          </ul>
+          <SearchWidget onSearch={handleSearch} />
+        </div>
+        {/* Public links */}
 
-      {/* Private links */}
-      <div className="nav-profile">
-        <div className="nav-profile__cart">
-          <IconButton
-            className="nav-profile__btn"
-            onClick={() => setShowBag(!showBag)}
-          >
-            <ShoppingBagOutlinedIcon className="nav-profile__icon" />
-          </IconButton>
-          <span>1 item</span>
-          <CartDropdown active={showBag} />
+        {/* Private links */}
+        <div className="nav-profile">
+          <div className="nav-profile__cart">
+            <IconButton
+              className="nav-profile__btn"
+              onClick={() => setShowBag(!showBag)}
+            >
+              <ShoppingBagOutlinedIcon className="nav-profile__icon" />
+            </IconButton>
+            <span>1 item</span>
+            <CartDropdown active={showBag} />
+          </div>
+          <div className="nav-profile__notification">
+            <IconButton
+              className="nav-profile__btn"
+              onClick={() => toggleNotification(!showNotification)}
+            >
+              <NotificationsOutlinedIcon className="nav-profile__icon" />
+            </IconButton>
+            <span className="nav-profile__badge">12</span>
+            <Notifications
+              notifications={notifications}
+              active={showNotification}
+            />
+          </div>
+          <Link className="nav-profile__user" to="/profile">
+            <IconButton className="nav-profile__btn">
+              <AccountCircleOutlinedIcon className="nav-profile__icon" />
+            </IconButton>
+          </Link>
         </div>
-        <div className="nav-profile__notification">
-          <IconButton
-            className="nav-profile__btn"
-            onClick={() => toggleNotification(!showNotification)}
-          >
-            <NotificationsOutlinedIcon className="nav-profile__icon" />
-          </IconButton>
-          <span className="nav-profile__badge">12</span>
-          <Notifications
-            notifications={notifications}
-            active={showNotification}
-          />
-        </div>
-        <Link className="nav-profile__user" to="/profile">
-          <IconButton className="nav-profile__btn">
-            <AccountCircleOutlinedIcon className="nav-profile__icon" />
-          </IconButton>
-        </Link>
       </div>
     </nav>
   );
