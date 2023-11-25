@@ -242,9 +242,13 @@
     }
     &__cart {
       border-color: $color-white;
+      padding: 0.2rem 1rem;
     }
     &__cart span {
       color: $color-white;
+    }
+    &__btn--cart {
+      padding: 0rem;
     }
   }
 }
