@@ -1,0 +1,61 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.signup {
+  &__container {
+    display: flex;
+    @include respond-mobile {
+      flex-direction: column;
+    }
+  }
+  &__space {
+    width: 10%;
+  }
+  &__form {
+    width: 40%;
+    @include respond-mobile {
+      width: 100%;
+      padding: 0 4rem;
+    }
+  }
+  &__image-container {
+    width: 50%;
+    @include respond-mobile {
+      width: 100%;
+    }
+  }
+}
+
+/*
+* Sign up form
+*/
+.signup-form {
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 6rem;
+    & > * {
+      width: 100%;
+      @include respond(small-phone) {
+        &:last-child {
+          margin-bottom: 4rem;
+        }
+      }
+    }
+    @include respond(small-phone) {
+      flex-direction: column;
+      gap: 0rem;
+    }
+  }
+}
+
+/*
+* Sign up image
+*/
+.signup__img {
+  height: 100%;
+  width: 100%;
+  resize: both;
+  object-fit: cover;
+  object-position: bottom;
+}
