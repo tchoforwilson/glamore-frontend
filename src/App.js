@@ -34,10 +34,10 @@ const App = () => {
         <Route path="/shop/:id" element={<PreviewStoreScreen />} />
         <Route path="/product/:id" element={<PreviewProductScreen />} />
         <Route path="/signup" element={<SignUpScreen />} />
-        {/*<Route path="/login" element={<LoginScreen />} />*/}
+        {<Route path="/login" element={<LoginScreen />} />}
         <Route path="/shop" element={<ShopScreen />} />
         <Route path="/home" element={<HomeScreen />} />
-        {/* <Route path="/" element={<WelcomeScreen />} /> */}
+        {<Route path="/" element={<WelcomeScreen />} />}
         <Route path="*" element={<NotFoundScreen />} />
       </Routes>
     </Provider>
