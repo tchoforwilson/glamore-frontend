@@ -39,7 +39,7 @@ const slice = createSlice({
     },
     AUTH_ERROR: (auth, action) => {
       auth.loading = false;
-      auth.error = action.payload.message;
+      auth.error = action.payload?.message;
     },
 
     AUTH_LOGOUT: (auth) => {
@@ -55,7 +55,7 @@ export const { AUTH_BEGIN, AUTH_SUCCESS, AUTH_ERROR } = slice.actions;
 
 // Action creators
 
-const URL = "/auth";
+const url = "/auth";
 
 /**
  * @breif The action creators should login the user after password and email are valid.
@@ -64,7 +64,7 @@ const URL = "/auth";
  */
 export const login = (data) =>
   apiCallBegan({
-    url: `${URL}/login`,
+    url: `${url}/login`,
     method: "post",
     data,
     onStart: AUTH_BEGIN.type,
@@ -79,7 +79,7 @@ export const login = (data) =>
  */
 export const signup = (data) =>
   apiCallBegan({
-    url: `${URL}/signup`,
+    url: `${url}/signup`,
     method: "post",
     data,
     onStart: AUTH_BEGIN.type,
