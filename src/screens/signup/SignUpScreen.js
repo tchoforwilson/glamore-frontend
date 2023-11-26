@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
-import { Grid, Box, Stack } from "@mui/material";
 import { FormContainer, FormField } from "../../components/forms";
 import { BackButton, SubmitButton } from "../../components/buttons";
 import { signup } from "../../store/auth";
@@ -28,15 +28,27 @@ const validationSchema = Yup.object().shape({
 
 const SignUpScreen = () => {
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.auth);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const { loading, isAuthenticated, user } = useSelector((state) => state.auth);
+
   const handlesubmit = (values) => {
+    console.log(values);
     dispatch(signup(values));
   };
+
+  useEffect(() => {
+    if (isAuthenticated && user) navigate(from, { replace: true });
+  }, [navigate, from, user, isAuthenticated]);
+
   return (
-    <Box className="screen-signup">
-      <Grid container spacing={0}>
-        <Grid item md={1}></Grid>
-        <Grid item md={6}>
+    <div className="container-fluid mt-4">
+      <div className="signup__container">
+        <div className="signup__space"></div>
+        <div className="signup__form">
           <h1 className="heading-primary">
             Create your glamore
             <span className="heading-primary__newline">account.</span>
@@ -53,58 +65,43 @@ const SignUpScreen = () => {
             validationSchema={validationSchema}
             onSubmit={handlesubmit}
           >
-            <Stack direction="row" spacing={5}>
-              <FormField name="firstname" placeholder="First name" />
-              <FormField name="lastname" placeholder="Last name" />
-            </Stack>
-            <Grid container spacing={5}>
-              <Grid item xs={12} sm={6}>
-                <FormField name="email" placeholder="E-mail" />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <FormField name="phonenumber" placeholder="Phone number" />
-              </Grid>
-            </Grid>
-            <Grid container spacing={5}>
-              <Grid item xs={12} sm={6}>
-                <FormField
-                  name="password"
-                  placeholder="Password"
-                  type="password"
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <FormField
-                  name="passwordConfirm"
-                  placeholder="Confirm password"
-                  type="password"
-                />
-              </Grid>
-            </Grid>
-            <Box
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <div className="signup-form">
+              <div className="signup-form__row">
+                <FormField name="firstname" placeholder="First name" />
+                <FormField name="lastname" placeholder="Last name" />
+              </div>
+            </div>
+            <div className="signup-form__row">
+              <FormField name="email" placeholder="E-mail" />
+              <FormField name="phonenumber" placeholder="Phone number" />
+            </div>
+            <div className="signup-form__row">
+              <FormField
+                name="password"
+                placeholder="Password"
+                type="password"
+              />
+              <FormField
+                name="passwordConfirm"
+                placeholder="Confirm password"
+                type="password"
+              />
+            </div>
+            <div className="d-flex justify-content--center align-items--center">
               <SubmitButton title="Sign Up" loading={loading} />
-            </Box>
+            </div>
           </FormContainer>
           <BackButton to="/" />
-        </Grid>
-        <Grid item md={5}>
+        </div>
+        <div className="signup__image-container">
           <img
             src={require("../../assets/images/hat-boy.webp")}
             alt="Hat Boy"
-            style={{
-              maxWidth: "100%",
-              height: "100%",
-            }}
+            className="signup__img"
           />
-        </Grid>
-      </Grid>
-    </Box>
+        </div>
+      </div>
+    </div>
   );
 };
 
