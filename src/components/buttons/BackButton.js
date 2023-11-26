@@ -15,7 +15,7 @@ const BackButton = ({ to }) => {
     >
       <Link className="btn btn--back" to={to}>
         <WestRoundedIcon fontSize="large" sx={{ marginRight: 1 }} />
-        Back
+        <span>Back</span>
       </Link>
     </Box>
   );
