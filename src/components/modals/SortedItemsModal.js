@@ -108,7 +108,7 @@ const SortedItemsModal = ({ isOpen, handleSubmit, handleReset }) => {
                       key={color.name}
                       name="colors"
                       label={color.name}
-                      value={color.code}
+                      value={color.value}
                     />
                   ))}
                 </div>
