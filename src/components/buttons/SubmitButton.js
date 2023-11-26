@@ -18,7 +18,7 @@ const SubmitButton = ({ title, loading, ...otherProps }) => {
       className="btn btn--secondary btn--submit"
       {...otherProps}
     >
-      {loading ? <Spinner className="spinner spinner-sm" /> : title}
+      {loading ? <Spinner size="xs" color="primary" /> : title}
     </button>
   );
 };
