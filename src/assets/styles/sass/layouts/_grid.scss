@@ -1,37 +1,38 @@
-@use "../abstracts/variables" as *;
-@use "../abstracts/mixins" as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
 .row {
-  max-width: $grid-width;
-  margin: 0 auto;
+	max-width: $grid-width;
+	margin: 0 auto;
 }
 .container {
-  @include grid-container;
-  @include respond(big-desktop) {
-    max-width: 132rem;
-  }
-  @include respond(desktop) {
-    max-width: 114rem;
-  }
-  /*
+	@include grid-container;
+	// padding-left: 0rem !important;
+	@include respond(big-desktop) {
+		max-width: 132rem;
+	}
+	@include respond(desktop) {
+		max-width: 114rem;
+	}
+	/*
   * Laptops
    */
-  @include respond(labtop) {
-    max-width: 96rem;
-  }
-  /*
+	@include respond(labtop) {
+		max-width: 96rem;
+	}
+	/*
   * tablets
    */
-  @include respond(tablet) {
-    max-width: 72rem;
-  }
-  /*
+	@include respond(tablet) {
+		max-width: 72rem;
+	}
+	/*
   * Small devices
    */
-  @include respond(phone) {
-    max-width: 54rem;
-  }
+	@include respond(phone) {
+		max-width: 54rem;
+	}
 }
 
 .container-fluid {
-  @include grid-container;
+	@include grid-container;
 }
