@@ -273,7 +273,7 @@
   @include respond-mobile {
     width: 90vw;
     margin: 0 auto;
-    border: 3px solid red;
+    // border: 3px solid red;
   }
   &.active {
     display: block;
