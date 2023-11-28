@@ -13,10 +13,10 @@ const toastify = () => (next) => (action) => {
     return next(action);
 
   // 2. Check status and toast base on status
-  const { status } = action.payload;
+  const { status, statusCode } = action.payload;
 
   // 3. Toast for error messages i.e status code >= 500
-  if (status === "error") {
+  if (status === "error" && statusCode >= 500) {
     toast.error(action.payload.message, {
       position: toast.POSITION.TOP_RIGHT,
     });

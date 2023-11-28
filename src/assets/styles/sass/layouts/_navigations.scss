@@ -1,6 +1,21 @@
 @use "../abstracts" as *;
 .nav {
   padding: 3rem 4rem;
+
+  /*
+  * Container
+  */
+  & > .container {
+    display: flex;
+    justify-content: center;
+    @include respond-mobile {
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  /*
+  * Navigation menu
+  */
   &__menu {
     display: flex;
     list-style: none;
@@ -40,7 +55,7 @@
   }
 
   &__icon {
-    font-size: 2.5rem !important;
+    font-size: 4rem !important;
     display: none !important;
     @include respond-mobile {
       display: inline-block !important;
@@ -156,8 +171,8 @@
     align-items: center;
     justify-content: center;
     border: 0.13rem solid $color-black;
-    border-radius: 2rem;
-    padding: 0.2rem 0.8rem;
+    border-radius: 3rem;
+    padding: 0.2rem 1rem;
     cursor: pointer;
     & span {
       font-size: 1.6rem;
@@ -167,6 +182,9 @@
       border: 0.13rem solid $color-white;
     }
   }
+  &__btn--cart {
+    padding: 0rem !important;
+  }
 
   &__notification {
     position: relative;
@@ -174,14 +192,14 @@
   }
   &__badge {
     position: absolute;
-    left: 1.5rem;
-    top: -1rem;
+    left: 2rem;
+    top: -0.5rem;
     background-color: $color-red;
     border-radius: 5rem;
-    padding: 0.2rem;
+    padding: 0.3rem;
     color: $color-white;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   &__icon {
@@ -227,9 +245,115 @@
     }
     &__cart {
       border-color: $color-white;
+      padding: 0.2rem 1rem;
     }
     &__cart span {
       color: $color-white;
     }
+    &__btn--cart {
+      padding: 0rem;
+    }
+  }
+}
+
+/*
+* Notifications
+*/
+
+.notification {
+  position: absolute;
+  width: 30.8rem;
+  max-height: 67rem;
+  border-radius: 1.5rem;
+  padding: 1rem 1.5rem;
+  background-color: $color-white;
+  box-shadow: 0rem 0.4rem 5.6rem 0rem rgba(0, 0, 0, 0.15);
+  display: none;
+  z-index: 5;
+  @include respond-mobile {
+    width: 90vw;
+    margin: 0 auto;
+    border: 3px solid red;
+  }
+  &.active {
+    display: block;
+    top: 6rem;
+    left: -12rem;
+    // TODO: Fix the responsive of this notification dropdown for all mobile devices
+    @include respond-mobile {
+      left: 50%;
+      transform: translateX(-75%);
+    }
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+    &-main {
+      color: $color-primary;
+      text-align: center;
+      font-weight: 600;
+      font-size: 2rem;
+    }
+    &-number {
+      color: $color-green;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__content {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3rem;
+  }
+
+  /* Notification item*/
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    gap: 0.5rem;
+    &:hover {
+      background-color: $color-light-grey;
+    }
+  }
+  &__status {
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: $color-red;
+    border-radius: 50%;
+    position: absolute;
+    display: none;
+    &.inactive {
+      display: block;
+      top: 1rem;
+      left: 0.1rem;
+    }
+  }
+
+  &__img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 0.7rem;
+    resize: both;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__title {
+    color: $color-black;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  &__time {
+    color: $color-black;
+    font-size: 1.4rem;
+    font-weight: 300;
   }
 }

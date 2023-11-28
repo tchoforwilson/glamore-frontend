@@ -72,14 +72,98 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
   &__input {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 400;
+    padding: 0.8rem;
 
     &--bordered {
       border: 0.14rem solid $color-secondary;
-      padding: 0.5rem 2rem;
+      // padding: 0.5rem 2rem;
       border-radius: 1rem;
       color: $color-black;
     }
+  }
+}
+
+/*
+* Form Check Color
+*/
+
+.form-check-color {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  &__input {
+    text-align: center;
+    display: table-cell;
+    border-radius: 0;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 0.5rem;
+    margin-right: 1rem;
+    // &:not(:first-child) {
+    //   margin-left: 1rem;
+    // }
+    &:checked {
+      background-color: $color-white;
+    }
+    &:checked::after {
+      content: "\2713";
+      color: white;
+      font-size: 1em;
+    }
+  }
+  &__name {
+    text-transform: lowercase !important;
+    font-size: 1rem !important;
+    font-weight: 300 !important;
+    text-align: center !important;
+  }
+}
+
+/*
+* Add Product checkbox
+*/
+.add-product-checkbox {
+  display: flex;
+  align-items: center;
+  &__input {
+    width: 2rem;
+    height: 2rem;
+  }
+  &__label {
+    margin-left: 2rem;
+    font-size: 1.4rem;
+  }
+}
+
+/*
+* Add Product form field
+*/
+.add-product-field {
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 0.1rem solid $color-primary;
+    padding: 0.8rem;
+    border-radius: 1rem;
+  }
+
+  &__label {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  &__input {
+    border: none;
+    border-bottom: 0.16rem solid $color-secondary;
+    background-color: transparent;
   }
 }

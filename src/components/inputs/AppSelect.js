@@ -1,5 +1,4 @@
 import React from "react";
-import { CONST_ONEU } from "../../utilities/constants";
 
 /**
  * @brief Render an html select field
@@ -11,9 +10,12 @@ import { CONST_ONEU } from "../../utilities/constants";
 const AppSelect = ({ name, items = [], ...otherProps }) => {
   return (
     <select id={name} name={name} value={otherProps.value} {...otherProps}>
-      {items.map((item, index) => (
-        <option key={item._id || index + CONST_ONEU} value={item._id || item}>
-          {item.name || item}
+      {items.map((item) => (
+        <option
+          key={item?.id || item?.name || item}
+          value={item?.id || item?.value || item}
+        >
+          {item?.name || item?.value || item}
         </option>
       ))}
     </select>

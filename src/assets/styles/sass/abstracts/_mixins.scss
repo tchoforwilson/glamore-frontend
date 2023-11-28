@@ -8,18 +8,23 @@
 1800px + : Big desktop
 
 $breakpoint argument
-
+- small-phone
 - phone
 - tablet
 - laptop
 - desktop
-- big-descktop
+- big-desktop
 
 ORDER: Base + Typography > general layout + grid > page layout > components
 
 */
 
 @mixin respond($breakpoint) {
+  @if $breakpoint==small-phone {
+    @media (max-width: 25.13em) {
+      @content; // 400px
+    }
+  }
   @if $breakpoint==phone {
     @media (max-width: 37.7em) {
       @content; // 600px
@@ -39,6 +44,9 @@ ORDER: Base + Typography > general layout + grid > page layout > components
   }
 
   @if $breakpoint==desktop {
+    @media (min-width: 75em) {
+      @content; // 1200px
+    }
     @media (max-width: 113.1em) {
       @content; // 1800px
     }
@@ -105,4 +113,14 @@ ORDER: Base + Typography > general layout + grid > page layout > components
     font-weight: $weight;
     font-style: $style;
   }
+}
+
+@mixin grid-container {
+  /* Mobile and web */
+  width: 100%;
+  max-width: 100%;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  margin-right: auto;
+  margin-left: auto;
 }

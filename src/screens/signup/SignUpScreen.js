@@ -1,10 +1,10 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import * as Yup from 'yup';
-import { Grid, Box, Stack } from '@mui/material';
-import { FormContainer, FormField } from '../../components/forms';
-import { BackButton, SubmitButton } from '../../components/buttons';
-import { signup } from '../../store/auth';
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import * as Yup from "yup";
+import { FormContainer, FormField } from "../../components/forms";
+import { BackButton, SubmitButton } from "../../components/buttons";
+import { signup } from "../../store/auth";
 
 const validationSchema = Yup.object().shape({
 	firstname: Yup.string().required('First Name required').label('First Name'),
@@ -27,94 +27,82 @@ const validationSchema = Yup.object().shape({
 });
 
 const SignUpScreen = () => {
-	const dispatch = useDispatch();
-	const { loading } = useSelector((state) => state.auth);
-	const handlesubmit = (values) => {
-		dispatch(signup(values));
-	};
-	return (
-		<Box className="screen-signup">
-			<Grid container spacing={0}>
-				<Grid item md={6}>
-					<img
-						src={require('../../assets/images/hat-boy.webp')}
-						alt="Hat Boy"
-						// style={{
-						//   maxWidth: "100%",
-						//   height: "100%",
-						// }}
-						className="signup__pic"
-					/>
-				</Grid>
-				<Grid item md={5}>
-					<h1 className="heading-primary signup__head">
-						Create your glamore
-						<span className="heading-primary__newline">account.</span>
-					</h1>
-					<FormContainer
-						initialValues={{
-							firstname: '',
-							lastname: '',
-							email: '',
-							phonenumber: '',
-							password: '',
-							passwordConfirm: '',
-						}}
-						validationSchema={validationSchema}
-						onSubmit={handlesubmit}
-						className="signup__form"
-					>
-						<Grid container spacing={6}>
-							<Grid item xs={12} sm={6}>
-								<FormField
-									name="firstname"
-									placeholder="First name"
-								/>
-							</Grid>
-							<Grid item xs={12} sm={6}>
-								<FormField name="lastname" placeholder="Last name" />
-							</Grid>
-						</Grid>
-						<Grid container spacing={6}>
-							<Grid item xs={12} sm={6}>
-								<FormField name="email" placeholder="E-mail" />
-							</Grid>
-							<Grid item xs={12} sm={6}>
-								<FormField name="phonenumber" placeholder="Phone number" />
-							</Grid>
-						</Grid>
-						<Grid container spacing={6}>
-							<Grid item xs={12} sm={6}>
-								<FormField
-									name="password"
-									placeholder="Password"
-									type="password"
-								/>
-							</Grid>
-							<Grid item xs={12} sm={6}>
-								<FormField
-									name="passwordConfirm"
-									placeholder="Confirm password"
-									type="password"
-								/>
-							</Grid>
-						</Grid>
-						<Box
-							style={{
-								display: 'flex',
-								justifyContent: 'center',
-								alignItems: 'center',
-								marginTop: '3rem',
-							}}
-						>
-							<SubmitButton title="Sign Up" loading={loading} />
-						</Box>
-					</FormContainer>
-					<BackButton to="/" />
-				</Grid>
-			</Grid>
-		</Box>
-	);
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const { loading, isAuthenticated, user } = useSelector((state) => state.auth);
+
+  const handlesubmit = (values) => {
+    console.log(values);
+    dispatch(signup(values));
+  };
+
+  useEffect(() => {
+    if (isAuthenticated && user) navigate(from, { replace: true });
+  }, [navigate, from, user, isAuthenticated]);
+
+  return (
+    <div className="container-fluid mt-4">
+      <div className="signup__container">
+        <div className="signup__space"></div>
+        <div className="signup__form">
+          <h1 className="heading-primary">
+            Create your glamore
+            <span className="heading-primary__newline">account.</span>
+          </h1>
+          <FormContainer
+            initialValues={{
+              firstname: "",
+              lastname: "",
+              email: "",
+              phonenumber: "",
+              password: "",
+              passwordConfirm: "",
+            }}
+            validationSchema={validationSchema}
+            onSubmit={handlesubmit}
+          >
+            <div className="signup-form">
+              <div className="signup-form__row">
+                <FormField name="firstname" placeholder="First name" />
+                <FormField name="lastname" placeholder="Last name" />
+              </div>
+            </div>
+            <div className="signup-form__row">
+              <FormField name="email" placeholder="E-mail" />
+              <FormField name="phonenumber" placeholder="Phone number" />
+            </div>
+            <div className="signup-form__row">
+              <FormField
+                name="password"
+                placeholder="Password"
+                type="password"
+              />
+              <FormField
+                name="passwordConfirm"
+                placeholder="Confirm password"
+                type="password"
+              />
+            </div>
+            <div className="d-flex justify-content--center align-items--center">
+              <SubmitButton title="Sign Up" loading={loading} />
+            </div>
+          </FormContainer>
+          <BackButton to="/" />
+        </div>
+        <div className="signup__image-container">
+          <img
+            src={require("../../assets/images/hat-boy.webp")}
+            alt="Hat Boy"
+            className="signup__img"
+          />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default SignUpScreen;

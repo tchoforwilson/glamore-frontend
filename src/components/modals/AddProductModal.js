@@ -1,27 +1,66 @@
 import React from "react";
 import { Grid } from "@mui/material";
+import * as Yup from "yup";
 import BackupOutlinedIcon from "@mui/icons-material/BackupOutlined";
 import {
-  FormCheckBox,
+  AddProductCheckBox,
+  AddProductFormField,
   FormContainer,
   FormField,
   FormSelect,
   FormTextArea,
 } from "../forms";
 import { UpgradeButton } from "../buttons";
+import { colors, brands, sizes, materials, genders } from "./values";
+
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required("Name required").label("Name"),
+  price: Yup.number().required("Price required").label("Price"),
+  description: Yup.string()
+    .required("Description required")
+    .label("description"),
+  stock: Yup.number().required("Stock required!").label("Stock"),
+  size: Yup.string()
+    .required("Size required")
+    .notOneOf(["-1", "1"], "Select a valid size")
+    .label("Size"),
+  category: Yup.string()
+    .required("Category required")
+    .notOneOf(["-1", "1"], "Select a valid category")
+    .label("Category"),
+  brand: Yup.string()
+    .required("Brand required")
+    .notOneOf(["-1", "1"], "Select a valid brand")
+    .label("Category"),
+  materials: Yup.array().label("Materials"),
+  gender: Yup.string().required("Gender required").label("Gender"),
+  colors: Yup.array().label("Colors"),
+  isRenewable: Yup.boolean().label("This Product is Renewable"),
+  isPrepackaged: Yup.boolean().label("This Product is Prepackaged"),
+  isCoupon: Yup.boolean().label("COUPONS"),
+  couponCode: Yup.string().required("Product coupon code required"),
+  isDiscount: Yup.boolean().label("DISCOUNT"),
+  twoForOne: Yup.boolean().label("2 FOR 1"),
+});
 
 const initialValues = {
   name: "",
   price: "",
   category: "",
+  brand: "",
+  stock: "",
+  size: "",
+  description: "",
+  materials: [],
+  colors: [],
+  gender: "",
+  isRenewable: false,
+  isPrepackaged: false,
   isCoupon: false,
   couponCode: "",
   isDiscount: false,
   discount: "",
-  materials: [],
-  colors: [],
-  gender: "",
-  stock: "",
+  twoForOne: false,
 };
 
 const AddProductModal = ({ isOpen = false }) => {
@@ -32,7 +71,11 @@ const AddProductModal = ({ isOpen = false }) => {
   return (
     <div className={`modal add-product-modal ${isOpen ? "open" : "close"}`}>
       <div className="modal__content">
-        <FormContainer initialValues={initialValues}>
+        <FormContainer
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
           <section className="add-product-section details">
             <h1 className="add-product-section__header">Product details</h1>
             <Grid container spacing={2}>
@@ -43,6 +86,23 @@ const AddProductModal = ({ isOpen = false }) => {
                   type="text"
                   isBordered={true}
                 />
+                <div className="d-flex justify-content--between align-items--center gap-2">
+                  <AddProductFormField
+                    name="price"
+                    label="Price"
+                    type="number"
+                  />
+                  <AddProductFormField
+                    name="stock"
+                    label="Stock"
+                    type="number"
+                  />
+                  <FormSelect
+                    name="size"
+                    items={[{ id: "-1", value: "-1", name: "Size" }, ...sizes]}
+                    isBordered={true}
+                  />
+                </div>
                 <div className="d-flex justify-content--between align-items--center">
                   <FormSelect
                     name="category"
@@ -50,30 +110,47 @@ const AddProductModal = ({ isOpen = false }) => {
                     isBordered={true}
                   />
                   <FormSelect
+                    name="brand"
+                    items={[
+                      { id: "-1", value: "-1", name: "Brand" },
+                      ...brands,
+                    ]}
+                    isBordered={true}
+                  />
+                  <FormSelect
                     name="materials"
-                    items={[{ id: "-1", name: "Materials" }]}
+                    items={[
+                      { id: "-1", value: "-1", name: "Materials" },
+                      ...materials,
+                    ]}
                     isBordered={true}
                   />
                 </div>
                 <div className="d-flex justify-content--between align-items--center">
                   <FormSelect
                     name="gender"
-                    items={[{ id: "-1", name: "Gender" }]}
+                    items={[
+                      { id: "-1", value: "-1", name: "Gender" },
+                      ...genders,
+                    ]}
                     isBordered={true}
                   />
                   <FormSelect
-                    name="materials"
-                    items={[{ id: "-1", name: "Colors" }]}
+                    name="colors"
+                    items={[
+                      { id: "-1", value: "-1", name: "Colors" },
+                      ...colors,
+                    ]}
                     isBordered={true}
                   />
                 </div>
                 <div className="ms-3">
-                  <FormCheckBox
+                  <AddProductCheckBox
                     name="isRenewable"
                     label="This Product Is Renewable"
                   />
-                  <FormCheckBox
-                    name="isPackage"
+                  <AddProductCheckBox
+                    name="isPrepackaged"
                     label="This Product Is PrePackaged"
                   />
                 </div>
@@ -99,7 +176,7 @@ const AddProductModal = ({ isOpen = false }) => {
                   <h4 className="section-marketing__header">Incentivisation</h4>
                   <div className="section-marketing__content">
                     <div className="incentivisation-item">
-                      <FormCheckBox name="isCoupon" label="coupons" />
+                      <AddProductCheckBox name="isCoupon" label="coupons" />
                       <span className="incentivisation-item__line"></span>
                       <FormField
                         name="couponCode"
@@ -108,7 +185,7 @@ const AddProductModal = ({ isOpen = false }) => {
                       />
                     </div>
                     <div className="incentivisation-item">
-                      <FormCheckBox name="isDiscount" label="discount" />
+                      <AddProductCheckBox name="isDiscount" label="discount" />
                       <span className="incentivisation-item__line"></span>
                       <FormField
                         name="discount"
@@ -118,7 +195,7 @@ const AddProductModal = ({ isOpen = false }) => {
                       />
                     </div>
                     <div className="incentivisation-item">
-                      <FormCheckBox name="twoInOne" label="2 for 1" />
+                      <AddProductCheckBox name="twoForOne" label="2 for 1" />
                       <span>
                         Customers Gets Two Products For The Price of One
                       </span>

@@ -2,7 +2,7 @@
 
 .btn {
   padding: 0.8rem 3rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-family: $font-flamante, sans-serif;
   font-weight: 700;
   border-radius: 5px;
@@ -73,12 +73,12 @@
   */
 
 .btn-follow {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 100;
-  background-color: $color-black;
+  background-color: $color-primary;
   color: $color-light-grey;
   text-transform: capitalize;
-  border-color: $color-black;
+  border-color: $color-primary;
   &:hover {
     box-shadow: 0.1rem 0.1rem 0.1rem rgba($color-black, $alpha: 0.15);
   }

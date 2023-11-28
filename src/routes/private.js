@@ -1,4 +1,4 @@
-import authService from "../services/authService";
+import { useSelector } from "react-redux";
 
 /**
  * @breif Private route only for users of a particular role
@@ -7,8 +7,8 @@ import authService from "../services/authService";
  * @returns {null || HTML}
  */
 const Private = ({ role, children }) => {
-  const user = authService.getCurrentUser();
-  return user.role === role ? children : null;
+  const { user } = useSelector((state) => state.auth);
+  return user?.role === role ? children : null;
 };
 
 export default Private;

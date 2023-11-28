@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Grid, Container } from "@mui/material";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { IconButton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { AppScreenLayout } from "../../layouts";
 import { ProductCard } from "../../components/cards";
 import {
@@ -41,31 +41,53 @@ const PreviewProductScreen = () => {
     setCurrentImage(images[index]);
   };
 
+  const handleNextClick = () => {
+    if (activeIndex !== images.length - 1) {
+      setActiveIndex(activeIndex + 1);
+      setCurrentImage(images[activeIndex]);
+    }
+  };
+
+  const handlePrevClick = () => {
+    if (activeIndex > 0) {
+      setActiveIndex(activeIndex - 1);
+      setCurrentImage(images[activeIndex]);
+    }
+  };
+
   return (
     <AppScreenLayout searchPath="products">
       <section className="preview-product">
-        <Container sx={{ display: "flex", gap: "2rem" }}>
-          <ArrowBackIcon className="preview-product__btn" />
-          <div className="preview-product__item">
-            <Grid container spacing={4}>
-              <Grid item md={6} sm={12}>
-                <div className="preview-product__images">
-                  <img
-                    src={currenImage}
-                    alt="Preview product"
-                    className="preview-product__img"
-                  />
-                  <div className="preview-product__arrows">
-                    <ArrowBackIosIcon className="arrow prev" />
-                    <ArrowForwardIosIcon className="arrow next" />
-                  </div>
-                  <div className="preview-product__dots">
-                    <RenderDots />
-                  </div>
+        <div className="container">
+          <div className="preview-product__container">
+            <div className="preview-product__heading">
+              <ArrowBackIcon className="preview-product__btn" />
+              <h3 className="preview-product__name">Toffe T-shit classic</h3>
+            </div>
+            <div className="preview-product__item">
+              <div className="preview-product__images">
+                <img
+                  src={currenImage}
+                  alt="Preview product"
+                  className="preview-product__img"
+                />
+                <div className="preview-product__arrows">
+                  <IconButton className="arrow__btn" onClick={handlePrevClick}>
+                    <KeyboardArrowLeftIcon className="arrow__icon" />
+                  </IconButton>
+                  <IconButton
+                    className="arrow__btn arrow__btn--next"
+                    onClick={handleNextClick}
+                  >
+                    <KeyboardArrowRightIcon className="arrow__icon" />
+                  </IconButton>
                 </div>
-              </Grid>
-              <Grid item md={6} sm={12}>
-                <div className="d-flex align-items--center gap-6">
+                <div className="preview-product__dots">
+                  <RenderDots />
+                </div>
+              </div>
+              <div className="preview-product__details">
+                <div className="d-flex align-items--center justify-content--around">
                   <div className="shop-profile">
                     <img
                       src={require("./../../assets/images/image8.jpg")}
@@ -106,7 +128,7 @@ const PreviewProductScreen = () => {
                   <div className="preview-action__item d-flex gap-2">
                     <AppSelect
                       name="size"
-                      items={["Size-XXL"]}
+                      items={["Size-XXL", "Size-XL", "Size-LG", "Size-small"]}
                       className="preview-action__select"
                     />
                     <AddToBagButton />
@@ -140,30 +162,30 @@ const PreviewProductScreen = () => {
                     Rate this product
                   </button>
                 </div>
-              </Grid>
-            </Grid>
+              </div>
+            </div>
           </div>
-        </Container>
+        </div>
       </section>
       <section className="preview-more" id="section-sticky">
-        <h2 className="section-header">More Items From This Store</h2>
-        <Grid container className="justify-content--center">
-          <Grid item md={10} sm={12}>
-            <div className="preview-more__items">
-              {Array.from({ length: 4 }).map((_, index) => {
-                return <ProductCard key={index} product={product} />;
-              })}
-            </div>
-          </Grid>
-        </Grid>
-        <button className="btn btn--white">See More</button>
+        <div className="container">
+          <h2 className="section-header">More Items From This Store</h2>
+          <div className="preview-more__items">
+            {Array.from({ length: 4 }).map((_, index) => {
+              return <ProductCard key={index} product={product} />;
+            })}
+          </div>
+          <button className="btn btn--white preview-more__btn">See More</button>
+        </div>
       </section>
       <section className="preview-addition">
-        <h2 className="section-header">You may also like this</h2>
-        <div className="preview-addition__items">
-          {Array.from({ length: 10 }).map((_, index) => {
-            return <ProductCard key={index} product={product} />;
-          })}
+        <div className="container-fluid">
+          <h2 className="section-header">You may also like this</h2>
+          <div className="preview-addition__items">
+            {Array.from({ length: 10 }).map((_, index) => {
+              return <ProductCard key={index} product={product} />;
+            })}
+          </div>
         </div>
       </section>
     </AppScreenLayout>

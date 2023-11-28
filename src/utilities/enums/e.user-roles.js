@@ -1,4 +1,4 @@
-const eUserRole = {
+const eUserRoles = {
   SUPER_ADMIN: "SUPER_ADMIN",
   ADMIN: "ADMIN",
   EMPLOYEE: "EMPLOYEE",
@@ -6,4 +6,4 @@ const eUserRole = {
   CUSTOMER: "CUSTOMER",
 };
 
-export default eUserRole;
+export default eUserRoles;

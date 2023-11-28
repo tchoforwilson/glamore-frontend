@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { AppScreenLayout } from "../../layouts";
 import { ProductCard } from "../../components/cards";
+import FollowedShops from "./FollowedShops";
 
 const product = { name: "Cotton beige T-shirt", price: 700, currency: "XAF" };
 
+const shops = [
+  {
+    id: 1,
+    logo: require("../../assets/images/list.jpg"),
+    name: "Hanna's store",
+  },
+  {
+    id: 2,
+    logo: require("../../assets/images/bike.jpg"),
+    name: "the way shop",
+  },
+
+  {
+    id: 3,
+    logo: require("../../assets/images/image3.jpg"),
+    name: "Francisca Store",
+  },
+];
+
 const ProfileScreen = () => {
+  const [showShops, toggleShowShops] = useState(false);
   return (
     <AppScreenLayout>
       <section className="section-profile">
@@ -18,7 +39,16 @@ const ProfileScreen = () => {
               alt="profile"
               className="profile__image"
             />
-            <figcaption className="profile__name">nfor gift</figcaption>
+            <figcaption className="profile__details">
+              <span className="profile__name">nfor gift</span>
+              <span
+                className="profile__shops"
+                onClick={() => { toggleShowShops(!showShops);console.log('hello') }}
+              >
+                Following {shops.length} shops
+              </span>
+              <FollowedShops shops={shops} active={showShops} />
+            </figcaption>
           </figure>
           <div className="profile__links">
             <Link to="/edit-profile" className="btn btn--white profile__button">

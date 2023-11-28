@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 /**
  * @breif Display a single notification item
@@ -7,16 +6,24 @@ import { Link } from "react-router-dom";
  * @param {Boolean} isRead Is notification item read
  * @returns {JSX}
  */
-const NotificationItem = ({ notification, isRead = false }) => {
+const NotificationItem = ({ notification }) => {
   return (
-    <Link className="notification-item" to={`/notification/${notification.id}`}>
-      <span className="notification-item__title">{notification.title}</span>
+    <div className="notification__item">
       <span
-        className={`notification-item__status ${
-          isRead ? "active" : "inactive"
+        className={`notification__status ${
+          !notification.isRead ? "inactive" : ""
         }`}
       ></span>
-    </Link>
+      <img
+        src={notification.image}
+        className="notification__img"
+        alt={notification.name}
+      />
+      <div className="notification__details">
+        <p className="notification__title">{notification.title}</p>
+        <span className="notification__time">{notification.time}</span>
+      </div>
+    </div>
   );
 };
 

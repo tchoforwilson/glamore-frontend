@@ -1,29 +1,33 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 .login {
-	&__img {
-		background-image: url('../../../images/hat-boy.png');
-		background-size: cover;
-		background-position: center;
-	}
-	&__form {
-		// border: 1px solid red;
-		@include respond-mobile {
-			width: 80vw;
-			margin-left: 1rem;
-		}
-	}
-
-	&__pic {
-		height: 100vh;
-		width: auto;
-		background-position: center;
-		object-fit: cover;
-
-		@include respond-mobile {
-			width: 100vw;
-			background-position: top;
-			height: 40vh;
-		}
-	}
+  &__container {
+    display: flex;
+    @include respond-mobile {
+      flex-direction: column;
+    }
+  }
+  &__space {
+    width: 10%;
+  }
+  &__form {
+    width: 40%;
+    @include respond-mobile {
+      width: 100%;
+      padding: 0 4rem;
+    }
+  }
+  &__image-container {
+    width: 50%;
+    @include respond-mobile {
+      width: 100%;
+    }
+  }
+  &__img {
+    height: 100%;
+    width: 100%;
+    resize: both;
+    object-fit: cover;
+    object-position: bottom;
+  }
 }
