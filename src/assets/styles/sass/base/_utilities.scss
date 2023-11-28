@@ -1,46 +1,124 @@
 @use "../abstracts/variables" as *;
+/* SCREEN SIZES */
+$screen-size: sm, md, lg, xlg, xxlg;
 
-.spinner {
-  border: 0.3rem solid $color-light;
-  border-top: 0.3rem solid $color-secondary;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+/*BACKGROUND COLORS*/
+
+/*TEXT*/
+.text--left {
+  text-align: left;
 }
-
-.spinner--primary {
-  border-color: $color-primary;
-}
-
-.spinner--secondary {
-  border-color: $color-secondary;
-}
-
-.spinner--sm {
-  width: 2rem;
-  height: 2rem;
-}
-
-.spinner--md {
-  width: 4rem;
-  height: 4rem;
-}
-
-.spinner--lg {
-  width: 6rem;
-  height: 6rem;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.text--center {
+  text-align: center;
 }
 
 /*BACKGROUND COLORS*/
 
 /*DISPLAYS*/
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+$dir-prefixes: center, between, around, start, end, evenly;
+$directions: center, space-between, space-around, flex-start, flex-end,
+  space-evenly;
+
+@each $direction, $prefix in zip($directions, $dir-prefixes) {
+  .align-items--#{$prefix} {
+    align-items: #{$direction};
+  }
+  .justify-content--#{$prefix} {
+    justify-content: #{$direction};
+  }
+}
 
 /*MARGINS*/
+
+//Auto margins
+
+$auto-margin-sides: top, right, bottom, left;
+$auto-margin-prefixes: t, s, b, e;
+
+.m-auto {
+  margin: auto;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@each $side, $prefix in zip($auto-margin-sides, $auto-margin-prefixes) {
+  .m#{$prefix}-auto {
+    margin-#{$prefix}: auto;
+  }
+}
+
+@for $i from 1 through 5 {
+  // Top margins
+  .mt-#{$i} {
+    margin-top: #{$i}rem;
+  }
+  // Right margins
+  .me-#{$i} {
+    margin-right: #{$i}rem;
+  }
+
+  // Bottom margins
+  .mb-#{$i} {
+    margin-bottom: #{$i}rem;
+  }
+
+  // Left margins
+  .ms-#{$i} {
+    margin-left: #{$i}rem;
+  }
+
+  // Vertical margins
+  .my-#{$i} {
+    margin-top: #{$i}rem;
+    margin-bottom: #{$i}rem;
+  }
+
+  // Horizontal margins
+  .mx-#{$i} {
+    margin-left: #{$i}rem;
+    margin-right: #{$i}rem;
+  }
+}
+
+/**
+* HEIGHT  
+*/
+
+$values: 25, 50, 75, 100;
+$unit: "%";
+
+@each $value in $values {
+  .h-#{$value} {
+    height: #{$value}#{$unit};
+  }
+  .w-#{$value} {
+    width: #{$value}#{$unit};
+  }
+}
+
+/**
+* GAP 
+*/
+$gaps: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
+$rem-unit: "rem";
+
+@each $gap in $gaps {
+  .gap-#{$gap} {
+    gap: #{$gap}rem;
+  }
+}

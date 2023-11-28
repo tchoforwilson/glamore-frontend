@@ -1,0 +1,71 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+[class^="section-setting"] {
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include respond-mobile {
+    margin-bottom: 1rem;
+  }
+}
+
+.setting-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__background {
+    width: 100%;
+    background-position: center;
+    object-fit: cover;
+    resize: both;
+    height: 12rem;
+    border-radius: 0.2rem;
+  }
+  &__logo {
+    width: 10rem;
+    height: 10rem;
+    margin-top: -5rem;
+    border-radius: 50%;
+    object-fit: contain;
+    object-position: center;
+    resize: both;
+  }
+}
+
+.section-setting {
+  &-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/**
+* Settings buttons
+*/
+.setting-button {
+  padding: 0.4rem 2.3rem;
+  cursor: pointer;
+  &:link,
+  &:visited {
+    border: 0.13rem solid $color-secondary;
+    color: $color-black;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+  }
+  &:hover,
+  &:active {
+    background-color: $color-primary;
+    color: $color-white;
+    transition: ease 0.4s;
+  }
+}

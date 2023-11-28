@@ -1,0 +1,126 @@
+// MEDIA QUERY
+
+/*
+0 -600px Phone
+600 - 768px Tablet
+768 - 992px Laptop
+[1200 - 1800px] desktop is where normal styles apply
+1800px + : Big desktop
+
+$breakpoint argument
+- small-phone
+- phone
+- tablet
+- laptop
+- desktop
+- big-desktop
+
+ORDER: Base + Typography > general layout + grid > page layout > components
+
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==small-phone {
+    @media (max-width: 25.13em) {
+      @content; // 400px
+    }
+  }
+  @if $breakpoint==phone {
+    @media (max-width: 37.7em) {
+      @content; // 600px
+    }
+  }
+
+  @if $breakpoint==tablet {
+    @media (max-width: 48.256em) {
+      @content; // 768px
+    }
+  }
+
+  @if $breakpoint==laptop {
+    @media (max-width: 62.331em) {
+      @content; // 992px
+    }
+  }
+
+  @if $breakpoint==desktop {
+    @media (min-width: 75em) {
+      @content; // 1200px
+    }
+    @media (max-width: 113.1em) {
+      @content; // 1800px
+    }
+  }
+
+  @if $breakpoint==big-desktop {
+    @media (min-width: 113.1em) {
+      @content; // 1800px
+    }
+  }
+}
+
+/**
+* Responsiveness for mobile devices
+*/
+
+@mixin respond-mobile {
+  @include respond(tablet) {
+    @content;
+  }
+  @include respond(phone) {
+    @content;
+  }
+}
+
+/**
+* Responsiveness for tablets and small laptops
+*/
+
+@mixin respond-tablab {
+  @include respond(laptop) {
+    @content;
+  }
+}
+
+/**
+* Responsiveness for big devices
+*/
+@mixin respond-desk {
+  @include respond(laptop) {
+    @content;
+  }
+  @include respond(desktop) {
+    @content;
+  }
+  @include respond(laptop) {
+    @content;
+  }
+}
+
+/**
+* Load fonts
+*/
+@mixin font(
+  $name,
+  $filename,
+  $weight: normal,
+  $format: truetype,
+  $style: normal
+) {
+  @font-face {
+    font-family: #{$name};
+    src: url("../../../fonts/" + $filename) format($format);
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin grid-container {
+  /* Mobile and web */
+  width: 100%;
+  max-width: 100%;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  margin-right: auto;
+  margin-left: auto;
+}

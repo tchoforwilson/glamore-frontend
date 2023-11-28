@@ -1,0 +1,57 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.card {
+  box-shadow: 0 0 0.3rem rgba($color-black, 0.2);
+  border-radius: 0.4rem;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0.3rem rgba($color-black, 0.22);
+  }
+}
+
+.product-card {
+  margin-bottom: 2rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  width: 22rem;
+  // height: 28rem;
+  padding: 0.5rem;
+  display: inline-block;
+  cursor: pointer;
+  @include respond-mobile {
+    width: 20rem;
+    // height: 22rem;
+  }
+  @include respond(small-phone) {
+    width: 30rem;
+    height: 30rem;
+  }
+  & figcaption {
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  &__image {
+    display: block;
+    width: 100%;
+    height: 20rem;
+    resize: both;
+    object-position: center;
+    object-fit: cover;
+    @include respond(small-phone) {
+      height: 24rem;
+    }
+  }
+  &__name {
+    color: $color-primary;
+    font-family: $font-raleway;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  &__price {
+    color: rgba($color-primary, 0.72);
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}

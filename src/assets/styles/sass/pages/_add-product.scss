@@ -1,0 +1,94 @@
+@use "../abstracts/variables" as *;
+
+.add-product-section {
+  &__header {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: $color-black;
+    margin-bottom: 2rem;
+  }
+}
+/*
+* Marketing
+*/
+.section-marketing {
+  &__item {
+    border: 0.14rem solid $color-secondary;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 3rem;
+
+    &__header {
+      color: $color-black;
+      text-align: left;
+      font-weight: 500;
+      font-size: 1.5rem;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+}
+
+/*
+* Upload button
+*/
+.add-product-button {
+  border: 0.2rem solid $color-black;
+  background-color: $color-white;
+  margin: 0rem auto;
+  display: flex;
+  align-items: center;
+  &__title {
+    color: $color-black;
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+  &__icon {
+    font-size: 2.5rem !important;
+    color: $color-black;
+    margin-left: 1rem;
+  }
+  &:hover {
+    background-color: $color-black;
+    transform: scale(1.1);
+  }
+  &:hover > &__title {
+    color: $color-white;
+  }
+  &:hover > &__icon {
+    color: $color-white;
+  }
+}
+
+.incentivisation-item {
+  width: 100%;
+  margin: 0.2rem 0rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__line {
+    border: 1px solid $color-secondary;
+    width: 8rem;
+  }
+  .form-check {
+    &__input {
+      width: 2.5rem;
+      height: 2.5rem;
+      &:checked {
+        background-color: $color-primary;
+        color: $color-white;
+      }
+    }
+    &__label {
+      text-transform: uppercase;
+    }
+  }
+}

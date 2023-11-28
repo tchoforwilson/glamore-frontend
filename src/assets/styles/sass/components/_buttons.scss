@@ -1,24 +1,49 @@
 @use "../abstracts/variables" as *;
 
 .btn {
-  padding: 0.5rem 5rem;
-  font-size: $default-font-size;
-  font-weight: 500;
+  padding: 0.8rem 3rem;
+  font-size: 1.5rem;
+  font-family: $font-flamante, sans-serif;
+  font-weight: 700;
   border-radius: 5px;
-  border: none;
+  border: 0.15rem solid transparent;
   background-color: transparent;
-
-  &--secondary {
-    background-color: $color-secondary;
-    color: $color-white;
-    text-align: center;
-  }
+  text-align: center;
+  // opacity: 0.9; TODO rethink this
+  opacity: 1;
+  width: fit-content;
 
   &:hover {
     box-shadow: none;
+    opacity: 1;
+    cursor: pointer;
+  }
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  &--secondary {
+    border: 0.2rem solid $color-secondary;
+    background-color: $color-secondary;
+    color: $color-white;
+  }
+
+  &--white {
+    border: 0.15rem solid $color-secondary;
+    color: $color-secondary;
+    background-color: $color-white;
+  }
+
+  &--black {
+    background-color: $color-black;
+    color: $color-white;
   }
 
   /*Submit button*/
+  &--submit {
+    padding: 0.8rem 5rem;
+  }
 
   /*Submit back*/
   &--back {
@@ -27,5 +52,75 @@
     color: $color-secondary;
     margin-top: 3rem;
     cursor: pointer;
+  }
+
+  /**
+  * Upgrade
+  */
+  &--upgrade {
+    display: flex;
+    align-items: center;
+    background-color: $color-primary;
+    color: $color-white;
+    font-size: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/**
+  * Follow button
+  */
+
+.btn-follow {
+  font-size: 1.5rem;
+  font-weight: 100;
+  background-color: $color-primary;
+  color: $color-light-grey;
+  text-transform: capitalize;
+  border-color: $color-primary;
+  &:hover {
+    box-shadow: 0.1rem 0.1rem 0.1rem rgba($color-black, $alpha: 0.15);
+  }
+}
+
+/**
+  * Share and Favorite button
+  */
+.btn-share,
+.btn-favorite,
+.btn-bag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: $color-secondary;
+  gap: 2rem;
+  &:hover {
+    box-shadow: 0.1rem 0.1rem 0.1rem rgba($color-black, $alpha: 0.15);
+  }
+
+  &__text {
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color-primary;
+  }
+  &__icon {
+    font-size: 2rem !important;
+    color: $color-primary;
+  }
+}
+
+/*
+* Add to bag button
+*/
+.btn-bag {
+  background-color: $color-primary;
+  border: none;
+  &__icon {
+    color: $color-white;
+  }
+  &__text {
+    color: $color-white;
   }
 }

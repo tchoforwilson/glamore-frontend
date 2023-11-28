@@ -1,9 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { apiCallBegan } from "./apiCall";
 import { getCookie, removeCookie, setCookie } from "../utilities/cookies";
+import { authService } from "../services";
 
 // Initialize the user token from the local storage or cookie settings
 const userToken = localStorage.token || getCookie("token") || null;
+
+// Initialize authentication
+const isAuth = !!userToken;
+
+// Current user
+const currentUser = authService.getCurrentUser();
 
 /**
  * @breif Authentication slices
@@ -12,11 +19,11 @@ const userToken = localStorage.token || getCookie("token") || null;
 const slice = createSlice({
   name: "auth",
   initialState: {
-    isAuthenticated: false,
-    loading: false,
+    isAuthenticated: isAuth,
     token: userToken,
+    user: currentUser || null,
+    loading: false,
     resetToken: false,
-    message: null,
     error: null,
   },
   reducers: {
@@ -27,13 +34,12 @@ const slice = createSlice({
       auth.token = action.payload.token;
       localStorage.setItem("token", auth.token);
       setCookie("token", auth.token);
-      auth.message = action.payload.message;
       auth.isAuthenticated = true;
       auth.loading = false;
     },
     AUTH_ERROR: (auth, action) => {
       auth.loading = false;
-      auth.error = action.payload.message;
+      auth.error = action.payload?.message;
     },
 
     AUTH_LOGOUT: (auth) => {
@@ -49,7 +55,7 @@ export const { AUTH_BEGIN, AUTH_SUCCESS, AUTH_ERROR } = slice.actions;
 
 // Action creators
 
-const URL = "/auth";
+const url = "/auth";
 
 /**
  * @breif The action creators should login the user after password and email are valid.
@@ -58,7 +64,7 @@ const URL = "/auth";
  */
 export const login = (data) =>
   apiCallBegan({
-    url: `${URL}/login`,
+    url: `${url}/login`,
     method: "post",
     data,
     onStart: AUTH_BEGIN.type,
@@ -73,7 +79,7 @@ export const login = (data) =>
  */
 export const signup = (data) =>
   apiCallBegan({
-    url: `${URL}/signup`,
+    url: `${url}/signup`,
     method: "post",
     data,
     onStart: AUTH_BEGIN.type,

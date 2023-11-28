@@ -1,0 +1,260 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+/**
+* Order header
+*/
+
+/**
+* Order tab
+**/
+
+.order-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.5rem;
+
+  @include respond-mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 4rem;
+  }
+
+  /*
+  * Select field
+  */
+  &__select {
+    margin: 0 auto;
+
+    text-transform: capitalize;
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    @include respond-desk {
+      display: none;
+    }
+    @include respond-mobile {
+      display: inline-block;
+    }
+  }
+
+  &__items {
+    @include respond-mobile {
+      display: none;
+    }
+  }
+
+  /**
+  * header items
+  */
+  &__item {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color-black;
+    text-transform: capitalize;
+    border-bottom: 0.2rem solid transparent;
+    border-radius: 0.2rem;
+    &:hover {
+      border-bottom: 0.2rem solid $color-secondary;
+    }
+    &.active {
+      border-bottom: 0.2rem solid $color-primary;
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 5rem;
+  }
+
+  /**
+  * Search field
+  */
+  .search-widget {
+    @include respond-mobile {
+      margin: 1rem 0rem;
+      width: 100%;
+    }
+    &__input {
+      background-color: $color-green;
+      border-radius: 0.4rem;
+      &::placeholder {
+        color: rgba($color-white, 0.7);
+        font-size: 1.3rem;
+        font-weight: 400;
+      }
+    }
+    &__icon {
+      color: $color-white;
+    }
+  }
+}
+
+.order {
+  &-list-items {
+    box-shadow: 0 0 0.5rem rgba($color-black, 0.4);
+    border-radius: 1rem;
+
+    @include respond-mobile {
+      display: none;
+    }
+  }
+  &-card-items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
+
+/**
+* Order list element
+*/
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  overflow-x: scroll; /* for Chrome, Safari, and Opera */
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+
+  padding: 1rem 0.5rem;
+  font-family: $font-mustica-pro;
+  font-weight: 600;
+  font-size: 1.4rem;
+  &:not(:last-child) {
+    border-bottom: 0.14rem solid rgba($color-secondary, 0.7);
+    margin-bottom: 0.3rem;
+  }
+
+  /**
+  * space span
+  */
+
+  & > * > span {
+    margin-right: 1rem;
+  }
+
+  /**
+  * Order button styles
+  */
+  &__button {
+    color: $color-green-1;
+    font-weight: 600;
+    font-size: 1.3rem;
+    padding: 0.6rem 1rem;
+    background-color: transparent;
+
+    border: 0.12rem solid $color-secondary;
+    border-radius: 0.3rem;
+    text-transform: capitalize;
+  }
+
+  &__status {
+    background-color: $color-purple;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 1rem;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+}
+
+/**
+* Order card
+*/
+
+.order-card {
+  position: relative;
+  width: 100%;
+  gap: 2rem;
+  line-height: 2;
+  background-color: $color-white;
+  box-shadow: 0 0 0.4rem rgba($color-black, 0.19);
+  border-radius: 1rem;
+
+  @include respond-desk {
+    display: none;
+  }
+  @include respond-mobile {
+    display: flex;
+  }
+
+  &__status {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: $color-red;
+  }
+
+  &__details {
+    padding: 1rem;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__email {
+    color: $color-secondary;
+    border-bottom: 1.5px solid $color-secondary;
+    font-size: 1.6rem;
+  }
+
+  &__total {
+    color: $color-black;
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  &__quantity,
+  &__time {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  &__code {
+    color: $color-black;
+    font-size: 1.6rem;
+    font-weight: 600;
+    border: 0.2rem solid $color-light-grey;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  &__button {
+    width: 100%;
+    color: $color-green;
+    text-transform: capitalize;
+    background-color: transparent;
+    font-size: 2rem;
+    font-weight: 700;
+    border: 0.2rem solid $color-secondary;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  &__img {
+    width: 40%;
+    & img {
+      width: 100%;
+      height: 100%;
+      resize: both;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

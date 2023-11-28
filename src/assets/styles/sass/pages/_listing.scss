@@ -1,0 +1,213 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+/*
+* Listing header
+*/
+.listing-header {
+  display: flex;
+  justify-content: space-between;
+  @include respond-mobile {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
+  }
+}
+
+/*
+* Add Listing button
+*/
+
+.btn-add-listing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-green;
+  padding: 0.7rem 1.225rem;
+  opacity: 1;
+
+  &:hover {
+    box-shadow: 0 0 0.3rem rgba($color-black, 0.2);
+  }
+  &__title {
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-left: 0.5rem;
+    color: $color-white;
+  }
+  &__icon {
+    font-size: 2rem !important;
+    color: $color-white !important;
+  }
+  @include respond-mobile {
+    margin-top: 1rem;
+  }
+}
+
+/**
+* Table style
+*/
+.listing-table {
+  margin-top: 2rem;
+  table-layout: fixed;
+
+  @include respond-mobile {
+    display: none;
+  }
+
+  // Image
+  &__img {
+    max-width: 100%;
+    height: 8rem;
+    resize: both;
+    object-fit: contain;
+    object-position: center;
+  }
+  // table head
+  .table-head {
+    background-color: $color-light-grey;
+
+    &__item {
+      font-weight: 600;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      text-align: center;
+      color: $color-green;
+      padding: 0.3rem 0rem;
+    }
+  }
+
+  // Table body
+  .table-body {
+    &__row {
+      margin: 2rem 0rem;
+    }
+    &__column {
+      color: $color-black;
+      text-align: center;
+      font-weight: 300;
+      font-size: 1.25rem;
+    }
+  }
+
+  // Table icon
+  &__icon {
+    color: $color-twining-vine;
+    font-size: 2.5rem !important;
+
+    &.filter-list-icon {
+      color: $color-black;
+    }
+
+    &.sell-icon {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+/*
+* Listing card styles
+*/
+
+.listing-card-items {
+  margin-top: 4rem;
+  @include respond-desk {
+    display: none;
+  }
+  @include respond-mobile {
+    display: block;
+  }
+}
+
+.listing-card {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  background-color: $color-white;
+  box-shadow: 0 0 0.3rem rgba($color-black, 0.2);
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+
+  &__info {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__img {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+    resize: both;
+    object-position: center;
+  }
+
+  &__dots {
+    margin-top: 2rem;
+    text-align: center;
+    & span {
+      height: 1.5rem;
+      width: 1.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: inline-block;
+      background-color: $color-secondary;
+      transition: background-color 0.6s ease;
+      margin: 0 0.5rem;
+      opacity: 50%;
+    }
+
+    & span.active {
+      opacity: 100%;
+    }
+  }
+
+  &__price {
+    font-size: 1.8rem;
+  }
+
+  &__details {
+    padding: 1rem;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  &__description {
+    color: $color-black;
+    font-weight: 400;
+    font-size: 1.8rem;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: transparent;
+    border: 0.2rem solid $color-green;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+
+  &__icon {
+    font-size: 3rem !important;
+    color: $color-green;
+    &.sell-icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__text {
+    color: $color-green;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+}

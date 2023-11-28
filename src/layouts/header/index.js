@@ -1,7 +1,1 @@
-import React from "react";
-
-const Header = ({}) => {
-  return <header></header>;
-};
-
-export default Header;
+export { default as StoreHeader } from "./StoreHeader";

@@ -1,0 +1,69 @@
+@use "../abstracts/variables" as *;
+
+.spinner {
+  border: 0.3rem solid $color-light;
+  border-top: 0.3rem solid $color-secondary;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+
+  /*
+* Spinner color modifiers
+*/
+  &--primary {
+    border-color: $color-primary;
+  }
+
+  &--secondary {
+    border-color: $color-secondary;
+  }
+
+  &--dark {
+    border-color: $color-black;
+    border-top-color: $color-light;
+  }
+  /*
+* Spinner size modifiers
+*/
+  &--xs {
+    width: 2rem;
+    height: 2rem;
+  }
+  &--sm {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &--ms {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &--md {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &--lg {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  &--xlg {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  &--xxlg {
+    width: 12rem;
+    height: 12rem;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,357 @@
+@use "../abstracts" as *;
+.nav {
+  padding: 3rem 4rem;
+
+  /*
+  * Container
+  */
+  & > .container {
+    display: flex;
+    justify-content: center;
+    @include respond-mobile {
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  /*
+  * Navigation menu
+  */
+  &__menu {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    @include respond(phone) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &__item {
+    margin-left: 1.5rem;
+    @include respond(phone) {
+      margin-bottom: 1rem;
+    }
+  }
+  &__link {
+    @include respond(phone) {
+      display: block;
+    }
+  }
+}
+
+/**App Navigation */
+.nav {
+  padding: 2rem 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  @include respond-mobile {
+    position: relative;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: $color-primary;
+    box-shadow: 0 0 0.4rem rgba($color-black, 0.3);
+  }
+
+  &__icon {
+    font-size: 4rem !important;
+    display: none !important;
+    @include respond-mobile {
+      display: inline-block !important;
+      color: $color-white;
+    }
+  }
+
+  &__collapse {
+    display: flex;
+    align-items: center;
+    @include respond-mobile {
+      display: none;
+    }
+    /* Nav collapse is active*/
+    &.active {
+      background-color: $color-primary;
+      display: inline-block;
+      position: absolute;
+      top: 4.6rem;
+      left: 0;
+      right: 0;
+    }
+    /* Search Widget*/
+    &.active .search-widget {
+      margin-left: 0rem;
+      padding: 1rem 1.5rem;
+    }
+    &.active .search-widget .search-widget__input {
+      border-radius: 0.5rem;
+    }
+  }
+
+  &__menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    @include respond-mobile {
+      flex-direction: column;
+    }
+  }
+
+  // &__item:not(:first-child) {
+  //   margin: 2rem;
+  // }
+
+  &__item {
+    padding: 1rem;
+    @include respond-mobile {
+      width: 100%;
+    }
+  }
+
+  /* Nav Links*/
+  &__link {
+    &:link,
+    &:visited {
+      color: $color-black;
+      text-transform: capitalize;
+      font-size: $default-font-size;
+      font-weight: 400;
+      display: inline-block;
+      transition: all 0.4s;
+      border-bottom: 0.2rem solid transparent;
+      @include respond-mobile {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        color: $color-white;
+      }
+    }
+    &:active,
+    &:hover {
+      border-color: $color-primary;
+      cursor: pointer;
+    }
+    &.active {
+      border-color: $color-primary;
+    }
+  }
+
+  /* Search widget*/
+
+  & .search-widget {
+    margin-left: 2rem;
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 3rem;
+
+  &__item {
+    padding: 0.5rem 2rem;
+    &:not(:first-child) {
+      margin-left: 2rem;
+    }
+  }
+}
+
+.nav-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 3rem;
+  & > * {
+    margin: 0rem 1rem;
+    cursor: pointer;
+  }
+
+  &__cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.13rem solid $color-black;
+    border-radius: 3rem;
+    padding: 0.2rem 1rem;
+    cursor: pointer;
+    & span {
+      font-size: 1.6rem;
+    }
+    @include respond-mobile {
+      color: $color-white;
+      border: 0.13rem solid $color-white;
+    }
+  }
+  &__btn--cart {
+    padding: 0rem !important;
+  }
+
+  &__notification {
+    position: relative;
+    cursor: pointer;
+  }
+  &__badge {
+    position: absolute;
+    left: 2rem;
+    top: -0.5rem;
+    background-color: $color-red;
+    border-radius: 5rem;
+    padding: 0.3rem;
+    color: $color-white;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  &__icon {
+    cursor: pointer;
+    color: $color-primary;
+    font-size: 3rem !important;
+    @include respond-mobile {
+      color: $color-white;
+    }
+  }
+}
+
+.app-nav .search-widget {
+  margin-left: 1.5rem;
+}
+
+/* Sticky nav bar*/
+.nav.sticky {
+  position: fixed;
+  top: 0;
+  background-color: $color-primary;
+  box-shadow: 0rem 0rem 1rem rgba($color-black, 0.3);
+  z-index: 5;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  /*
+  * Nav links
+  */
+  & .nav__link {
+    color: $color-white;
+    &.active {
+      border-color: $color-white;
+    }
+  }
+
+  /*
+  * Nav profile
+  */
+  & .nav-profile {
+    &__icon {
+      color: $color-white;
+    }
+    &__cart {
+      border-color: $color-white;
+      padding: 0.2rem 1rem;
+    }
+    &__cart span {
+      color: $color-white;
+    }
+    &__btn--cart {
+      padding: 0rem;
+    }
+  }
+}
+
+/*
+* Notifications
+*/
+
+.notification {
+  position: absolute;
+  width: 30.8rem;
+  max-height: 67rem;
+  border-radius: 1.5rem;
+  padding: 1rem 1.5rem;
+  background-color: $color-white;
+  box-shadow: 0rem 0.4rem 5.6rem 0rem rgba(0, 0, 0, 0.15);
+  display: none;
+  z-index: 5;
+  @include respond-mobile {
+    width: 90dvw;
+  }
+  &.active {
+    display: block;
+    top: 5rem;
+    left: -12rem;
+    // TODO: Fix the responsive of this notification dropdown for all mobile devices
+    @include respond-mobile {
+      left: -100%;
+      transform: translate(-53%);
+    }
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+    &-main {
+      color: $color-primary;
+      text-align: center;
+      font-weight: 600;
+      font-size: 2rem;
+    }
+    &-number {
+      color: $color-green;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__content {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3rem;
+  }
+
+  /* Notification item*/
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    gap: 0.5rem;
+    &:hover {
+      background-color: $color-light-grey;
+    }
+  }
+  &__status {
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: $color-red;
+    border-radius: 50%;
+    position: absolute;
+    display: none;
+    &.inactive {
+      display: block;
+      top: 1rem;
+      left: 0.1rem;
+    }
+  }
+
+  &__img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 0.7rem;
+    resize: both;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__title {
+    color: $color-black;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  &__time {
+    color: $color-black;
+    font-size: 1.4rem;
+    font-weight: 300;
+  }
+}

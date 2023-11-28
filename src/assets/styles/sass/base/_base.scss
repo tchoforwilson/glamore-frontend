@@ -1,3 +1,6 @@
+@use "../abstracts" as *;
+@use "./fonts";
+
 *,
 *::after,
 *::before {
@@ -11,10 +14,58 @@
 }
 
 html {
+  // Big Desktop
+  @include respond(big-desktop) {
+    font-size: 75%; /* (12px/16px)X100% 75%*/
+  }
+  // Laptops
+  @include respond(laptop) {
+    font-size: 56.25%; /* (9px/16px)X100% 50%*/
+  }
+  // Tablets
+  @include respond(tablet) {
+    font-size: 50%; /* (8px/16px)X100% 50%*/
+  }
+  // Phones
+  @include respond(phone) {
+    font-size: 50%; /* (8px/16px)X100% 50%*/
+  }
+  // Normal
   font-size: 62.5%; /* (10px/16px)X100% 62.5%*/
 }
 
 body {
   box-sizing: border-box;
-  padding: 2rem;
+  position: static;
+  overflow: auto;
+  //padding: 2rem;
+  & ~ .modal.open {
+    position: fixed;
+  }
+}
+
+table,
+th,
+td {
+  border: none;
+}
+
+td,
+th {
+  overflow-wrap: break-word;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input,
+select,
+textarea {
+  background-color: transparent;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  display: none;
 }
