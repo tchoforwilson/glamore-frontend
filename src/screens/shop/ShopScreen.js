@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Container } from "@mui/material";
 import TuneIcon from "@mui/icons-material/Tune";
 import { AppScreenLayout } from "../../layouts";
 import CategoriesContainer from "./CategoriesContainer";
@@ -41,7 +40,7 @@ const ShopScreen = () => {
   };
   return (
     <AppScreenLayout searchPath="products">
-      <Container>
+      <div className="container">
         {/** Section categories */}
         <section className="section-shop-categories">
           <div className="shop-categories">
@@ -66,7 +65,7 @@ const ShopScreen = () => {
             ))}
           </div>
         </section>
-      </Container>
+      </div>
       {/** Sort item modal */}
       <SortedItemsModal
         isOpen={openSortedModal}

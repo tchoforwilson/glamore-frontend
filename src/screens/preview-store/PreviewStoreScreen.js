@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { useParams } from "react-router-dom";
-import { Container, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import WestRoundedIcon from "@mui/icons-material/WestRounded";
 import { FollowButton, ShareButton } from "../../components/buttons";
 import { AppScreenLayout } from "../../layouts";
@@ -13,7 +13,7 @@ const PreviewStoreScreen = () => {
   const searchPath = useMemo(() => ({ searchUrl: `/${id}/products` }), [id]);
   return (
     <AppScreenLayout searchPath={searchPath}>
-      <Container>
+      <div className="container">
         {/* Store Images */}
         <section className="preview-store__section section-images">
           <Grid container spacing={1} sx={{ justifyContent: "center" }}>
@@ -68,7 +68,7 @@ const PreviewStoreScreen = () => {
             ))}
           </div>
         </section>
-      </Container>
+      </div>
     </AppScreenLayout>
   );
 };
