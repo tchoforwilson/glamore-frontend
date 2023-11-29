@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Container } from "@mui/material";
 import { AppScreenLayout } from "../../layouts";
 import CategoriesContainer from "./CategoriesContainer";
 import { ProductCard } from "../../components/cards";
@@ -75,7 +74,7 @@ const HomeScreen = () => {
 
   return (
     <AppScreenLayout searchPath="products">
-      <Container maxWidth="lg">
+      <div className="container">
         {/* Section best sellers */}
         <section className="home-sellers">
           <h1 className="home-header">explore our best sellers</h1>
@@ -115,7 +114,7 @@ const HomeScreen = () => {
             ))}
           </div>
         </section>
-      </Container>
+      </div>
     </AppScreenLayout>
   );
 };
