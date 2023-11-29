@@ -8,7 +8,5 @@ import productsApi from "./products.api";
 export default combineReducers({
   categories: categoriesReducer,
   stores: storesReducer,
-  products: productsReducer,
   users: usersReducer,
-  [productsApi.reducerPath]: productsApi.reducer,
 });
