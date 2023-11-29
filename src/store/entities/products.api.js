@@ -4,7 +4,7 @@ const productsApi = createApi({
   reducerPath: "products",
 
   // the base query for all the endpoints
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:9000/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:9000/api" }),
 
   // Strings representing the various models the
   tagTypes: ["Product"],
@@ -13,7 +13,10 @@ const productsApi = createApi({
   endpoints: (builder) => ({
     // Enpoint to fetch all products
     getProducts: builder.query({
-      query: () => "/products",
+      query: () => ({
+        url: "/products",
+        method: "GET",
+      }),
       providesTags: ["Product"],
     }),
 
@@ -25,5 +28,11 @@ const productsApi = createApi({
 });
 
 export const { useGetProductsQuery, useGetProductQuery } = productsApi;
+
+export const {
+  reducer: productsReducer,
+  middleware: ProductsMiddleware,
+  reducerPath: ProductsReducerPath,
+} = productsApi;
 
 export default productsApi;
