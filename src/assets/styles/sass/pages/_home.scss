@@ -25,6 +25,7 @@
   @include respond-mobile {
     width: 100%;
     flex: 0 0 100%;
+    z-index: -5;
   }
   &__img {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
@@ -130,6 +131,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 0rem;
     @include respond-mobile {
       white-space: nowrap;
       overflow-x: scroll; /* for Chrome, Safari, and Opera */
