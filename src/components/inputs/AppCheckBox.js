@@ -6,8 +6,8 @@ import React from "react";
  * @param {Any} otherProps Other properties of checkbox
  * @returns {hmtl}
  */
-const AppCheckBox = ({ name, ...otherProps }) => {
-  return <input id={name} name={name} type="checkbox" {...otherProps} />;
+const AppCheckBox = ({ name, id, ...otherProps }) => {
+  return <input id={id ?? name} name={name} type="checkbox" {...otherProps} />;
 };
 
 export default AppCheckBox;
