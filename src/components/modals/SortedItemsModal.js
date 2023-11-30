@@ -136,6 +136,7 @@ const SortedItemsModal = ({ isOpen, handleSubmit, handleReset, onClose }) => {
                 <div className="sortedItems__field items">
                   {sortBy.map((sort) => (
                     <FormCheckBox
+                      id={sort.name.replace(/ /g, "-")}
                       key={sort.name}
                       name="sortBy"
                       label={sort.name}
@@ -207,6 +208,7 @@ const SortedItemsModal = ({ isOpen, handleSubmit, handleReset, onClose }) => {
                 <div className="sortedItems__field items">
                   {materials.map((material) => (
                     <FormCheckBox
+                      id={material.name.replace(/ /g, "-")}
                       key={material.name}
                       name="materials"
                       label={material.name}
