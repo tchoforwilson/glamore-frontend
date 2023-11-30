@@ -46,6 +46,11 @@ const CategoriesContainer = ({
       >
         <ArrowBackIosNewIcon className="shop-categories__icon" />
       </IconButton>
+      <CategoryItem
+        name="All"
+        active={currentCategory === "all"}
+        onClick={handleCategoryClick("all")}
+      />
       {!isMobile
         ? categories
             .slice(startIndex, startIndex + NUM_CATEGORIES_SHOW)
