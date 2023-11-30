@@ -56,10 +56,13 @@ const initialValues = {
  * @param {Function} Callback function when modal form is resetted.
  * @returns
  */
-const SortedItemsModal = ({ isOpen, handleSubmit, handleReset }) => {
+const SortedItemsModal = ({ isOpen, handleSubmit, handleReset, onClose }) => {
   return (
-    <article className={`modal sortedItems ${isOpen ? "open" : "close"}`}>
-      <div className="modal__content">
+    <article
+      className={`modal sortedItems ${isOpen ? "open" : "close"}`}
+      onClick={onClose}
+    >
+      <div className="modal__content" onClick={(e) => e.stopPropagation()}>
         <FormContainer
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -146,6 +149,7 @@ const SortedItemsModal = ({ isOpen, handleSubmit, handleReset }) => {
                 <div className="sortedItems__field items">
                   {brands.map((brand) => (
                     <FormCheckBox
+                      id={brand.name.replace(/ /g, "-")}
                       key={brand.name}
                       name="brands"
                       label={brand.name}
@@ -159,6 +163,7 @@ const SortedItemsModal = ({ isOpen, handleSubmit, handleReset }) => {
                 <div className="sortedItems__field items">
                   {genders.map((gender) => (
                     <FormCheckBox
+                      id={gender.name}
                       key={gender.name}
                       name="genders"
                       label={gender.name}
@@ -174,7 +179,8 @@ const SortedItemsModal = ({ isOpen, handleSubmit, handleReset }) => {
                 <div className="sortedItems__field items">
                   {sizes.map((size) => (
                     <FormCheckBox
-                      key={size.name}
+                      id={size.name.replace(/ /g, "-")}
+                      key={size.name.replace(/ /g, "-")}
                       name="sizes"
                       label={size.name}
                       value={size.value}
@@ -187,6 +193,7 @@ const SortedItemsModal = ({ isOpen, handleSubmit, handleReset }) => {
                 <div className="sortedItems__field items">
                   {deals.map((deal) => (
                     <FormCheckBox
+                      id={deal.name.replace(/ /g, "-")}
                       key={deal.name}
                       name="deals"
                       label={deal.name}
