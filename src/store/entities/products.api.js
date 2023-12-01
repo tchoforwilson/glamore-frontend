@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { API_URL } from "../../configurations/config";
+import qs from "qs";
 
 const productsApi = createApi({
   // The path the will be used as name in the redux store
@@ -18,10 +19,10 @@ const productsApi = createApi({
       query: (params) => ({
         url: "/products",
         method: "GET",
-        params,
+        params: qs.stringify(params),
       }),
-      providesTags: (result) => {
-        return result
+      providesTags: (result) =>
+        result?.data.length
           ? [
               ...result?.data.map((product) => ({
                 type: "Product",
@@ -29,8 +30,7 @@ const productsApi = createApi({
               })),
               { type: "Product", id: "LIST" },
             ]
-          : [{ type: "Product", id: "LIST" }];
-      },
+          : [{ type: "Product", id: "LIST" }],
     }),
 
     // Get a single product from the database using it id

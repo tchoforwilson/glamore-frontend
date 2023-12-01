@@ -1,12 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { API_URL } from "../../configurations/config";
+import qs from 'qs'
 
 const categoriesApi = createApi({
   reducerPath: "categories",
 
   baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
 
-  providesTags: ["Category"],
+  tagTypes: ["Category"],
 
   endpoints: (builder) => ({
     // Get all categories from the backend
@@ -14,12 +15,12 @@ const categoriesApi = createApi({
       query: (params) => ({
         url: "/categories",
         method: "GET",
-        params,
+        params: qs.stringify(params),
       }),
       providesTags: (result) =>
-        result
+        result?.data.length
           ? {
-              ...result.data?.data?.map((category) => ({
+              ...result?.data.map((category) => ({
                 type: "Category",
                 id: category._id,
               })),
@@ -39,6 +40,7 @@ const categoriesApi = createApi({
   }),
 });
 
-export const { useGetCategoriesQuery, useCreateCategoryMutation } = categoriesApi
+export const { useGetCategoriesQuery, useCreateCategoryMutation } =
+  categoriesApi;
 
-export default categoriesApi
+export default categoriesApi;
