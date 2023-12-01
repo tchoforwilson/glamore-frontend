@@ -8,20 +8,6 @@ import { useGetProductsQuery } from "../../store/entities/products.api";
 import { Paper } from "@mui/material";
 import { useGetCategoriesQuery } from "../../store/entities/categories.api";
 
-const categoriesData = [
-  { name: "t-shirts", id: 1 },
-  { name: "hats", id: 2 },
-  { name: "tank tops", id: 3 },
-  { name: "jeans", id: 4 },
-  { name: "skirts", id: 5 },
-  { name: "trench Coats", id: 6 },
-  { name: "tracksuits", id: 7 },
-  { name: "backpacks", id: 8 },
-  { name: "sneakers", id: 9 },
-  { name: "swimsuits", id: 10 },
-  { name: "bikinis", id: 11 },
-];
-
 // const product = {
 //   id: "1abc",
 //   name: "Cotton beige T-shirt",
@@ -40,28 +26,57 @@ const ShopScreen = () => {
     console.log(data);
     let filter = {};
 
-    if (data.price.min) filter = { ...filter, "price[min]": data.price.min };
-    if (data.price.max) filter = { ...filter, "price[max]": data.price.max };
-    if (data.genders?.length > 0) filter = { ...filter, genders: data.genders };
-    if (data.brands?.length > 0) filter = { ...filter, brands: data.brands };
-    if (data.colors?.length > 0) filter = { ...filter, colors: data.colors };
-    if (data.sizes?.length > 0) filter = { ...filter, sizes: data.sizes };
-    if (data.deals?.length > 0) filter = { ...filter, deals: data.deals };
+    if (data.price.min)
+      filter = { ...filter, price: { ...filter.price, gte: data.price.min } };
+
+    if (data.price.max)
+      filter = { ...filter, price: { ...filter.price, lte: data.price.max } };
+
+    if (data.genders?.length > 0)
+      filter = { ...filter, gender: { $in: data.genders } };
+
+    if (data.brands?.length > 0)
+      filter = { ...filter, brand: { $in: data.brands } };
+
+    if (data.colors?.length > 0)
+      filter = { ...filter, color: { $in: data.colors } };
+
+    if (data.sizes?.length > 0)
+      filter = { ...filter, size: { $in: data.sizes } };
+
+    if (data.deals?.length > 0)
+      filter = { ...filter, deals: { $in: data.deals } };
+
     if (data.sort?.length > 0) filter = { ...filter, sort: data.sort };
+
     if (data.materials?.length > 0)
-      filter = { ...filter, materials: data.materials };
+      filter = {
+        ...filter,
+        materials: { $exists: true, $in: data.materials },
+      };
 
     setProductFilters(filter);
     setOpenSortedModal(false);
-    console.log(filter);
   };
 
   const handleReset = () => {
     setOpenSortedModal(false);
   };
 
-  const products = useGetProductsQuery({ ...productFilters, category: currentCategory });
+  const products = useGetProductsQuery({
+    ...productFilters,
+  });
   const categories = useGetCategoriesQuery();
+
+  // update the productFilters whenever the category changes
+  React.useEffect(() => {
+    setProductFilters((filters) => {
+      currentCategory === "all"
+        ? delete filters.category
+        : (filters.category = currentCategory._id);
+      return filters;
+    });
+  }, [currentCategory]);
 
   const alertStyles = {
     p: 2,
@@ -72,7 +87,7 @@ const ShopScreen = () => {
     boxShadow: "0rem 0rem 3.5rem 0.8rem rgba(0, 0, 0, 0.18)",
     border: 0,
     borderRadius: "20px",
-    transition: 'all 300ms linear',
+    transition: "all 300ms linear",
     "&.danger": {
       color: "red",
     },
@@ -90,7 +105,7 @@ const ShopScreen = () => {
             />
             {
               <CategoriesContainer
-                categories={categories.data?.data.length ? categories.data?.data : categoriesData}
+                categories={categories.data?.data ?? []}
                 currentCategory={currentCategory}
                 handleCategoryClick={handleCategoryClick}
               />
