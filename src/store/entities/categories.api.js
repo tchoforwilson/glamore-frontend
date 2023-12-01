@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { API_URL } from "../../configurations/config";
-import qs from 'qs'
+import qs from "qs";
 
 const categoriesApi = createApi({
   reducerPath: "categories",
@@ -17,15 +17,18 @@ const categoriesApi = createApi({
         method: "GET",
         params: qs.stringify(params),
       }),
-      providesTags: (result) =>
-        result?.data.length
+      providesTags: (result) => {
+        console.log("the value of result is", result);
+
+        return result.result?.data.length
           ? {
               ...result?.data.map((category) => ({
                 type: "Category",
                 id: category._id,
               })),
             }
-          : [{ type: "Category", id: "LIST" }],
+          : [{ type: "Category", id: "LIST" }];
+      },
     }),
 
     // Create a category
