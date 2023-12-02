@@ -123,6 +123,7 @@ const SortedItemsModal = ({ isOpen, handleSubmit, handleReset, onClose }) => {
                 <div className="sortedItems__field items">
                   {dates.map((date) => (
                     <FormCheckBox
+                      id={date.name.replace(/ /g, "-")}
                       key={date.name}
                       name="dates"
                       label={date.name}
