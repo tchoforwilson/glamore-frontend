@@ -44,8 +44,15 @@ const ShopScreen = () => {
     if (data.sizes?.length > 0)
       filter = { ...filter, size: { $in: data.sizes } };
 
-    if (data.deals?.length > 0)
-      filter = { ...filter, deals: { $in: data.deals } };
+    if (data.deals?.length > 0) {
+      filter = {
+        ...filter,
+        twoForOne: {$exist: true, $eq: data.deals.includes('2-for-1') },
+        productDiscount: {$exist: true, $eq: data.deals.includes('discount') },
+        coupon: {$exist: true, $eq: data.deals.includes('coupons') },
+        }
+      };
+    
 
     if (data.sort?.length > 0) filter = { ...filter, sort: data.sort };
 
@@ -54,6 +61,34 @@ const ShopScreen = () => {
         ...filter,
         materials: { $exists: true, $in: data.materials },
       };
+
+    if (data.dates?.length > 0) {
+      if (data.dates.includes("recent")) {
+        filter = {
+          ...filter,
+          createdAt: {
+            gte: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toDateString(),
+          },
+        };
+      }
+      if (data.dates.includes("month")) {
+        filter = {
+          ...filter,
+          createdAt: {
+            gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
+          },
+        };
+      }
+
+      if (data.dates.includes("year")) {
+        filter = {
+          ...filter,
+          createdAt: {
+            gte: new Date(Date.now() - 365 * 24 * 60 * 60 * 1000),
+          },
+        };
+      }
+    }
 
     setProductFilters(filter);
     setOpenSortedModal(false);
