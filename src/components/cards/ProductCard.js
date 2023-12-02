@@ -13,7 +13,7 @@ const ProductCard = ({ product, ...otherProps }) => {
       onClick={handleClick(product.id)}
     >
       <img
-        src={product.images[0]}
+        src={product.imageCover}
         alt={product.name}
         className="product-card__image"
       />
