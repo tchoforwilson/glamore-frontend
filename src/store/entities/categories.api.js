@@ -20,13 +20,13 @@ const categoriesApi = createApi({
       providesTags: (result) => {
         console.log("the value of result is", result);
 
-        return result.result?.data.length
-          ? {
+        return result?.data.length
+          ? [
               ...result?.data.map((category) => ({
                 type: "Category",
                 id: category._id,
               })),
-            }
+            ]
           : [{ type: "Category", id: "LIST" }];
       },
     }),
