@@ -4,6 +4,7 @@ import reducer from "./reducer";
 import productsApi from "./entities/products.api";
 import categoriesApi from "./entities/categories.api";
 import authApi from "./entities/auth.api";
+import { setupListeners } from "@reduxjs/toolkit/dist/query";
 
 const store = configureStore({
   reducer,
@@ -17,5 +18,7 @@ const store = configureStore({
       toastify,
     ]),
 });
+
+setupListeners(store.dispatch);
 
 export default store;
