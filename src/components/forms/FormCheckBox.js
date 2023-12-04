@@ -3,32 +3,30 @@ import { useFormikContext } from "formik";
 import FormErrorMessage from "./FormErrorMessage";
 import { AppCheckBox } from "../inputs";
 
-const FormCheckBox = ({ name, label, value }) => {
+const FormCheckBox = ({ name, label, value, id }) => {
   const { values, errors, touched, setFieldValue, setFieldTouched } =
     useFormikContext();
-  const [dataValues, setDataValues] = useState(values[name]);
 
   const handleChange = () => {
-    if (dataValues.includes(value)) {
-      const index = dataValues.indexOf(value);
-      setDataValues([...dataValues.splice(index - 1, index)]);
-    } else {
-      dataValues.push(value);
-      setDataValues([...dataValues, value]);
-    }
-    setFieldValue(name, dataValues);
+    setFieldValue(
+      name,
+      values[name].includes(value)
+        ? values[name].filter((item) => item !== value)
+        : [...values[name], value],
+    );
   };
 
   return (
     <div className="form-check">
       <AppCheckBox
+        id={id ?? name}
         name={name}
-        checked={dataValues.includes(value)}
+        checked={values[name].includes(value)}
         onChange={handleChange}
         onBlur={() => setFieldTouched(name)}
         className="form-check__input"
       />
-      <label htmlFor={name} className="form-check__label">
+      <label htmlFor={id ?? name} className="form-check__label">
         {label}
       </label>
       <FormErrorMessage error={errors[name]} visible={touched[name]} />

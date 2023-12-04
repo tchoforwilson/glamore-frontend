@@ -46,6 +46,11 @@ const CategoriesContainer = ({
       >
         <ArrowBackIosNewIcon className="shop-categories__icon" />
       </IconButton>
+      <CategoryItem
+        name="All"
+        active={currentCategory === "all"}
+        onClick={handleCategoryClick("all")}
+      />
       {!isMobile
         ? categories
             .slice(startIndex, startIndex + NUM_CATEGORIES_SHOW)
@@ -53,16 +58,16 @@ const CategoriesContainer = ({
               <CategoryItem
                 key={category.id}
                 name={category.name}
-                active={currentCategory === category.name}
-                onClick={handleCategoryClick(category.name)}
+                active={currentCategory.name === category.name}
+                onClick={handleCategoryClick(category)}
               />
             ))
         : categories.map((category) => (
             <CategoryItem
               key={category.id}
               name={category.name}
-              active={currentCategory === category.name}
-              onClick={handleCategoryClick(category.name)}
+              active={currentCategory.name === category.name}
+              onClick={handleCategoryClick(category)}
             />
           ))}
       <IconButton
