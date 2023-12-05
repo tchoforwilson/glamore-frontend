@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { apiCallBegan } from "./apiCall";
 import { getCookie, removeCookie, setCookie } from "../utilities/cookies";
 import { authService } from "../services";
+import authApi from "./entities/auth.api";
 
 // Initialize the user token from the local storage or cookie settings
 const userToken = localStorage.token || getCookie("token") || null;
@@ -48,6 +49,25 @@ const slice = createSlice({
       removeCookie("token");
       auth.isAuthenticated = false;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addMatcher(authApi.endpoints.signUp.matchPending, (state) => {
+      state.loading = true;
+    });
+
+    builder.addMatcher(authApi.endpoints.signUp.matchRejected, (state) => {
+      state.loading = false;
+    });
+
+    builder.addMatcher(
+      authApi.endpoints.signUp.matchFulfilled,
+      (state, action) => {
+        state.isAuthenticated = true;
+        state.loading = false;
+        state.token = action.payload.token;
+        state.user = action.payload.data.user;
+      },
+    );
   },
 });
 
