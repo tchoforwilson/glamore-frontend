@@ -1,0 +1,29 @@
+@use "../abstracts/variables" as *;
+
+.alert {
+  padding: 4rem 2rem;
+  position: relative;
+  &--danger {
+    background-color: $color-red;
+  }
+  &--success {
+    background-color: $color-green-1;
+  }
+  &--info {
+    background-color: $color-flower-girl;
+  }
+  &__message {
+    color: $color-white;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  &__close-btn {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    color: $color-black;
+    &:hover {
+      color: $color-white;
+    }
+  }
+}
