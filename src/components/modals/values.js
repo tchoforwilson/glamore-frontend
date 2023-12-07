@@ -49,7 +49,7 @@ export const deals = [
 export const materials = [
   { name: "COTTON", value: "cotton" },
   { name: "POLYESTER", value: "polyester" },
-  { name: "SILK FABRIC", value: "fabric" },
+  { name: "SILK FABRIC", value: "silk" },
   { name: "TRADITIONAL", value: "traditional" },
   { name: "LEATHER", value: "leather" },
   { name: "FUR", value: "fur" },

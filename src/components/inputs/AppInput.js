@@ -7,8 +7,17 @@ import React from "react";
  * @param {Any} otherProps -> Other input properties
  * @returns {JSX}
  */
-const AppInput = ({ name, type = "text", ...otherProps }) => {
-  return <input id={name} name={name} type={type} {...otherProps} />;
+const AppInput = ({ name, placeholder, type = "text", ...otherProps }) => {
+  return (
+    <input
+      id={name}
+      name={name}
+      placeholder={placeholder}
+      type={type}
+      {...otherProps}
+      style={{ cursor: "text" }}
+    />
+  );
 };
 
 export default AppInput;

@@ -17,6 +17,7 @@ const SubmitButton = ({ title, loading, ...otherProps }) => {
       disabled={loading}
       className="btn btn--secondary btn--submit"
       {...otherProps}
+      style={{ cursor: "pointer" }}
     >
       {loading ? <Spinner size="xs" color="primary" /> : title}
     </button>

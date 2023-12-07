@@ -17,6 +17,7 @@ const toastify = () => (next) => (action) => {
 
   // 3. Toast for error messages i.e status code >= 500
   if (status === "error" && statusCode >= 500) {
+    console.log(action.payload);
     toast.error(action.payload.message, {
       position: toast.POSITION.TOP_RIGHT,
     });
