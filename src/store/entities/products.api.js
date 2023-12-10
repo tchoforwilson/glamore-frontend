@@ -10,7 +10,7 @@ const productsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
 
   // Strings representing the various models the current query interacts with
-  tagTypes: ["Product"],
+  tagTypes: ["Product", "Review"],
 
   // The various endpoints from which the frontend will interact with
   endpoints: (builder) => ({
@@ -48,6 +48,19 @@ const productsApi = createApi({
       }),
       invalidateTags: ["Product"], // Tells the query that this endpoint is going to modify a "Product" from the backend
     }),
+
+
+    // Get Product Reviews
+    getProductReviews: builder.query({
+      query: (productID) => ({
+        url: `products/${productID}reviews`,
+        method: "GET"
+      }),
+      providesTags: (result) => 
+        result?.data?.length 
+          ? [ ...result?.data.map((review) => ({ type: "Review", id: review.id })) ] 
+          : [ { type: "Review", id: "LIST" } ]
+    })
   }),
 });
 
