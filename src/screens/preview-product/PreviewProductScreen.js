@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { IconButton } from "@mui/material";
+import { IconButton, Skeleton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { AppScreenLayout } from "../../layouts";
 import { ProductCard } from "../../components/cards";
@@ -13,6 +13,8 @@ import {
 } from "../../components/buttons";
 import { currencyFormatter } from "../../utilities/functions";
 import { AppSelect } from "../../components/inputs";
+import { useGetProductQuery } from "../../store/entities/products.api";
+import { useParams } from "react-router-dom";
 
 const product = { name: "Cotton beige T-shirt", price: 700, currency: "XAF" };
 
@@ -23,6 +25,10 @@ const PreviewProductScreen = () => {
     require("./../../assets/images/t-shirt.jpg"),
     require("./../../assets/images/least-popular.jpg"),
   ]);
+
+
+  const params = useParams()
+  const productQuery = useGetProductQuery(params.id)
 
   const [currenImage, setCurrentImage] = useState(images[activeIndex]);
 
@@ -62,7 +68,11 @@ const PreviewProductScreen = () => {
           <div className="preview-product__container">
             <div className="preview-product__heading">
               <ArrowBackIcon className="preview-product__btn" />
-              <h3 className="preview-product__name">Toffe T-shit classic</h3>
+              {productQuery.isLoading ?
+                <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
+                :
+                <h3 className="preview-product__name">{productQuery.data?.name}</h3>
+              }
             </div>
             <div className="preview-product__item">
               <div className="preview-product__images">
@@ -105,23 +115,47 @@ const PreviewProductScreen = () => {
                 </div>
                 {/** Preview product details */}
                 <div className="preview-detail">
-                  <h3 className="preview-detail__title">
-                    Toffe T-shit classic
-                  </h3>
+                  {productQuery.isLoading ?
+                    <Skeleton variant='text' className="preview-detail__title" />
+                    :
+                    <h3 className="preview-detail__title">{productQuery.data?.data.name}</h3>
+                  }
                   <div className="preview-detail__pricing">
-                    <span className="preview-detail__discount">
-                      {currencyFormatter("XAF", 700)}
-                    </span>
-                    <span className="preview-detail__price">
-                      {currencyFormatter("XAF", 1000)}
-                    </span>
-                    <span className="preview-detail__percentage">30% off</span>
+                      { productQuery.isLoading ?
+                        (
+                        <>
+                          <Skeleton variant='text' className="preview-detail__discount" sx={{ color: 'transparent !important' }} >{ currencyFormatter("XAF", 700) }</Skeleton>
+                          <Skeleton variant='text' className="preview-detail__price" sx={{ color: 'transparent !important' }}>{ currencyFormatter("XAF", 1000) }</Skeleton>
+                          <Skeleton variant='text' className="preview-detail__discount" sx={{ color: 'transparent !important' }} >30% Off</Skeleton>
+                        </>
+                        )
+                        : (
+                        <>
+                          <span className="preview-detail__discount">
+                            { currencyFormatter("XAF", 700) }
+                          </span>
+                          <span className="preview-detail__price">
+                            {currencyFormatter("XAF", 1000)}
+                          </span>
+                          <span className="preview-detail__percentage">30% off</span>
+                      </>
+                        )
+                      }
                   </div>
-                  <p className="preview-detail__description">
-                    Manfinity Homeme Men Letter Patched Detail Tee & Drawstring
-                    Waist Track Shorts, Random Paisley Scarf Print Shirt &
-                    Shorts Without Tee
-                  </p>
+                  {
+                    productQuery.isLoading ? 
+                      (
+                        <>
+                          <Skeleton variant="text" />
+                          <Skeleton variant="text" />
+                          <Skeleton variant="text" />
+                        </>
+                      )
+                      :
+                      <p className="preview-detail__description">
+                            {productQuery.data?.data.description}
+                      </p>
+                  }
                 </div>
                 {/** Preview product actions */}
                 <div className="preview-action">
