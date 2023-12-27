@@ -53,7 +53,7 @@ const productsApi = createApi({
     // Get Product Reviews
     getProductReviews: builder.query({
       query: (productID) => ({
-        url: `products/${productID}reviews`,
+        url: `products/${productID}/reviews`,
         method: "GET"
       }),
       providesTags: (result) => 
@@ -64,6 +64,6 @@ const productsApi = createApi({
   }),
 });
 
-export const { useGetProductsQuery, useGetProductQuery } = productsApi;
+export const { useGetProductsQuery, useGetProductQuery, useCreateProductMutation, useGetProductReviewsQuery } = productsApi;
 
 export default productsApi;
