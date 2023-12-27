@@ -2,24 +2,26 @@ import React, { useState } from "react";
 import { Container } from "@mui/material";
 import { AppScreenLayout } from "../../layouts";
 import CategoriesContainer from "./CategoriesContainer";
-import { ProductCard } from "../../components/cards";
+import { ArticleCard, ProductCard } from "../../components/cards";
 import BestSellerItem from "./BestSellerItem";
+import BestValueCard from "../../components/cards/BestValueCard";
+import Hero from "./Hero";
 
 const sellers = [
   {
-    text: "Blue and Brunette suits",
+    title: "Responsible navy suit",
     image: require("../../assets/sellers/seller-1.jpg"),
   },
   {
-    text: "Biege and White overall",
+    title: "Biege and White overall",
     image: require("../../assets/sellers/seller-2.jpg"),
   },
   {
-    text: "Lotus Brown Jackets",
+    title: "Lotus Brown Jackets",
     image: require("../../assets/sellers/seller-3.jpg"),
   },
   {
-    text: "Blue and Brunette suits",
+    title: "Blue and Brunette suits",
     image: require("../../assets/sellers/seller-4.jpg"),
   },
 ];
@@ -40,11 +42,12 @@ const HomeScreen = () => {
     const imagesToRender = sellers.slice(startIndex, endIndex);
 
     return imagesToRender.map((seller) => (
-      <BestSellerItem
-        key={seller.text}
-        imageSrc={seller.image}
-        text={seller.text}
-      />
+      <ArticleCard article={seller} />
+      // <BestSellerItem
+      //   key={seller.text}
+      //   imageSrc={seller.image}
+      //   text={seller.text}
+      // />
     ));
   };
 
@@ -75,18 +78,16 @@ const HomeScreen = () => {
 
   return (
     <AppScreenLayout searchPath="products">
+      <Hero />
+
       <Container maxWidth="lg">
         {/* Section best sellers */}
         <section className="home-sellers">
           <h1 className="home-header">explore our best sellers</h1>
-          <div className="home-sellers__container">
-            <RenderImages />
-            <span className="prev" onClick={handlePrevClick}>
-              &#10094;
-            </span>
-            <span className="next" onClick={handleNextClick}>
-              &#10095;
-            </span>
+          <div className="home-sellers__container grid grid-cols-3 gap-4">
+            {sellers.map((seller) => (
+              <ArticleCard key={seller.title} article={seller} />
+            ))}
           </div>
           <div className="home-sellers__dots">
             <RenderDots />
@@ -100,10 +101,13 @@ const HomeScreen = () => {
         {/** Section Essentials */}
         <section className="home-essentials" id="section-sticky">
           <h1 className="home-header">the essentials</h1>
-          <div className="home-products__items">
-            {Array.from({ length: 20 }).map((_, index) => (
-              <ProductCard key={Math.random() % 100} product={product} />
-            ))}
+          <div className="grid grid-cols-4">
+            <div></div>
+            <div className="home-products__items grid mobile:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-8 col-span-3">
+              {Array.from({ length: 20 }).map((_, index) => (
+                <ProductCard key={Math.random() % 100} product={product} />
+              ))}
+            </div>
           </div>
         </section>
         {/** Section popular buys */}
@@ -112,6 +116,18 @@ const HomeScreen = () => {
           <div className="home-products__items">
             {Array.from({ length: 20 }).map((_, index) => (
               <ProductCard key={Math.random() % 100} product={product} />
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <div className="grid grid-cols-4 gap-12">
+            {Array.from({ length: 4 }).map((c) => (
+              <BestValueCard
+                key={Math.random() * c * 100}
+                title="Title"
+                description="Description"
+              />
             ))}
           </div>
         </section>
