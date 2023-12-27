@@ -51,21 +51,25 @@ const slice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addMatcher(authApi.endpoints.signUp.matchPending, (state) => {
+    builder.addMatcher(authApi.endpoints.signUp.matchPending || authApi.endpoints.login.matchPending, (state) => {
       state.loading = true;
     });
 
-    builder.addMatcher(authApi.endpoints.signUp.matchRejected, (state) => {
+    builder.addMatcher(authApi.endpoints.signUp.matchRejected || authApi.endpoints.login.matchRejected, (state, action) => {
       state.loading = false;
+      state.error = action.payload?.message
     });
 
+    // Matches a request from the auth.api to check for any fullfilled request
     builder.addMatcher(
-      authApi.endpoints.signUp.matchFulfilled,
+      authApi.endpoints.signUp.matchFulfilled || authApi.endpoints.login.matchFulfilled,
       (state, action) => {
         state.isAuthenticated = true;
         state.loading = false;
         state.token = action.payload.token;
         state.user = action.payload.data.user;
+
+        localStorage.setItem("token", state.token);
       },
     );
   },
