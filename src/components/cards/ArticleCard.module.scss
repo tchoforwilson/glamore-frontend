@@ -1,0 +1,15 @@
+.article-card {
+  @apply relative rounded-3xl overflow-hidden aspect-[16/9];
+
+  &__inner {
+    @apply relative size-full;
+  }
+
+  &__overlay {
+    @apply absolute inset-0 from-gray-800/40 from-20% via-gray-900/50 via-40% to-black/95 bg-gradient-to-b;
+  }
+
+  &__title {
+    @apply text-white absolute bottom-10 z-10 text-4xl text-center inset-x-0 py-6 font-semibold;
+  }
+}
