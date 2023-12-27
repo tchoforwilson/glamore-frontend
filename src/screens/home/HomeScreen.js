@@ -18,12 +18,12 @@ const sellers = [
   },
   {
     title: "Lotus Brown Jackets",
-    image: require("../../assets/sellers/seller-3.jpg"),
-  },
-  {
-    title: "Blue and Brunette suits",
     image: require("../../assets/sellers/seller-4.jpg"),
   },
+  // {
+  //   title: "Comfortable kaki T-shirt",
+  //   image: require("../../assets/sellers/seller-3.jpg"),
+  // },
 ];
 
 const product = {
@@ -41,26 +41,7 @@ const HomeScreen = () => {
     const endIndex = Math.min(startIndex + 3, sellers.length);
     const imagesToRender = sellers.slice(startIndex, endIndex);
 
-    return imagesToRender.map((seller) => (
-      <ArticleCard article={seller} />
-      // <BestSellerItem
-      //   key={seller.text}
-      //   imageSrc={seller.image}
-      //   text={seller.text}
-      // />
-    ));
-  };
-
-  const RenderDots = () => {
-    const dotCount = Math.ceil(sellers.length / 3);
-
-    return Array.from({ length: dotCount }, (_, index) => (
-      <span
-        key={index}
-        onClick={handleDotClick(index * 3)}
-        className={index * 3 === activeIndex ? "active" : ""}
-      ></span>
-    ));
+    return imagesToRender.map((seller) => <ArticleCard article={seller} />);
   };
 
   const handleDotClick = (index) => () => {
@@ -80,48 +61,47 @@ const HomeScreen = () => {
     <AppScreenLayout searchPath="products">
       <Hero />
 
-      <Container maxWidth="lg">
+      <div class="container mx-auto [&>section:not(:first-of-type)]:mt-44">
         {/* Section best sellers */}
         <section className="home-sellers">
-          <h1 className="home-header">explore our best sellers</h1>
-          <div className="home-sellers__container grid grid-cols-3 gap-4">
+          <div className="home-sellers__container grid tablet:grid-cols-3 max-tablet:gap-8 gap-4">
             {sellers.map((seller) => (
               <ArticleCard key={seller.title} article={seller} />
             ))}
           </div>
-          <div className="home-sellers__dots">
-            <RenderDots />
-          </div>
         </section>
+
         {/** Section Categories */}
         <section className="home-categories">
-          <h1 className="home-header">browse categories</h1>
+          <h3 className="home-header">browse categories</h3>
           <CategoriesContainer />
         </section>
+
         {/** Section Essentials */}
         <section className="home-essentials" id="section-sticky">
-          <h1 className="home-header">the essentials</h1>
-          <div className="grid grid-cols-4">
-            <div></div>
-            <div className="home-products__items grid mobile:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-8 col-span-3">
+          <div className="grid max-tablet:grid-cols-1 grid-cols-4">
+            <div className="max-tablet:hidden"></div>
+            <div className="home-products__items grid max-tablet:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-8 max-tablet:col-span-3">
               {Array.from({ length: 20 }).map((_, index) => (
                 <ProductCard key={Math.random() % 100} product={product} />
               ))}
             </div>
           </div>
         </section>
+
         {/** Section popular buys */}
         <section className="home-popular">
-          <h1 className="home-header">popular buys</h1>
-          <div className="home-products__items">
-            {Array.from({ length: 20 }).map((_, index) => (
+          <h1 className="home-header">Flash Sale</h1>
+          <div className="grid tablet:grid-cols-2 laptop:grid-cols-4 gap-8">
+            {Array.from({ length: 4 }).map((_, index) => (
               <ProductCard key={Math.random() % 100} product={product} />
             ))}
           </div>
         </section>
 
         <section>
-          <div className="grid grid-cols-4 gap-12">
+          <h3 class="home-header">Glamore - Best Value Offers</h3>
+          <div className="grid max-mobile:grid-cols-1 max-tablet:grid-cols-2 grid-cols-4 gap-12">
             {Array.from({ length: 4 }).map((c) => (
               <BestValueCard
                 key={Math.random() * c * 100}
@@ -131,7 +111,7 @@ const HomeScreen = () => {
             ))}
           </div>
         </section>
-      </Container>
+      </div>
     </AppScreenLayout>
   );
 };
