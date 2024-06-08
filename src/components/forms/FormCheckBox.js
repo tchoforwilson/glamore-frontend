@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFormikContext } from "formik";
 import FormErrorMessage from "./FormErrorMessage";
 import { AppCheckBox } from "../inputs";
@@ -12,7 +12,7 @@ const FormCheckBox = ({ name, label, value, id }) => {
       name,
       values[name].includes(value)
         ? values[name].filter((item) => item !== value)
-        : [...values[name], value],
+        : [...values[name], value]
     );
   };
 
